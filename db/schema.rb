@@ -10,11 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_101838) do
+
+ActiveRecord::Schema.define(version: 2018_08_08_103259) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "subcategory_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subcategory_id"], name: "index_categories_on_subcategory_id"
+  end
+
+  create_table "sell_adverts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id"
+    t.integer "price_cents_cents", default: 0, null: false
+    t.string "price_cents_currency", default: "EUR", null: false
+    t.string "photo"
+    t.string "address"
+    t.string "condition"
+    t.bigint "category_id"
+    t.bigint "storage_space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_sell_adverts_on_category_id"
+    t.index ["storage_space_id"], name: "index_sell_adverts_on_storage_space_id"
+    t.index ["user_id"], name: "index_sell_adverts_on_user_id"
+    
   create_table "buy_adverts", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
@@ -39,6 +67,12 @@ ActiveRecord::Schema.define(version: 2018_08_08_101838) do
     t.index ["user_id"], name: "index_storage_spaces_on_user_id"
   end
 
+  create_table "subcategories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -55,7 +89,11 @@ ActiveRecord::Schema.define(version: 2018_08_08_101838) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
+  
+  add_foreign_key "categories", "subcategories"
+  add_foreign_key "sell_adverts", "categories"
+  add_foreign_key "sell_adverts", "storage_spaces"
+  add_foreign_key "sell_adverts", "users"
   add_foreign_key "buy_adverts", "users"
   add_foreign_key "storage_spaces", "users"
 end
