@@ -1,5 +1,5 @@
 class SellAdvert < ApplicationRecord
   belongs_to :user
-  belongs_to :category
-  belongs_to :storage_space
+  has_one :category
+  has_one :storage_space
 end
