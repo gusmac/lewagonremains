@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_101216) do
+ActiveRecord::Schema.define(version: 2018_08_08_104804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "storage_space_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "price_cents_cents", default: 0, null: false
+    t.string "price_cents_currency", default: "EUR", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["storage_space_id"], name: "index_bookings_on_storage_space_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "description"
+    t.integer "rating"
+    t.bigint "storage_space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["storage_space_id"], name: "index_reviews_on_storage_space_id"
+  end
 
   create_table "storage_spaces", force: :cascade do |t|
     t.bigint "user_id"
@@ -45,5 +67,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_101216) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "storage_spaces"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "storage_spaces"
   add_foreign_key "storage_spaces", "users"
 end
