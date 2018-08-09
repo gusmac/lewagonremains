@@ -15,6 +15,13 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+
+    # validates dates
+    if @booking.start_date < @booking.end_date || @booking.start_date < Date.today
+      raise # raise an error. Does not even get to saving.
+      # TODO maybe we find a smart gem to do this.
+    end
+
     @booking.user = current_user
 
     # calculating the price
