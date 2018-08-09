@@ -4,7 +4,7 @@ class CreateStorageSpaces < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.string :title
       t.text :description
-      t.monetize :price
+      t.monetize :price, currency: { present: false}
       t.string :photo
       t.string :address
 
