@@ -13,9 +13,9 @@ class BuyAdvertsController < ApplicationController
     @buy_advert.user = current_user
 
     if @buy_advert.save
-      redirect_to buy_advert_path(@buy_advert), notice: "Advert was successfully created!"
+      redirect_to buy_advert_path, notice: "Advert was successfully created!"
     else
-      redirect_to new_buy_advert_path, alert: "Advert unsuccessful!"
+      render :new, alert: "Advert unsuccessful!"
     end
   end
 
