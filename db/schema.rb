@@ -18,9 +18,11 @@ ActiveRecord::Schema.define(version: 2018_08_08_104804) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "storage_space_id"
+    t.text "comment"
     t.date "start_date"
     t.date "end_date"
     t.integer "price_cents", default: 0, null: false
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["storage_space_id"], name: "index_bookings_on_storage_space_id"
