@@ -1,5 +1,5 @@
 class StorageSpacesController < ApplicationController
-  before_action :set_storage_space, only: [:new :show, :destroy, :edit, :update]
+  before_action :set_storage_space, only: [:show, :destroy, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
