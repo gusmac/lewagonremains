@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:update, :show, :edit, :confirm, :cancel]
 
   def index
-    @bookings = Booking.all.where("user = ?", current_user)
+    @bookings = Booking.all
     #@bookings = policy_scope(Booking).order(name: :asc)
   end
 
