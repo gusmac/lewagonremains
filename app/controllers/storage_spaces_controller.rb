@@ -42,10 +42,7 @@ class StorageSpacesController < ApplicationController
   def destroy
     # authorize @storage_space
     @storage_space.destroy
-    respond_to do |format|
-      format.html { redirect_to storage_spaces_url, notice: 'storage_space was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # redirect
   end
 
   private
