@@ -28,6 +28,23 @@ ActiveRecord::Schema.define(version: 2018_08_08_104804) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "buy_adverts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.text "description"
+    t.integer "price_cents_cents", default: 0, null: false
+    t.string "price_cents_currency", default: "EUR", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_buy_adverts_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "description"
     t.integer "rating"
@@ -35,6 +52,24 @@ ActiveRecord::Schema.define(version: 2018_08_08_104804) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["storage_space_id"], name: "index_reviews_on_storage_space_id"
+  end
+
+  create_table "sell_adverts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id"
+    t.integer "price_cents_cents", default: 0, null: false
+    t.string "price_cents_currency", default: "EUR", null: false
+    t.string "photo"
+    t.string "address"
+    t.string "condition"
+    t.bigint "category_id"
+    t.bigint "storage_space_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_sell_adverts_on_category_id"
+    t.index ["storage_space_id"], name: "index_sell_adverts_on_storage_space_id"
+    t.index ["user_id"], name: "index_sell_adverts_on_user_id"
   end
 
   create_table "storage_spaces", force: :cascade do |t|
@@ -48,6 +83,14 @@ ActiveRecord::Schema.define(version: 2018_08_08_104804) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_storage_spaces_on_user_id"
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +112,11 @@ ActiveRecord::Schema.define(version: 2018_08_08_104804) do
 
   add_foreign_key "bookings", "storage_spaces"
   add_foreign_key "bookings", "users"
+  add_foreign_key "buy_adverts", "users"
   add_foreign_key "reviews", "storage_spaces"
+  add_foreign_key "sell_adverts", "categories"
+  add_foreign_key "sell_adverts", "storage_spaces"
+  add_foreign_key "sell_adverts", "users"
   add_foreign_key "storage_spaces", "users"
+  add_foreign_key "subcategories", "categories"
 end
