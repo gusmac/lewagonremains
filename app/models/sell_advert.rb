@@ -5,4 +5,5 @@ class SellAdvert < ApplicationRecord
   validates :condition, inclusion: { in: ["new", "like-new", "used"]}
   validates :title, :description, :address, :condition, presence: true
   monetize :price_cents, allow_nil: true
+  # validates :photo, presence: true
 end
