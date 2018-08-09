@@ -5,7 +5,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.references :storage_space, foreign_key: true
       t.date :start_date
       t.date :end_date
-      t.monetize :price_cents
+      t.monetize :price
 
       t.timestamps
     end

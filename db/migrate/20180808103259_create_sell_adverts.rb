@@ -4,7 +4,7 @@ class CreateSellAdverts < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.references :user, foreign_key: true
-      t.monetize :price_cents
+      t.monetize :price
       t.string :photo
       t.string :address
       t.string :condition

@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_104804) do
     t.bigint "storage_space_id"
     t.date "start_date"
     t.date "end_date"
-    t.integer "price_cents_cents", default: 0, null: false
-    t.string "price_cents_currency", default: "EUR", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["storage_space_id"], name: "index_bookings_on_storage_space_id"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_104804) do
     t.bigint "user_id"
     t.string "title"
     t.text "description"
-    t.integer "price_cents_cents", default: 0, null: false
-    t.string "price_cents_currency", default: "EUR", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_buy_adverts_on_user_id"
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_104804) do
     t.string "title"
     t.text "description"
     t.bigint "user_id"
-    t.integer "price_cents_cents", default: 0, null: false
-    t.string "price_cents_currency", default: "EUR", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
     t.string "photo"
     t.string "address"
     t.string "condition"
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2018_08_08_104804) do
     t.bigint "user_id"
     t.string "title"
     t.text "description"
-    t.integer "price_cents_cents", default: 0, null: false
-    t.string "price_cents_currency", default: "EUR", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
     t.string "photo"
     t.string "address"
     t.datetime "created_at", null: false
