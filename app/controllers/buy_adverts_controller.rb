@@ -8,17 +8,14 @@ class BuyAdvertsController < ApplicationController
   def edit
   end
 
-  def update
-  end
-
   def create
     @buy_advert = BuyAdvert.new(booking_params)
     @buy_advert.user = current_user
 
     if @buy_advert.save
-      redirect_to storage_space_booking_path(@buy_advert), notice: "Advert was successfully created!"
+      redirect_to buy_advert_path(@buy_advert), notice: "Advert was successfully created!"
     else
-      redirect_to @buy_advert_path, alert: "Advert unsuccessful!"
+      redirect_to new_buy_advert_path, alert: "Advert unsuccessful!"
     end
   end
 
@@ -29,7 +26,17 @@ class BuyAdvertsController < ApplicationController
     @buy_advert = BuyAdvert.new
   end
 
+  def update
+    if @buy_advert.update(buy_advert_params)
+      redirect_to @buy_advert, notice: "Ad was successfully updated"
+    else
+      render :edit
+    end
+  end
+
   def destroy
+    @buy_advert.destroy
+    redirect_to dashboard_path
   end
 
   private
