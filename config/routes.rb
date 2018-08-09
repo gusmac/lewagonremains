@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'buy_adverts/index'
-  get 'buy_adverts/editcreate'
-  get 'buy_adverts/update'
-  get 'buy_adverts/show'
-  get 'buy_adverts/new'
-  get 'buy_adverts/destroy'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
