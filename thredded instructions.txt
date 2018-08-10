@@ -1,0 +1,17 @@
+thredded instructions.txt
+
+bundle install
+
+
+rails c
+
+User.create(email: "test@test.com", password: "testtest")
+
+User.find_by(email: 'test@test.com').update(admin: true)
+
+User.find_by(email: 'test@test.com').update(username: "test")
+
+goto localhost, the first time it take a while to load
+
+login as test@test.com
+go to forum link in navbar and you have the forum.
