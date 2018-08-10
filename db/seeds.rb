@@ -40,7 +40,7 @@ apple = Subcategory.create(category: computers, name: "Apple")
 titles = ["Empty Garage", "Locked and secured barn", "empty room in my appartment", "10 square meters free storage space"]
 descriptions = ["Dry, locked and a lot of space", "Room for 2 cars", "Can store anything you want. ATTENTION: My appartment is on the first floor", "Space or a couple surfboards or like."]
 prices = [5, 10, 15, 7]
-photos = []
+photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1533895555/garage.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895557/barn.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895553/empty_room.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533629338/vkaauqzqdlrolcs723bg.jpg"]
 addresses = ["Batu Bolong, Canggu", "Berawa Beach, North Kuta", "Seminyak, North Kuta, Bali", "Ubud, Bali" ]
 
 titles.each_with_index do |title, index|
@@ -48,9 +48,9 @@ titles.each_with_index do |title, index|
 end
 
 # sell adverts
-items = ["Bycicle", "MacBook Air 13'", "Scooter Helmet"]
+items = ["Bicycle", "MacBook Pro 13'", "Scooter Helmet"]
 description = ["Fantastic Racer. I bought the bike at the beginning of my the bootcamp and can't take it home.", "After my Lenovo would not install Linux I bought this computer. Since my company is giving me a new one I do not need it anymore.", "Bought here in Bali to have some decent protection. Couple scrates but otherwise in good condition. New price was 1.2 Mil IDR"]
-photos = []
+photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1533895558/bicycle.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895553/macbookpro.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895556/helmet.jpg"]
 prices = [300, 1000, 40]
 condition = ["used", "like new", "used"]
 subcategories = [surfboards, apple, gear]
@@ -66,7 +66,7 @@ end
 titles = ["Looking for a Skateboard", "Protective gear for scooter", "Scuba gear", "Searching cheap MacBook for bootcamp" ]
 descriptions = ["Relatively new skate or longboard to commute to boot camp", "Trying to protect myself while crusing around. Looking for gloves, helmet, and jacket", "Being an avid scooba diver I want to use the proximity to the ocean. Unfortunately I don't have my gear with me.", "I read in the forum that I should get a mac for the bootcamp."]
 prices = [50, 200, 300, 600]
-photos = []
+photos = ["", "", "https://res.cloudinary.com/j163surf77/image/upload/v1533895555/scuba_diver.jpg", ""]
 subcategories = [surfboards, gear, gear, apple]
 titles.each_with_index do |title, index|
   BuyAdvert.create(user: random_users.sample, title: title , description: descriptions[index], price_cents: prices[index], subcategory: subcategories[index], photo: photos[index])
