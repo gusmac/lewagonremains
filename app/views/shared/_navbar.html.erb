@@ -1,8 +1,16 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "LWR-LOGO.png", height: 50 %>
-  <% end %>
+  <div class="navbar-logo-title">
+    <div>
+      <%= link_to root_path, class: "navbar-wagon-brand" do %>
+        <%= image_tag "LWR-LOGO.png", height: 50 %>
+      <% end %>
+    </div>
+
+    <div class="navbar-title">
+      <%= "Le Wagon Remains"%>
+    </div>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">

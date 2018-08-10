@@ -10,6 +10,22 @@
   justify-content: space-between;
 }
 
+/* Navbar Title */
+.navbar-title {
+  color: #616668;
+  font-size: 14px;
+}
+
+.navbar-title:hover{
+  text-decoration: none;
+}
+
+.navbar-logo-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
