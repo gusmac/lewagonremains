@@ -9,7 +9,7 @@ class SellAdvertsController < ApplicationController
   end
 
   def new
-    @sell_advert.new
+    @sell_advert = SellAdvert.new
   end
 
   def create
@@ -32,7 +32,7 @@ class SellAdvertsController < ApplicationController
       render :edit
     end
   end
-  
+
   private
 
   def set_sell_advert
@@ -41,5 +41,5 @@ class SellAdvertsController < ApplicationController
 
   def sell_advert_params
     params.require(:sell_advert).permit(:title, :description, :price_cents, :photo, :address, :category, :subcategory, :storage_space)
-
+  end
 end
