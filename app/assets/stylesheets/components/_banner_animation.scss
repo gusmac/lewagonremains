@@ -3,13 +3,14 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-right: -15px;
 }
 
 .slidingVertical2{
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: -200px;
+  margin-left: -215px;
 }
 
 /* Change the time in s to the multiple of 3s * number of spans */
