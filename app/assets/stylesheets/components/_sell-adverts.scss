@@ -1,0 +1,69 @@
+.wrapper {
+  margin-top: 20px;
+}
+
+.categories-search-bar {
+  margin-bottom:10px;
+  height: 100px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  #background-color: #f7f9ff;
+  background-color:white;
+}
+
+.advert {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  height: 150;
+  #background-color: #f7f9ff;
+  background-color:white;
+  margin-bottom: 10px;
+}
+
+.sell-adverts-body {
+  flex-grow: 1;
+}
+
+.sell-adverts-body {
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+  margin-left: 40px;
+  margin-right: 30px;
+}
+.sell-adverts-body h5 {
+  margin-top: 0px;
+}
+
+
+.sell-adverts-footer {
+  margin-top: 15px;
+  #background-color: yellow;
+}
+
+.sell-adverts-text {
+  #background-color:green;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+.sell-adverts-details {
+  text-align: center;
+  width: 200px;
+  font-size: 12px;
+  color: rgba(0,0,0,0.7);
+  margin-right: 20px;
+}
+.status.accepted {
+  color: #04A366;
+}
+.status.declined {
+  color: red;
+}
+.status.pending {
+  color: lightgrey;
+}
+
+
