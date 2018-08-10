@@ -8,7 +8,7 @@ class CreateSellAdverts < ActiveRecord::Migration[5.2]
       t.string :photo
       t.string :address
       t.string :condition
-      t.references :category, foreign_key: true
+      t.references :subcategory, foreign_key: true
       t.references :storage_space, foreign_key: true
 
       t.timestamps

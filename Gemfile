@@ -35,3 +35,5 @@ end
 gem 'money-rails', '~>1'
 gem 'cloudinary'
 gem 'carrierwave'
+
+gem "faker", "~> 1.9"

@@ -1,6 +1,6 @@
 class SellAdvert < ApplicationRecord
   belongs_to :user
-  has_one :category
+  belongs_to :subcategory
   has_one :storage_space
   validates :condition, inclusion: { in: ["new", "like-new", "used"]}
   validates :title, :description, :address, :condition, presence: true
