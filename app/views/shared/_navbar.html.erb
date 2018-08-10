@@ -18,10 +18,21 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Forum", thredded_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Plcae Ad", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Book Storage", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div class="navbar-div">
+        <%= link_to "Forum", thredded_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+      <div class="navbar-div">
+        <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+      <div class="navbar-div">
+        <%= link_to "Become a Storer", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+      <div class="navbar-div">
+        <%= link_to "Book Storage", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+      <div class="navbar-div">
+        <%= link_to "Place Ad", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
