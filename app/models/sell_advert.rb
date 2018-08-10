@@ -6,4 +6,5 @@ class SellAdvert < ApplicationRecord
   validates :title, :description, :address, :condition, presence: true
   monetize :price_cents, allow_nil: true
   # validates :photo, presence: true
+  mount_uploader :photo, PhotoUploader
 end

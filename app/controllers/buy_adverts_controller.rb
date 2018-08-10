@@ -47,6 +47,6 @@ class BuyAdvertsController < ApplicationController
   end
 
   def buy_advert_params
-    params.require(:buy_advert).permit(:title, :description, :price_cents)
+    params.require(:buy_advert).permit(:title, :description, :price_cents, :photo)
   end
 end

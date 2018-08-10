@@ -9,7 +9,7 @@ class SellAdvertsController < ApplicationController
   end
 
   def new
-    @sell_advert.new
+    @sell_advert = SellAdvert.new
   end
 
   def create

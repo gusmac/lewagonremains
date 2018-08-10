@@ -5,4 +5,5 @@ class StorageSpace < ApplicationRecord
   validates :title, :description, :address, presence: true
   monetize :price_cents, allow_nil: true
   # validates :photo, presence: true
+  mount_uploader :photo, PhotoUploader
 end
