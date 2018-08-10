@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body>
+  <body class="body">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' unless controller.controller_name == "pages" && controller.action_name == "home" %>
     <%= yield %>

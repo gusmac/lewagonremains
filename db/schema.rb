@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_10_014720) do
+ActiveRecord::Schema.define(version: 2018_08_10_023729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,14 @@ ActiveRecord::Schema.define(version: 2018_08_10_014720) do
 
   create_table "buy_adverts", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "subcategory_id"
     t.string "title"
     t.text "description"
     t.integer "price_cents", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
+    t.index ["subcategory_id"], name: "index_buy_adverts_on_subcategory_id"
     t.index ["user_id"], name: "index_buy_adverts_on_user_id"
   end
 
@@ -74,12 +77,12 @@ ActiveRecord::Schema.define(version: 2018_08_10_014720) do
     t.string "photo"
     t.string "address"
     t.string "condition"
-    t.bigint "category_id"
+    t.bigint "subcategory_id"
     t.bigint "storage_space_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_sell_adverts_on_category_id"
     t.index ["storage_space_id"], name: "index_sell_adverts_on_storage_space_id"
+    t.index ["subcategory_id"], name: "index_sell_adverts_on_subcategory_id"
     t.index ["user_id"], name: "index_sell_adverts_on_user_id"
   end
 
@@ -339,7 +342,6 @@ ActiveRecord::Schema.define(version: 2018_08_10_014720) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "phone_number"
-    t.string "user"
     t.boolean "admin", default: false, null: false
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -348,10 +350,11 @@ ActiveRecord::Schema.define(version: 2018_08_10_014720) do
 
   add_foreign_key "bookings", "storage_spaces"
   add_foreign_key "bookings", "users"
+  add_foreign_key "buy_adverts", "subcategories"
   add_foreign_key "buy_adverts", "users"
   add_foreign_key "reviews", "storage_spaces"
-  add_foreign_key "sell_adverts", "categories"
   add_foreign_key "sell_adverts", "storage_spaces"
+  add_foreign_key "sell_adverts", "subcategories"
   add_foreign_key "sell_adverts", "users"
   add_foreign_key "storage_spaces", "users"
   add_foreign_key "subcategories", "categories"

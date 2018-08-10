@@ -1,0 +1,42 @@
+
+
+.card {
+  height: 200px;
+}
+
+.picture-carousel {
+  background-color: blue;
+}
+
+.title-description {
+  background-color: yellow;
+  width: auto;
+}
+
+.sell-info {
+  background-color: green;
+}
+
+#sell-grid {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  height: 200px;
+}
+
+#blue {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  background-color: red;
+}
+
+#yellow {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  background-color: yellow;
+}
+
+#green {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  background-color: black;
+}
