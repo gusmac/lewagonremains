@@ -18,20 +18,30 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <div class="navbar-div">
-        <%= link_to "Forum", thredded_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+          <%= link_to thredded_path, class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
+        <div>Forum</div>
+        <% end %>
       </div>
-      <div class="navbar-div">
-        <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+          <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
+        <div>Messages</div>
+        <% end %>
       </div>
-      <div class="navbar-div">
-        <%= link_to "Become a Storer", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+          <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
+        <div>Become a Storer</div>
+        <% end %>
       </div>
-      <div class="navbar-div">
-        <%= link_to "Book Storage", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+          <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
+        <div>Book Storage</div>
+        <% end %>
       </div>
-      <div class="navbar-div">
-        <%= link_to "Place Ad", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+          <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
+        <div>Place Ad</div>
+        <% end %>
       </div>
 
       <!-- Avatar with dropdown menu -->
@@ -58,21 +68,22 @@
         </div>
       </div>
     <% else %>
+
       <!-- Login link (when logged out) -->
-      <div class="navbar-div">
-        <%= link_to t(".sign_in", default: "Forum"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+        <%= link_to t(".sign_in", default: "Forum"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link navbar-div" %>
       </div>
-      <div class="navbar-div">
-        <%= link_to t(".sign_in", default: "Messages"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+        <%= link_to t(".sign_in", default: "Messages"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link navbar-div" %>
       </div>
-      <div class="navbar-div">
-        <%= link_to "Become a Storer", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+        <%= link_to "Become a Storer", "#", class: "navbar-wagon-item navbar-wagon-link navbar-div" %>
       </div>
-      <div class="navbar-div">
-        <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+        <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link navbar-div" %>
       </div>
-      <div class="navbar-div">
-         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <div>
+         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link navbar-div" %>
       </div>
     <% end %>
   </div>
