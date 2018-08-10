@@ -28,7 +28,6 @@
 }
 
 .sell-adverts-body {
-  font-size: 13px;
   color: rgba(0,0,0,0.7);
   margin-left: 40px;
   margin-right: 30px;
@@ -39,8 +38,9 @@
 
 
 .sell-adverts-footer {
-  margin-top: 15px;
+  margin-top: 12px;
   #background-color: yellow;
+  color: rgba(0,0,0,0.6);
 }
 
 .sell-adverts-text {
@@ -49,13 +49,20 @@
   margin-top: 0px;
 }
 
+.sell-adverts-text h5{
+  color: rgba(0,0,0,0.4);
+}
+
 .sell-adverts-details {
   text-align: center;
   width: 200px;
-  font-size: 12px;
-  color: rgba(0,0,0,0.7);
+  color: rgba(0,0,0,0.4);
   margin-right: 20px;
 }
+.sell-adverts-details a{
+  color: rgba(0,0,0,0.4);
+}
+
 .status.accepted {
   color: #04A366;
 }
