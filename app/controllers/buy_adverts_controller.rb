@@ -15,8 +15,8 @@ class BuyAdvertsController < ApplicationController
   def create
     @buy_advert = BuyAdvert.new(buy_advert_params)
     @buy_advert.user = current_user
-    @buy_advert.category = Category.find(params[:buy_advert][:category_id])
-    @buy_advert.subcategory = Subcategory.find(params[:buy_advert][:subcategory_id])
+    # @buy_advert.category = Category.find(params[:buy_advert][:category_id])
+    # @buy_advert.subcategory = Subcategory.find(params[:buy_advert][:subcategory_id])
 
     if @buy_advert.save!
       redirect_to buy_advert_path(@buy_advert), notice: "Advert was successfully created!"
@@ -39,6 +39,7 @@ class BuyAdvertsController < ApplicationController
 
   def destroy
     @buy_advert.destroy
+    redirect_to root_path
   end
 
   private
@@ -49,6 +50,6 @@ class BuyAdvertsController < ApplicationController
   end
 
   def buy_advert_params
-    params.require(:buy_advert).permit(:title, :description, :category, :subcategory, :price_cents, :photo)
+    params.require(:buy_advert).permit(:title, :description, :category_id, :subcategory_id, :price_cents, :photo)
   end
 end
