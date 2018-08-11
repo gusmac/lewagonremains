@@ -22,10 +22,10 @@ class BookingsController < ApplicationController
     @booking.storage_space = @storage_space
 
     # # validates dates
-    # if @booking.start_date < @booking.end_date || @booking.start_date < Date.today
-    #   raise # raise an error. Does not even get to saving.
-    #   # TODO maybe we find a smart gem to do this.
-    # end
+    if @booking.start_date < @booking.end_date || @booking.start_date < Date.today
+      raise # raise an error. Does not even get to saving.
+      # TODO maybe we find a smart gem to do this.
+    end
 
     # calculating the price
     # number_of_days = @booking.end_date - @booking.start_date
