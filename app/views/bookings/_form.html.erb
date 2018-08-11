@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div>
+        <%= simple_form_for [storage_space, booking] do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+            <%= f.input :comment %>
+            <%= f.input :start_date %>
+            <%= f.input :end_date %>
+            <%= f.input :status, :collection => %w[Pending Cancelled Confirmed] %>
+            <%= f.input :price_cents %>
+
+            <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

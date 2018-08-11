@@ -1,0 +1,23 @@
+<%= content_for(:title) do %>
+Booking
+<% end %>
+
+<ul>
+  <li>
+    <%= @booking.comment %>
+  </li>
+  <li>
+    <%= @booking.start_date %>
+  </li>
+  <li>
+    <%= @booking.end_date %>
+  </li>
+  <li>
+    <%= @booking.status %>
+  </li>
+  <li>
+    <%= @booking.price_cents %>
+  </li>
+</ul>
+
+<%= link_to "Edit Booking", edit_storage_space_booking_path%>
