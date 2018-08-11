@@ -15,3 +15,7 @@ goto localhost, the first time it take a while to load
 
 login as test@test.com
 go to forum link in navbar and you have the forum.
+
+User.create(email: "gus@test.com", password: "testtest")
+
+User.find_by(email: 'gus@test.com').update(username: "gus")
