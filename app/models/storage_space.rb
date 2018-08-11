@@ -6,4 +6,12 @@ class StorageSpace < ApplicationRecord
   monetize :price_cents, allow_nil: true
   # validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
+
+  def self.search(params)
+    sql_query = " \
+      storage_spaces.title @@ :query \
+      OR storage_spaces.description @@ :query \
+    "
+    StorageSpace.where(sql_query, query: "%#{params}%")
+  end
 end

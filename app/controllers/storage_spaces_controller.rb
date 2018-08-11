@@ -3,8 +3,16 @@ class StorageSpacesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+    if params[:query].present?
+      sql_query = " \
+        storage_space.title @@ :query \
+        OR storage_space.description @@ :query \
+      "
+      @storage_spaces = StorageSpace.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @storage_spaces = StorageSpace.all
+    end
     # @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
-    @storage_spaces = StorageSpace.all
   end
 
   def show

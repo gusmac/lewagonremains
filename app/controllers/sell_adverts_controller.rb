@@ -2,7 +2,17 @@ class SellAdvertsController < ApplicationController
   before_action :set_sell_advert, only: [:show]
 
   def index
-    @sell_adverts = SellAdvert.all
+    if params[:query].present?
+      sql_query = " \
+        sell_adverts.title @@ :query \
+        OR sell_adverts.description @@ :query \
+        OR storage_space.title @@ :query \
+        OR storage_space.description @@ :query \
+      "
+      @sell_adverts = SellAdvert.joins(:storage_space).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @sell_adverts = SellAdvert.all
+    end
   end
 
   def show

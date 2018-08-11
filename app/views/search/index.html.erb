@@ -1,0 +1,10 @@
+<% if @results == [] %>
+  <%= "Unfortunately there are no results. The good thing is the search is working." %>
+<% else %>
+  <% @results.each do |result| %>
+    <%= "#{result.class.name}" %><br>
+    <%= "#{result.title}" %><br>
+    <%= "#{result.description}" %><br>
+    <p>-----------------------------</p><br>
+  <% end %>
+<% end %>

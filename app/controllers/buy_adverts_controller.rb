@@ -2,7 +2,15 @@ class BuyAdvertsController < ApplicationController
   before_action :set_booking, only: [:update, :destroy, :show, :edit]
 
   def index
-    @buy_adverts = BuyAdvert.all
+    if params[:query].present?
+      sql_query = " \
+        buy_adverts.title @@ :query \
+        OR buy_adverts.description @@ :query \
+      "
+      @buy_adverts = BuyAdvert.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @buy_adverts = BuyAdvert.all
+    end
   end
 
   def edit
