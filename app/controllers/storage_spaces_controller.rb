@@ -50,7 +50,7 @@ class StorageSpacesController < ApplicationController
   def destroy
     # authorize @storage_space
     @storage_space.destroy
-    # redirect
+    redirect_to root_path
   end
 
   private
