@@ -1,2 +1,13 @@
-<h1>StorageSpaces#show</h1>
-<p>Find me in app/views/storage_spaces/show.html.erb</p>
+<div class="container">
+  <h3><%= @storage_space.title %></h3>
+  <h5><%= @storage_space.description %></h5>
+  <h5><%= @storage_space.address %></h5>
+  <% if @storage_space.photo.url  %>
+  <h5><%= cl_image_tag @storage_space.photo, height:200, width:200 %></h5>
+  <% end %>
+</div>
+
+
+
+
+

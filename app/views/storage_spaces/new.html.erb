@@ -1,3 +1,16 @@
-<h1>StorageSpaces#new</h1>
-<p>Find me in app/views/storage_spaces/new.html.erb</p>
-<%= render 'form', storage_space: @storage_space%>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h5>Fill in the form and save your storage space</h5>
+      <%= simple_form_for @storage_space do |f| %>
+        <%= f.input :title, required: true %>
+        <%= f.input :description, required: false %>
+        <%= f.input :address %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
