@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   mount Thredded::Engine => '/forum'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/dashboard', to: 'users#dashboard', as: 'dashboard'
+  get 'user/dashboard', to: 'users#dashboard', as: 'user_dashboard'
 
   resources :storage_spaces do
     resources :reviews, only: [:new, :create, :edit, :update]

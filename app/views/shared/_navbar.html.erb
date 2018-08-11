@@ -52,8 +52,8 @@
           <%= image_tag "https://picsum.photos/200/300?image=0", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <%= link_to user_dashboard_path(current_user) do %>
+                <i class="fa fa-user"></i> <%= t(".dashboard", default: "Dashboard") %>
               <% end %>
             </li>
             <li>
