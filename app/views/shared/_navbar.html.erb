@@ -7,9 +7,11 @@
       <% end %>
     </div>
 
-    <div class="navbar-title">
-      <strong>Le Wagon Remains</strong>
-    </div>
+    <%= link_to root_path, class: "navbar-wagon-item navbar-wagon-link navbar-div-title" do%>
+      <div class="navbar-title">
+        <strong>Le Wagon Remains</strong>
+      </div>
+    <% end %>
   </div>
 
   <!-- Right Navigation -->
@@ -35,11 +37,11 @@
       </div>
       <div>
           <%= link_to new_storage_space_path, class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
-        <div>Book Storage</div>
+        <div>Create Storage</div>
         <% end %>
       </div>
       <div>
-          <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
+          <%= link_to new_sell_advert_path, class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
         <div>Place Ad</div>
         <% end %>
       </div>

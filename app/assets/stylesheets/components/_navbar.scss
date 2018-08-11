@@ -101,6 +101,13 @@
 
 .navbar-div:hover {
   border-bottom: 3px solid $lwr-red;
-  // transition: 0.3s ease;
   margin-bottom: -4px;
+}
+
+.navbar-div-title {
+  min-width: 30px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
