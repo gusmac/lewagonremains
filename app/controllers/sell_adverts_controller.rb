@@ -1,5 +1,5 @@
 class SellAdvertsController < ApplicationController
-  before_action :set_sell_advert, only: [:show]
+  before_action :set_sell_advert, only: [:show, :edit, :destroy, :update]
 
   def index
     @sell_adverts = SellAdvert.all
@@ -14,11 +14,13 @@ class SellAdvertsController < ApplicationController
 
   def create
     @sell_advert = SellAdvert.new(sell_advert_params)
+    @sell_advert.user = current_user
+
 
     if @sell_advert.save
-      redirect_to @sell_advert
+      redirect_to sell_advert_path(@sell_advert), notice: "Advert was successfully created!"
     else
-      render :new
+      render :new, alert: "Advert unsuccessful!"
     end
   end
 
@@ -33,6 +35,11 @@ class SellAdvertsController < ApplicationController
     end
   end
 
+  def destroy
+    @sell_advert.destroy
+    redirect_to root_path
+  end
+
   private
 
   def set_sell_advert
@@ -40,6 +47,6 @@ class SellAdvertsController < ApplicationController
   end
 
   def sell_advert_params
-    params.require(:sell_advert).permit(:title, :description, :price_cents, :photo, :address, :category, :subcategory, :storage_space)
+    params.require(:sell_advert).permit(:title, :description, :condition, :price_cents, :photo, :address, :category_id, :subcategory_id, :storage_space)
   end
 end

@@ -15,8 +15,6 @@ class BuyAdvertsController < ApplicationController
   def create
     @buy_advert = BuyAdvert.new(buy_advert_params)
     @buy_advert.user = current_user
-    # @buy_advert.category = Category.find(params[:buy_advert][:category_id])
-    # @buy_advert.subcategory = Subcategory.find(params[:buy_advert][:subcategory_id])
 
     if @buy_advert.save!
       redirect_to buy_advert_path(@buy_advert), notice: "Advert was successfully created!"
