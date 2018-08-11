@@ -1,0 +1,3 @@
+<%= form_tag search_controller_index_path, method: :get do |f| %>
+<%= text_field_tag :query, params[:query], placeholder: "Find exactly what you need!", class: "form"%>
+<% end %>
