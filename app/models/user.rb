@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :storage_spaces
+  after_create :get_username
+
+  def get_username
+    self.username = self.email.split("@")[0]
+  end
 end
