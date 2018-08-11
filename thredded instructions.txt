@@ -19,3 +19,6 @@ go to forum link in navbar and you have the forum.
 User.create(email: "gus@test.com", password: "testtest")
 
 User.find_by(email: 'gus@test.com').update(username: "gus")
+
+Category.create(name: "Sport")
+Subcategory.create(category_id: 1, name: "Surfing")

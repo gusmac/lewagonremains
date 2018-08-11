@@ -1,5 +1,5 @@
 class BuyAdvertsController < ApplicationController
-  before_action :set_booking, only: [:update, :destroy, :show, :edit]
+  before_action :set_buy_advert, only: [:update, :destroy, :show, :edit]
 
   def index
     @buy_adverts = BuyAdvert.all
@@ -8,22 +8,25 @@ class BuyAdvertsController < ApplicationController
   def edit
   end
 
-  def create
-    @buy_advert = BuyAdvert.new(booking_params)
-    @buy_advert.user = current_user
+  def new
+    @buy_advert = BuyAdvert.new
+  end
 
-    if @buy_advert.save
-      redirect_to buy_advert_path, notice: "Advert was successfully created!"
+  def create
+    @buy_advert = BuyAdvert.new(buy_advert_params)
+    @buy_advert.user = current_user
+    @buy_advert.category = Category.find(params[:buy_advert][:category_id])
+    @buy_advert.subcategory = Subcategory.find(params[:buy_advert][:subcategory_id])
+
+    if @buy_advert.save!
+      redirect_to buy_advert_path(@buy_advert), notice: "Advert was successfully created!"
     else
+      raise
       render :new, alert: "Advert unsuccessful!"
     end
   end
 
   def show
-  end
-
-  def new
-    @buy_advert = BuyAdvert.new
   end
 
   def update
@@ -47,6 +50,6 @@ class BuyAdvertsController < ApplicationController
   end
 
   def buy_advert_params
-    params.require(:buy_advert).permit(:title, :description, :price_cents, :photo)
+    params.require(:buy_advert).permit(:title, :description, :category, :subcategory, :price_cents, :photo)
   end
 end
