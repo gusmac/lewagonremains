@@ -1,5 +1,6 @@
 class BuyAdvert < ApplicationRecord
   belongs_to :user
+  belongs_to :category
   belongs_to :subcategory
   validates :title, :description, presence: true
   monetize :price_cents, allow_nil: true
