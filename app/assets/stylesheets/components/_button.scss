@@ -1,0 +1,15 @@
+.btn-medium {
+  border: 2.75px solid $lwr-red;
+  padding: 10px 15px;
+  margin-right: 5px;
+  border-radius: 4px;
+  // opacity: 0.8;
+  height: 40px;
+  color: #616668;
+  font-size: 18px;
+}
+.btn-medium:hover {
+  // opacity: 1;
+  color: #da552f;
+  text-decoration: none;
+}
