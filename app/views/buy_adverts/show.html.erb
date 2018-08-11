@@ -1,2 +1,27 @@
 <h1>BuyAdverts#show</h1>
 <p>Find me in app/views/buy_adverts/show.html.erb</p>
+
+<%= content_for(:title) do %>
+<%= @buy_advert.title %>
+<% end %>
+
+<ul>
+  <li>
+    <%= @buy_advert.title %>
+  </li>
+  <li>
+    <%= @buy_advert.description %>
+  </li>
+  <li>
+    <%= @buy_advert.category.name %>
+  </li>
+  <li>
+    <%= @buy_advert.subcategory.name %>
+  </li>
+  <li>
+    <%= @buy_advert.price_cents %>
+  </li>
+</ul>
+
+<%= link_to "Edit Ad", edit_buy_advert_path%>
+<%= link_to "Delete Ad", root_path, method: :destroy%>

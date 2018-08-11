@@ -39,7 +39,6 @@ class BuyAdvertsController < ApplicationController
 
   def destroy
     @buy_advert.destroy
-    redirect_to dashboard_path
   end
 
   private
