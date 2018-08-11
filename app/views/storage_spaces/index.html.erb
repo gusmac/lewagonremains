@@ -1,3 +1,14 @@
-<h1>StorageSpaces#index</h1>
-<p>Find me in app/views/storage_spaces/index.html.erb</p>
+<div class="container">
+  <h3>List of storages spaces available</h3>
+</div>
 
+<% @storage_spaces.each do |storage_space| %>
+
+<div class="container">
+  <h5>Title: <%= storage_space.title %></h5>
+  <h5>Description: <%= storage_space.description %></h5>
+  <h5>Price: <%= storage_space.price_cents %></h5>
+  <h5>Address: <%= storage_space.address %></h5>
+  <h5><%= link_to "click to view", storage_space_path(storage_space), class: "btn btn-primary" %></h5>
+</div>
+<% end %>
