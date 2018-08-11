@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :storage_spaces
+  has_many :bookings
   after_create :get_username
 
   def get_username

@@ -1,1 +1,13 @@
-test dash
+<div>
+  <div class="dashboard-centering">
+    <h4>Bookings</h4>
+  </div>
+  <div class="dashboard-left">
+    <ul class="ul">
+    <% current_user.bookings.each do |booking| %>
+      <li>Storage Space Title: <%= link_to booking.storage_space.title, storage_space_booking_path(booking.storage_space_id, booking.id) %> Start Date: <%= booking.start_date %> End Date: <%= booking.end_date %> - <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+<%= current_user.email %>
