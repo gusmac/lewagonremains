@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   resources :buy_adverts, path: 'wanted'
   resources :sell_adverts, path: 'for-sale'
-  resources :search_controller, only: [:index]
+  resources :search, only: [:index]
 end

@@ -7,11 +7,11 @@ class StorageSpace < ApplicationRecord
   # validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
 
-  def search(params)
+  def self.search(params)
     sql_query = " \
-      storage_space.title @@ :query \
-      OR storage_space.description @@ :query \
+      storage_spaces.title @@ :query \
+      OR storage_spaces.description @@ :query \
     "
-    @storage_spaces = StorageSpace.where(sql_query, query: "%#{params}%")
+    StorageSpace.where(sql_query, query: "%#{params}%")
   end
 end

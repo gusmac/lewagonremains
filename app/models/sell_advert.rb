@@ -8,11 +8,11 @@ class SellAdvert < ApplicationRecord
   # validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
 
-  def search(params)
+  def self.search(params)
     sql_query = " \
       sell_adverts.title @@ :query \
       OR sell_adverts.description @@ :query \
     "
-    @sell_adverts = SellAdvert.joins(:storage_space).where(sql_query, query: "%#{params}%")
+    SellAdvert.where(sql_query, query: "%#{params}%")
   end
 end
