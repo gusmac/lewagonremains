@@ -1,0 +1,30 @@
+<%= content_for(:title) do %>
+<%= @sell_advert.title %>
+<% end %>
+
+<ul>
+  <li>
+    <%= @sell_advert.title %>
+  </li>
+  <li>
+    <%= @sell_advert.description %>
+  </li>
+  <li>
+    <%= @sell_advert.address %>
+  </li>
+  <li>
+    <%= @sell_advert.condition %>
+  </li>
+  <li>
+    <%= @sell_advert.category.name %>
+  </li>
+  <li>
+    <%= @sell_advert.subcategory.name %>
+  </li>
+  <li>
+    <%= @sell_advert.price_cents %>
+  </li>
+</ul>
+
+<%= link_to "Edit Ad", edit_sell_advert_path%>
+<%= link_to "Delete Ad", sell_advert_path(@sell_advert), method: :delete%>

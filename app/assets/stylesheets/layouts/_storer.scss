@@ -1,0 +1,28 @@
+.div-margin-bottom {
+  margin-bottom: 70px !important;
+}
+
+.main-container {
+  display: flex;
+  margin-right: 75px;
+  margin-left: 75px;
+}
+
+.top-container {
+  margin-top: 85px
+}
+
+.container-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.picture-frontpage img {
+  width: auto;
+  height: 300px;
+  border-radius: 4px;
+}
+
