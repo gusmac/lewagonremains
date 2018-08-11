@@ -39,13 +39,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @storage_space = StorageSpace.find(params[:storage_space_id])
   end
 
   def update
     if @booking.update(booking_params)
       # recalculating the price
       # @booking.price = number_of_days * @booking.storage_space.price_cents
-      redirect_to @booking, notice: "Booking successfully updated!"
+      redirect_to storage_space_booking_path(@booking), notice: "Booking successfully updated!"
     else
       render :edit
     end
@@ -66,6 +67,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :storage_space, :comment)
+    params.require(:booking).permit(:start_date, :end_date, :storage_space, :status, :price_cents, :comment)
   end
 end
