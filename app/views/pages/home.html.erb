@@ -33,10 +33,14 @@ Find, Sell, Store and Discuss
       <div class="row">
         <div class="col-sm-12 bottom ">
           <div class="col-sm-8 col-sm-offset-2 search-border">
-            <%= render 'shared/search_form' %>
+            <div class="searchbar">
+              <%= render 'shared/search_form', id: "searchBar"%>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag 'autocomplete' %>
