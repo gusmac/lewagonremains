@@ -7,9 +7,11 @@
       <% end %>
     </div>
 
-    <div class="navbar-title">
-      <strong>Le Wagon Remains</strong>
-    </div>
+    <%= link_to root_path, class: "navbar-wagon-item navbar-wagon-link navbar-div-title" do%>
+      <div class="navbar-title">
+        <strong>Le Wagon Remains</strong>
+      </div>
+    <% end %>
   </div>
 
   <!-- Right Navigation -->
@@ -35,11 +37,11 @@
       </div>
       <div>
           <%= link_to new_storage_space_path, class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
-        <div>Book Storage</div>
+        <div>Create Storage</div>
         <% end %>
       </div>
       <div>
-          <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
+          <%= link_to new_sell_advert_path, class: "navbar-wagon-item navbar-wagon-link navbar-div" do%>
         <div>Place Ad</div>
         <% end %>
       </div>
@@ -50,13 +52,13 @@
           <%= image_tag "https://picsum.photos/200/300?image=0", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <%= link_to user_dashboard_path(current_user) do %>
+                <i class="fa fa-user"></i> <%= t(".dashboard", default: "Dashboard") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <%= link_to edit_user_registration_path(current_user) do %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Edit Profile") %>
               <% end %>
             </li>
             <li>
