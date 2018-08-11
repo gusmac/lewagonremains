@@ -28,8 +28,8 @@ class BookingsController < ApplicationController
     end
 
     # calculating the price
-    # number_of_days = @booking.end_date - @booking.start_date
-    # @booking.price = number_of_days * @booking.storage_space.price_cents
+    number_of_days = @booking.end_date - @booking.start_date
+    @booking.price_cents = number_of_days * @booking.storage_space.price_cents
 
     if @booking.save
       redirect_to storage_space_booking_path(@storage_space, @booking), notice: "Booking was successfully created"
@@ -45,8 +45,9 @@ class BookingsController < ApplicationController
   def update
     if @booking.update(booking_params)
       # recalculating the price
-      # @booking.price = number_of_days * @booking.storage_space.price_cents
-      redirect_to storage_space_booking_path(@booking), notice: "Booking successfully updated!"
+      number_of_days = @booking.end_date - @booking.start_date
+      @booking.price_cents = number_of_days * @booking.storage_space.price_cents
+      redirect_to root_path, notice: "Booking successfully updated!"
     else
       render :edit
     end

@@ -2,6 +2,7 @@
   <h3><%= @storage_space.title %></h3>
   <h5><%= @storage_space.description %></h5>
   <h5><%= @storage_space.address %></h5>
+  <p><%= @storage_space.price_cents %></p>
   <% if @storage_space.photo.url  %>
   <h5><%= cl_image_tag @storage_space.photo, height:200, width:200 %></h5>
   <% end %>
