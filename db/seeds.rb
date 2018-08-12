@@ -19,7 +19,7 @@ gus = User.create(email: "gusmac@gmail.com", password: "testtest")
 # random users
 random_users = []
 10.times do
-  random_users << User.create(email: Faker::Internet.email, password: "testest")
+  random_users << User.create(email: Faker::Internet.email, password: "testest", username: Faker::Internet.username)
 end
 
 #categories
@@ -44,22 +44,27 @@ photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1533895555/garage
 addresses = ["Batu Bolong, Canggu", "Berawa Beach, North Kuta", "Seminyak, North Kuta, Bali", "Ubud, Bali" ]
 
 titles.each_with_index do |title, index|
-  StorageSpace.create(user: random_users.sample, title: title , description: descriptions[index], price_cents: prices[index], photo: photos[index], address: addresses[index])
+  StorageSpace.create(user: random_users.sample, title: title , description: descriptions[index], price_cents: prices[index], remote_photo_url: photos[index], address: addresses[index])
 end
 
 # sell adverts
-items = ["Bicycle", "MacBook Pro 13'", "Scooter Helmet"]
-description = ["Fantastic Racer. I bought the bike at the beginning of my the bootcamp and can't take it home.", "After my Lenovo would not install Linux I bought this computer. Since my company is giving me a new one I do not need it anymore.", "Bought here in Bali to have some decent protection. Couple scrates but otherwise in good condition. New price was 1.2 Mil IDR"]
-photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1533895558/bicycle.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895553/macbookpro.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895556/helmet.jpg"]
-prices = [300, 1000, 40]
-condition = ["used", "like new", "used"]
-subcategories = [surfboards, apple, gear]
+items = ["Bicycle", "MacBook Pro 13'", "Scooter Helmet", "Almost New Motorbike Helmet"]
+description = ["Fantastic Racer. I bought the bike at the beginning of my the bootcamp and can't take it home.", "After my Lenovo would not install Linux I bought this computer. Since my company is giving me a new one I do not need it anymore.", "Bought here in Bali to have some decent protection. Couple scrates but otherwise in good condition. New price was 1.2 Mil IDR", "If you want to protect your head INVEST in a real helmet! Seriously, most people here can't drive. And dont drive drunk!!"]
+photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1533895558/bicycle.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895553/macbookpro.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895556/helmet.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895556/helmet.jpg"]
+prices = [300, 1000, 40, 200]
+conditions = ["Used", "Like-New", "Used", "Like-New"]
+subcategories = [surfboards, apple, gear, gear]
+categories = [sports, computers, sports, sports]
 # storage_space = StorageSpace.all
-address = ["Full Moon Guesthouse Canggu", "Frii Hotel Canggu", "Berawa"]
+address = ["Full Moon Guesthouse Canggu", "Frii Hotel Canggu", "Berawa", "Ubud"]
 
 # random sell adverts
 items.each_with_index do |item, index|
-  SellAdvert.create(title: item, description: description[index], photo: photos[index], user: User.all.sample, price_cents: prices[index], condition: condition[index], subcategory: subcategories[index], address: address[index])
+  b = SellAdvert.new(title: item, description: description[index], remote_photo_url: photos[index], user: User.all.sample, condition: conditions[index], price_cents: prices[index], category: categories[index], subcategory: subcategories[index], address: address[index])
+  if b.save
+  else
+    byebug
+  end
 end
 
 # buy adverts
@@ -68,8 +73,13 @@ descriptions = ["Relatively new skate or longboard to commute to boot camp", "Tr
 prices = [50, 200, 300, 600]
 photos = ["", "", "https://res.cloudinary.com/j163surf77/image/upload/v1533895555/scuba_diver.jpg", ""]
 subcategories = [surfboards, gear, gear, apple]
+categories = [sports, sports, sports, computers]
 titles.each_with_index do |title, index|
-  BuyAdvert.create(user: random_users.sample, title: title , description: descriptions[index], price_cents: prices[index], subcategory: subcategories[index], photo: photos[index])
+  b = BuyAdvert.new(user: random_users.sample, title: title , description: descriptions[index], price_cents: prices[index], category: categories[index], subcategory: subcategories[index], remote_photo_url: photos[index])
+  if b.save
+  else
+    byebug
+  end
 end
 
 # bookings
