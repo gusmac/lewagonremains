@@ -1,0 +1,8 @@
+<%= content_for(:title) do %>
+Create a new Booking
+<% end %>
+
+<h3>booking#new</h3>
+
+<h5>Create a new booking</h5>
+<%= render 'form', storage_space: @storage_space, booking: @booking%>
