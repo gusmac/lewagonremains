@@ -21,5 +21,19 @@
       <% end %>
     </ul>
 </div>
+<div>
+  <div>
+    <h4>Your Storage Spaces Bookings</h4>
+  </div>
+    <ul>
+      <% current_user.bookings.each do |booked| %>
+      <% if booked.storage_space.user_id == current_user.id %>
+        <li>Storage Space Title: <%= booked.storage_space.user_id %> </li>
+        <% else %>
+        <%= "error" %>
+      <% end %>
+      <% end %>
+    </ul>
+</div>
 
 <%= link_to "Place a Wanted Ad", new_buy_advert_path, class: "btn-medium" %>
