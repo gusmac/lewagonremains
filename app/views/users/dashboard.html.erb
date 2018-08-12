@@ -1,25 +1,45 @@
-<div>
-  <div>
-    <h4>Bookings</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div>
+        <div>
+          <h4>Bookings</h4>
+        </div>
+        <div>
+          <ul>
+          <% current_user.bookings.each do |booking| %>
+            <li>Storage Space Title: <%= link_to booking.storage_space.title, storage_space_booking_path(booking.storage_space_id, booking.id) %> Start Date: <%= booking.start_date %> End Date: <%= booking.end_date %> - <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+      <%= current_user.email %>
+      <div>
+        <div>
+          <h4>Storage Spaces</h4>
+        </div>
+          <ul>
+            <% current_user.storage_spaces.each do |space| %>
+              <li>Storage Space Title: <%= space.title %> - <%= link_to "View Storage", storage_space_path(space) %></li>
+            <% end %>
+          </ul>
+      </div>
+      <div>
+        <div>
+          <h4>Your Storage Spaces Bookings</h4>
+        </div>
+          <ul>
+            <% Booking.all.each do |booked| %>
+              <% if booked.storage_space.user_id == current_user.id %>
+                <li><%= booked.storage_space.title %> | storage space user/owner: <%= booked.storage_space.user_id %> | <%= User.find_by(id: booked.storage_space.user_id).username %> | storage space id <%= booked.storage_space_id %> <%= booked.user_id %> | <%= User.find_by(id: booked.user_id).username %></li>
+              <% else %>
+                <%= "error" %>
+              <% end %>
+            <% end %>
+          </ul>
+      </div>
+      <%= link_to "Place a Wanted Ad", new_buy_advert_path, class: "btn-medium" %>
+    </div>
   </div>
-  <div>
-    <ul>
-    <% current_user.bookings.each do |booking| %>
-      <li>Storage Space Title: <%= link_to booking.storage_space.title, storage_space_booking_path(booking.storage_space_id, booking.id) %> Start Date: <%= booking.start_date %> End Date: <%= booking.end_date %> - <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
-    <% end %>
-    </ul>
-  </div>
-</div>
-<%= current_user.email %>
-<div>
-  <div>
-    <h4>Storage Spaces</h4>
-  </div>
-    <ul>
-      <% current_user.storage_spaces.each do |space| %>
-        <li>Storage Space Title: <%= space.title %> - <%= link_to "View Storage", storage_space_path(space) %></li>
-      <% end %>
-    </ul>
 </div>
 
-<%= link_to "Place a Wanted Ad", new_buy_advert_path, class: "btn-medium" %>

@@ -8,6 +8,8 @@
   <% end %>
 </div>
 
+<%= link_to "Book this space!", new_storage_space_booking_path(@storage_space), class: "btn-medium" %>
+
 <%= link_to "Edit Ad", edit_storage_space_path%>
 <%= link_to "Delete Ad", storage_space_path(@storage_space), method: :delete%>
 

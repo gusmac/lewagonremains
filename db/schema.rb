@@ -350,6 +350,8 @@ ActiveRecord::Schema.define(version: 2018_08_12_092425) do
     t.string "phone_number"
     t.boolean "admin", default: false, null: false
     t.string "username"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
