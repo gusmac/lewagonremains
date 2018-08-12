@@ -42,6 +42,7 @@
   padding-left: 20px;
   padding-right: 20px;
   height: 150px;
+  width: 100%;
   #border-right: 2px solid #f2f2f2;
 }
 .sell-adverts-body h5 {
@@ -137,4 +138,11 @@
   color: lightgrey;
 }
 
-
+.avatar-large {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+  width: 150px;
+}

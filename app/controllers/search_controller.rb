@@ -6,5 +6,6 @@ class SearchController < ApplicationController
     else
       @results = SellAdvert.all + BuyAdvert.all + StorageSpace.all
     end
+    return @results
   end
 end
