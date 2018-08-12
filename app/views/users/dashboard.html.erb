@@ -26,9 +26,9 @@
     <h4>Your Storage Spaces Bookings</h4>
   </div>
     <ul>
-      <% current_user.bookings.each do |booked| %>
+      <% Booking.all.each do |booked| %>
       <% if booked.storage_space.user_id == current_user.id %>
-        <li>Storage Space Title: <%= booked.storage_space.user_id %> </li>
+        <li><%= booked.storage_space.title %>storage space user/owner: <%= booked.storage_space.user_id %> storage space id <%= booked.storage_space_id %> <%= booked.user_id.email %></li>
         <% else %>
         <%= "error" %>
       <% end %>
