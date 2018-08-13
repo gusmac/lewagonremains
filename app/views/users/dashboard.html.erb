@@ -3,7 +3,6 @@
     <div class="col-sm-8 col-sm-offset-2">
       <div>
         <h3><%= current_user.email %> Dashboard</h3>
-        <%= link_to "Place a Wanted Ad", new_buy_advert_path, class: "btn-medium" %>
         <div class="section-div-margin">
           <h4>Bookings</h4>
         </div>
@@ -41,10 +40,22 @@
       <div>
         <div class="section-div-margin">
           <h4>Your Sell Adverts</h4>
+        <%= link_to "Place a Sell Ad", new_sell_advert_path, class: "btn-medium" %>
         </div>
           <ul>
            <% @sell_adverts.each do |sellads| %>
                 <li><%= sellads.title %> - <%= link_to "View Ad", sell_advert_path(sellads) %> - <%= link_to "Edit Ad", edit_sell_advert_path(sellads) %> - <%= link_to "Delete Ad", sell_advert_path(sellads), method: :delete%></li>
+            <% end %>
+          </ul>
+      </div>
+            <div>
+        <div class="section-div-margin">
+          <h4>Your Buy Adverts</h4>
+        <%= link_to "Place a Wanted Ad", new_buy_advert_path, class: "btn-medium" %>
+        </div>
+          <ul>
+           <% @buy_adverts.each do |buyads| %>
+                <li><%= buyads.title %> - <%= link_to "View Ad", sell_advert_path(buyads) %> - <%= link_to "Edit Ad", edit_sell_advert_path(buyads) %> - <%= link_to "Delete Ad", sell_advert_path(buyads), method: :delete%></li>
             <% end %>
           </ul>
       </div>
