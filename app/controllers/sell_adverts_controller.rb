@@ -10,8 +10,10 @@ class SellAdvertsController < ApplicationController
         OR storage_space.description @@ :query \
       "
       @sell_adverts = SellAdvert.joins(:storage_space).where(sql_query, query: "%#{params[:query]}%")
+      @results = SellAdvert.joins(:storage_space).where(sql_query, query: "%#{params[:query]}%")
     else
       @sell_adverts = SellAdvert.all
+      @results = SellAdvert.all
     end
   end
 
