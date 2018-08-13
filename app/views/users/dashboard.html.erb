@@ -2,7 +2,10 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <div>
-        <h3><%= current_user.email %> Dashboard</h3>
+        <h3><%= current_user.username %> Dashboard</h3>
+        <h6>First Name: <%= current_user.first_name %></h6>
+        <h6>Last Name: <%= current_user.last_name %></h6>
+        <h6>Email: <%= current_user.email %></h6>
         <div class="section-div-margin">
           <h4>Bookings</h4>
         </div>
