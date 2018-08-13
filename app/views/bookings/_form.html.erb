@@ -11,7 +11,7 @@
             <%= f.input :end_date %>
             <%= f.input :status, :collection => %w[Pending Cancelled Confirmed] %>
             <%= f.input :price_cents %>
-            <p><%= storage_space.price_cents %></p>
+            <p><%= storage_space.price %></p>
 
             <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>

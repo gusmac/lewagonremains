@@ -48,7 +48,8 @@ class BookingsController < ApplicationController
       # recalculating the price
       number_of_days = @booking.end_date - @booking.start_date
       @booking.price_cents = number_of_days * @booking.storage_space.price_cents
-      redirect_to root_path, notice: "Booking successfully updated!"
+      @booking.save
+      redirect_to storage_space_booking_path(@booking.storage_space, @booking), notice: "Booking successfully updated!"
     else
       render :edit
     end
