@@ -1,10 +1,12 @@
-<%= form_tag search_index_path, method: :get do |f| %>
-<ul class="list-inline">
-  <li>
-    <%= text_field_tag :query, params[:query], placeholder: "Find exactly what you need!", class: "form"%>
-  </li>
-  <li>
-    <input type="submit">
-  </li>
-</ul>
-<% end %>
+<div class="searchbar">
+  <%= form_tag search_index_path, method: :get do |f| %>
+  <ul class="list-inline">
+    <li>
+      <%= text_field_tag :query, params[:query], placeholder: "Find exactly what you need!", class: "form"%>
+    </li>
+    <li>
+      <input type="submit">
+    </li>
+  </ul>
+  <% end %>
+</div>
