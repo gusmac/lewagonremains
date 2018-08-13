@@ -1,27 +1,48 @@
-<h1>BuyAdverts#show</h1>
-<p>Find me in app/views/buy_adverts/show.html.erb</p>
-
 <%= content_for(:title) do %>
 <%= @buy_advert.title %>
 <% end %>
 
-<ul>
-  <li>
-    <%= @buy_advert.title %>
-  </li>
-  <li>
-    <%= @buy_advert.description %>
-  </li>
-  <li>
-    <%= @buy_advert.category.name %>
-  </li>
-  <li>
-    <%= @buy_advert.subcategory.name %>
-  </li>
-  <li>
-    <%= @buy_advert.price_cents %>
-  </li>
-</ul>
+<div class="wrapper">
+  <div class="container container-margin border">
+    <h5> All > <%= @buy_advert.category.name %> > <%= @buy_advert.subcategory.name %> </h5>
+  </div>
+</div>
 
-<%= link_to "Edit Ad", edit_buy_advert_path%>
-<%= link_to "Delete Ad", buy_advert_path(@buy_advert), method: :delete%>
+<div class="wrapper ">
+  <div class="container">
+    <div class="row display-flex">
+      <div>
+        <%= cl_image_tag (@buy_advert.photo), :height=>400, :width=>500, crop: :fill %>
+      </div>
+      <div class="show-advert">
+        <div class="card-show">
+          <h4>Posted by: <%= @buy_advert.user.username.capitalize %></h4>
+          <h5>Batch no: 163</h5>
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        </div>
+        <div class="card-show">
+          <div class="card-show-detail">
+            <a href=""><h2><i class="far fa-envelope"></i></h2></a>
+            <a href=""><h2><i class="far fa-star"></i></h2></a>
+          </div>
+        </div>
+        <div class="show-div">
+          <h4>Make an offer</h4>
+        </div>
+        <div class="card-show">
+
+        </div>
+        <div class="show-div">
+          <h4>BUY: <%= @buy_advert.price_cents %> $</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="container button-center">
+      <%= link_to "Edit Ad", edit_buy_advert_path, class: "btn btn-primary" %>
+      <%= link_to "Delete Ad", buy_advert_path(@buy_advert), class: "btn btn-primary", method: :delete%>
+    </div>
+  </div>
+</div>
+
