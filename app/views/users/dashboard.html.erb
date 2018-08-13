@@ -3,6 +3,7 @@
     <div class="col-sm-8 col-sm-offset-2">
       <div>
         <h3><%= current_user.email %> Dashboard</h3>
+        <%= link_to "Place a Wanted Ad", new_buy_advert_path, class: "btn-medium" %>
         <div class="section-div-margin">
           <h4>Bookings</h4>
         </div>
@@ -33,11 +34,20 @@
         </div>
           <ul>
            <% @booking_for_my_storage.each do |booked| %>
-                <li><%= booked.storage_space.title %> | storage space user/owner: <%= booked.storage_space.user.username %> | <%= booked.user.username %> | storage space id <%= booked.storage_space_id %> </li>
+                <li><%= booked.storage_space.title %> - storage space user/owner: <%= booked.storage_space.user.username %> - bookings owner: <%= booked.user.username %> - <%= link_to "View Booking", storage_space_booking_path(booked.storage_space_id, booked.id) %> - <%= link_to "Edit Booking", edit_storage_space_booking_path(booked.storage_space_id, booked.id) %></li>
             <% end %>
           </ul>
       </div>
-      <%= link_to "Place a Wanted Ad", new_buy_advert_path, class: "btn-medium" %>
+      <div>
+        <div class="section-div-margin">
+          <h4>Your Sell Adverts</h4>
+        </div>
+          <ul>
+           <% @sell_adverts.each do |sellads| %>
+                <li><%= sellads.title %> - <%= link_to "View Ad", sell_advert_path(sellads) %> - <%= link_to "Edit Ad", edit_sell_advert_path(sellads) %> - <%= link_to "Delete Ad", sell_advert_path(sellads), method: :delete%></li>
+            <% end %>
+          </ul>
+      </div>
     </div>
   </div>
 </div>
