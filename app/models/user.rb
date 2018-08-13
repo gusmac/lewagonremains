@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :storage_spaces
   has_many :bookings
+  has_many :buy_adverts
+  has_many :sell_adverts
   after_create :get_username
 
   def get_username
