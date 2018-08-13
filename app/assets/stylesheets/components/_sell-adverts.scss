@@ -85,11 +85,15 @@
 
 .title-header {
   #background-color: yellow;
+  & a {
+  color: #494949;
+  text-decoration: none;
+  }
 }
 
 .title-header:hover {
-  border-bottom: 4px solid red;
-  margin-bottom: -4px;
+  border-bottom: 3px solid red;
+  margin-bottom: -3px
 }
 .title-header h4 {
   margin-top:0px;
@@ -146,4 +150,16 @@
   justify-content: center;
   align-items: center;
   font-size: 70px;
+  position: relative;
+}
+
+.advert-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  border-radius: 3px;
+  margin-bottom: 0px;
 }
