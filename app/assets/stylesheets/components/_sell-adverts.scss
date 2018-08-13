@@ -140,9 +140,10 @@
 
 .avatar-large {
   height: 150px;
+  min-width: 150px;
+  max-width: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 70px;
-  width: 150px;
 }
