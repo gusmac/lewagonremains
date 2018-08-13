@@ -1,4 +1,5 @@
 <div class="wrapper">
+
 <% if @results == [] %>
   <%= "Unfortunately there are no results. The good thing is the search is working." %>
 <% else %>
@@ -9,7 +10,7 @@
       <% if previous_item.nil? || result.class.name != previous_item.class.name  %>
         <div style="margin-bottom: 30px">
           <!-- border-bottom: 2px solid #e2e2e2; width: 83%; -->
-          <h3><%= result.class.name + "s" %></h3>
+          <h3><%= "#{result.class.name}s" %></h3>
         </div>
       <% end %>
       <div class="advert">
@@ -20,21 +21,22 @@
           <% else %>
           <div class="avatar-large">
             <%= cl_image_tag (result.photo), :height=>150, :width=>150, crop: :fill %>
+              <%= link_to "", result, class: "advert-link" %>
           </div>
           <% end %>
-        <div class="sell-adverts-body">
-          <div class="sell-adverts-text">
+        <div class="item-adverts-body">
+          <div class="item-adverts-text">
             <div class="title">
-              <div class="title-header"><h4><strong><%= "#{result.title}" %></strong></h4></div>
+              <div class="title-header"><h4><strong><%= link_to "#{result.title}", result %></strong></h4></div>
               <div class="title-view"> <h6>Views: <%= [8,9,10,11,12,14,15,16].sample %> | Saves: <%= [0,0,1,2,3,4,5,6,7,8,9].sample %></h6></div>
             </div>
             <h5><%= "#{result.description}" %></h5>
           </div>
-          <div class="sell-adverts-footer">
+          <div class="item-adverts-footer">
             <h6> Posted by: <%= result.user.username %> | Batch no: 163 | Posted on: <%= Date.today-[1,2,3,4,4,5,6,6,9,8].sample %> | <%= "Condition: #{result.condition} |" if result.class.name != "StorageSpace"%> Location: <%= result.address ? "#{result.address}" : "?" %></h6>
           </div>
         </div>
-        <div class="sell-adverts-details">
+        <div class="item-adverts-details">
           <div><a href=""><h4><i class="far fa-star"></i></h4></a></div>
           <div><h4><%= result.price %></h4></div>
           <div><a href=""><h4><i class="far fa-envelope"></i></h4></a></div>
@@ -44,4 +46,5 @@
     <% previous_item = result %>
   <% end %>
 <% end %>
+
 </div>
