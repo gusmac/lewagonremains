@@ -3,6 +3,8 @@
 }
 
 .searchbar {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   text-align: left;
@@ -14,6 +16,7 @@
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
+  width: 500px;
 }
 
 input {
@@ -25,7 +28,6 @@ input {
 
 input[type=text] {
   background-color: #f1f1f1;
-  width: 100%;
 }
 
 input[type=submit] {
@@ -63,4 +65,8 @@ input[type=submit] {
   /*when navigating through the items using the arrow keys:*/
   background-color: $lwr-red !important;
   color: #ffffff;
+}
+
+.form {
+  min-width: 500px;
 }
