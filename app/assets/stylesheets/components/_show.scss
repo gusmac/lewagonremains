@@ -1,0 +1,45 @@
+
+.show-advert {
+  height: 400px;
+  width: 500px;
+  #background-color: green;
+  #border-left: 2px solid #f2f2f2;
+}
+.show-advert h5 {
+  margin-top: 0px;
+}
+
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-show {
+  height: 75px;
+  position: relative;
+  #background-color: yellow;
+  padding-left: 40px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.card-show-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 60px;
+}
+
+.show-div {
+  min-width: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+
+.show-div:hover {
+  border-bottom: 3px solid $lwr-red;
+  #margin-bottom: -1px;
+}

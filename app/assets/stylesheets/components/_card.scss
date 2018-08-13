@@ -1,4 +1,21 @@
-.card {
-  height: 200px;
-  width: 200px;
+
+.card-big {
+  height: 400px;
+  min-width: 400px;
+  justify-content: center;
+  align-items: center;
 }
+
+.card {
+  height: 175px;
+  position: relative;
+}
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+
