@@ -8,9 +8,11 @@ class StorageSpacesController < ApplicationController
         storage_space.title @@ :query \
         OR storage_space.description @@ :query \
       "
+      @storage_spaces = StorageSpace.where(sql_query, query: "%#{params[:query]}%")
       @results = StorageSpace.where(sql_query, query: "%#{params[:query]}%")
     else
       @results = StorageSpace.all
+      @storage_spaces = StorageSpace.all
     end
     # @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
   end
