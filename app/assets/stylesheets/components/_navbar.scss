@@ -93,10 +93,21 @@
 
 .navbar-div {
   min-width: 30px;
-  height: 70px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.navbar-div a {
+  text-decoration: none;
+  color: #616668;
+  font-size: 15px;
+}
+
+.navbar-div a:hover {
+  color: #da552f;
+  text-decoration: none;
 }
 
 .navbar-div:hover {
@@ -115,4 +126,3 @@
 .navbar-wagon-white {
   background-color: white;
 }
-
