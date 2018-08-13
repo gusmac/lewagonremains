@@ -1,5 +1,3 @@
-// TODO Delete file not needed
-
 .wrapper {
   margin-top: 20px;
 }
@@ -10,10 +8,6 @@
 
 .container-margin {
   margin-bottom: 10px;
-}
-
-.border {
-  border: 1px solid #f2f2f2;
 }
 
 .categories-search-bar {
@@ -37,11 +31,11 @@
   margin-bottom: 20px;
 }
 
-.sell-adverts-body {
+.item-adverts-body {
   flex-grow: 1;
 }
 
-.sell-adverts-body {
+.item-adverts-body {
   color: rgba(0,0,0,0.7);
   margin-left: 30px;
   margin-right: 10px;
@@ -51,30 +45,30 @@
   width: 100%;
   #border-right: 2px solid #f2f2f2;
 }
-.sell-adverts-body h5 {
+.item-adverts-body h5 {
   margin-top: 0px;
 }
 
 
-.sell-adverts-footer {
+.item-adverts-footer {
   margin-top: 12px;
   #background-color: yellow;
   color: rgba(0,0,0,0.6);
 }
 
-.sell-adverts-footer h6 {
+.item-adverts-footer h6 {
   margin-bottom: 5px;
 }
 
 
-.sell-adverts-text {
+.item-adverts-text {
   #background-color:green;
   margin-bottom: 30px;
   margin-top: 0px;
   height: 95px;
 }
 
-.sell-adverts-text h5{
+.item-adverts-text h5{
   color: rgba(0,0,0,0.4);
 }
 
@@ -99,7 +93,7 @@
 
 .title-header:hover {
   border-bottom: 3px solid red;
-  margin-bottom: -3px;
+  margin-bottom: -3px
 }
 .title-header h4 {
   margin-top:0px;
@@ -118,7 +112,7 @@
   margin-top:5px;
 }
 
-.sell-adverts-details {
+.item-adverts-details {
   text-align: center;
   width: 200px;
   color: rgba(0,0,0,0.4);
@@ -126,7 +120,7 @@
   border-left: 2px solid #f2f2f2;
 }
 
-.sell-adverts-details {
+.item-adverts-details {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -134,7 +128,7 @@
 
 
 
-.sell-adverts-details a{
+.item-adverts-details a{
   color: rgba(0,0,0,0.4);
 }
 

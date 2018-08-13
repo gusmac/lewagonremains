@@ -8,8 +8,10 @@ class BuyAdvertsController < ApplicationController
         OR buy_adverts.description @@ :query \
       "
       @buy_adverts = BuyAdvert.where(sql_query, query: "%#{params[:query]}%")
+      @results = BuyAdvert.where(sql_query, query: "%#{params[:query]}%")
     else
       @buy_adverts = BuyAdvert.all
+      @results = BuyAdvert.all
     end
   end
 

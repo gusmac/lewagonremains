@@ -2,43 +2,63 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <div>
-        <div>
+        <h3><%= current_user.email %> Dashboard</h3>
+        <div class="section-div-margin">
           <h4>Bookings</h4>
         </div>
         <div>
           <ul>
           <% current_user.bookings.each do |booking| %>
-            <li>Storage Space Title: <%= link_to booking.storage_space.title, storage_space_booking_path(booking.storage_space_id, booking.id) %> Start Date: <%= booking.start_date %> End Date: <%= booking.end_date %> - <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
+            <li>Storage Space Title: <%= link_to booking.storage_space.title, storage_space_booking_path(booking.storage_space_id, booking.id) %> Start Date: <%= booking.start_date %> End Date: <%= booking.end_date %> - <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %> - <%= link_to "Edit Booking", edit_storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
           <% end %>
           </ul>
         </div>
       </div>
-      <%= current_user.email %>
+
       <div>
-        <div>
-          <h4>Storage Spaces</h4>
+        <div class="section-div-margin">
+          <h4>Your Storage Spaces</h4>
+          <%= link_to "Create new storage space", new_storage_space_path, class: "btn-medium" %>
+          <%= link_to "All Storage", storage_spaces_path, class: "btn-medium" %>
         </div>
           <ul>
             <% current_user.storage_spaces.each do |space| %>
-              <li>Storage Space Title: <%= space.title %> - <%= link_to "View Storage", storage_space_path(space) %></li>
+              <li>Storage Space Title: <%= space.title %> - <%= link_to "View Storage", storage_space_path(space) %> - <%= link_to "Edit Ad", edit_storage_space_path(space) %></li>
             <% end %>
           </ul>
       </div>
       <div>
-        <div>
+        <div class="section-div-margin">
           <h4>Your Storage Spaces Bookings</h4>
         </div>
           <ul>
-            <% Booking.all.each do |booked| %>
-              <% if booked.storage_space.user_id == current_user.id %>
-                <li><%= booked.storage_space.title %> | storage space user/owner: <%= booked.storage_space.user_id %> | <%= User.find_by(id: booked.storage_space.user_id).username %> | storage space id <%= booked.storage_space_id %> <%= booked.user_id %> | <%= User.find_by(id: booked.user_id).username %></li>
-              <% else %>
-                <%= "error" %>
-              <% end %>
+           <% @booking_for_my_storage.each do |booked| %>
+                <li><%= booked.storage_space.title %> - storage space user/owner: <%= booked.storage_space.user.username %> - bookings owner: <%= booked.user.username %> - <%= link_to "View Booking", storage_space_booking_path(booked.storage_space_id, booked.id) %> - <%= link_to "Edit Booking", edit_storage_space_booking_path(booked.storage_space_id, booked.id) %></li>
             <% end %>
           </ul>
       </div>
-      <%= link_to "Place a Wanted Ad", new_buy_advert_path, class: "btn-medium" %>
+      <div>
+        <div class="section-div-margin">
+          <h4>Your Sell Adverts</h4>
+        <%= link_to "Place a Sell Ad", new_sell_advert_path, class: "btn-medium" %>
+        </div>
+          <ul>
+           <% @sell_adverts.each do |sellads| %>
+                <li><%= sellads.title %> - <%= link_to "View Ad", sell_advert_path(sellads) %> - <%= link_to "Edit Ad", edit_sell_advert_path(sellads) %> - <%= link_to "Delete Ad", sell_advert_path(sellads), method: :delete%></li>
+            <% end %>
+          </ul>
+      </div>
+            <div>
+        <div class="section-div-margin">
+          <h4>Your Buy Adverts</h4>
+        <%= link_to "Place a Wanted Ad", new_buy_advert_path, class: "btn-medium" %>
+        </div>
+          <ul>
+           <% @buy_adverts.each do |buyads| %>
+                <li><%= buyads.title %> - <%= link_to "View Ad", sell_advert_path(buyads) %> - <%= link_to "Edit Ad", edit_sell_advert_path(buyads) %> - <%= link_to "Delete Ad", sell_advert_path(buyads), method: :delete%></li>
+            <% end %>
+          </ul>
+      </div>
     </div>
   </div>
 </div>
