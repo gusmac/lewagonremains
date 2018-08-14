@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_035052) do
+ActiveRecord::Schema.define(version: 2018_08_14_094430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2018_08_14_035052) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "sell_advert_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sell_advert_id"], name: "index_orders_on_sell_advert_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -362,6 +371,8 @@ ActiveRecord::Schema.define(version: 2018_08_14_035052) do
   add_foreign_key "bookings", "users"
   add_foreign_key "buy_adverts", "subcategories"
   add_foreign_key "buy_adverts", "users"
+  add_foreign_key "orders", "sell_adverts"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "storage_spaces"
   add_foreign_key "sell_adverts", "storage_spaces"
   add_foreign_key "sell_adverts", "subcategories"

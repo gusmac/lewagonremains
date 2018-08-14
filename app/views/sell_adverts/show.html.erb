@@ -16,13 +16,16 @@
       </div>
       <div class="show-advert">
         <div class="card-show">
+          <h4><%= @sell_advert.title %></h4>
           <h4>Posted by: <%= @sell_advert.user.username.capitalize %></h4>
           <h5>Batch no: 163</h5>
           <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
         </div>
         <div class="card-show">
           <div class="card-show-detail">
-            <a href=""><h2><i class="far fa-envelope"></i></h2></a>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Send email
+            </button>
             <a href=""><h2><i class="far fa-star"></i></h2></a>
           </div>
         </div>
@@ -33,7 +36,7 @@
 
         </div>
         <div class="show-div">
-          <h4>BUY: <%= @sell_advert.price_cents %> $</h4>
+          <h4><%= link_to "Buy:", new_sell_advert_order_path(@sell_advert) %> $<%= @sell_advert.price_cents %></h4>
         </div>
       </div>
     </div>
@@ -42,6 +45,23 @@
     <div class="container button-center">
       <%= link_to "Edit Ad", edit_sell_advert_path, class: "btn btn-primary" %>
       <%= link_to "Delete Ad", sell_advert_path(@sell_advert), class: "btn btn-primary", method: :delete%>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Send email</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag send_contact_email_path(@sell_advert), method: :post do |f| %>
+          <%= text_field_tag :message, params[:message], placeholder: "Write your message",class: "form mail-form", rows: 10, cols: 25%>
+          <input type="submit" id='email-submit'>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

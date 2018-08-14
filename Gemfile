@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'thredded', '~> 0.15.4'
+gem "letter_opener", group: :development
 
 
 group :development do
