@@ -1,0 +1,17 @@
+<%= content_for(:title) do %>
+New Order
+<% end %>
+
+<ul>
+  <li>
+    <%= @sell_advert.title %>
+  </li>
+  <li>
+    <%= @sell_advert.price %>
+  </li>
+    <li>
+    <%= @sell_advert.user.username %>
+  </li>
+</ul>
+
+<%= link_to "create order", sell_advert_orders_path(@sell_advert), method: :post, class: "btn-primary"%>

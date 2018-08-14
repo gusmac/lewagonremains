@@ -18,7 +18,10 @@ Rails.application.routes.draw do
     resources :bookings, except: [:destroy]
   end
 
+  resources :sell_adverts, path: 'for-sale' do
+    resources :orders, except: [:destroy]
+  end
+
   resources :buy_adverts, path: 'wanted'
-  resources :sell_adverts, path: 'for-sale'
   resources :search, only: [:index]
 end
