@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
 
   def show
     @storage_space = StorageSpace.find(params[:storage_space_id])
+    @review = Review.new
   end
 
   def new
