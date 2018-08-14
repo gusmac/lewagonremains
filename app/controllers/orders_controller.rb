@@ -15,10 +15,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.user = current_user
     @sell_advert = SellAdvert.find(params[:sell_advert_id])
-    @order.sell_advert = @sell_advert
+    @order = Order.new(user: current_user, sell_advert: @sell_advert)
 
     if @order.save
       redirect_to sell_advert_order_path(@sell_advert, @order), notice: "Order was successfully created"
@@ -31,9 +29,5 @@ class OrdersController < ApplicationController
 
   def set_order
     @order = Order.find(params[:id])
-  end
-
-  def order_params
-    params.require(:order).permit(:user_id, :sell_advert_id, :status)
   end
 end

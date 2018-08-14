@@ -14,9 +14,4 @@ New Order
   </li>
 </ul>
 
-<%= simple_form_for [@sell_advert, @order] do |f| %>
-<%= f.input :status, :collection => %w[Pending Cancelled Confirmed] %>
-<%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
-<%= link_to "Confirm Purchase", sell_advert_orders_path, class: "btn-medium" %>
-
+<%= link_to "create order", sell_advert_orders_path(@sell_advert), method: :post, class: "btn-primary"%>
