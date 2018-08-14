@@ -4,3 +4,4 @@ class Category < ApplicationRecord
   has_many :sell_adverts
   validates :name, presence: true
 end
+

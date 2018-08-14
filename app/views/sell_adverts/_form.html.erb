@@ -8,8 +8,12 @@
           <%= f.input :description %>
           <%= f.input :address %>
           <%= f.input :condition, :collection => %w[New Like-New Used] %>
-          <%= f.association :category, collection: Category.all %>
-          <%= f.association :subcategory, collection: Subcategory.all %>
+          <%= f.label :category_id %>
+<%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %>
+
+<%= f.label :subcategory_id, "Subcategory" %>
+<%= f.grouped_collection_select :subcategory_id, Category.order(:name), :subcategories, :name, :id, :name, include_blank: true %>
+
           <%= f.input :price_cents %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
@@ -18,3 +22,4 @@
       </div>
   </div>
 </div>
+
