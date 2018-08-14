@@ -16,6 +16,7 @@
       </div>
       <div class="show-advert">
         <div class="card-show">
+          <h4><%= @sell_advert.title %></h4>
           <h4>Posted by: <%= @sell_advert.user.username.capitalize %></h4>
           <h5>Batch no: 163</h5>
           <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
@@ -33,7 +34,6 @@
 
         </div>
         <div class="show-div">
-          <!-- <h4>BUY: <%= @sell_advert.price_cents %> $</h4> -->
           <h4><%= link_to "Buy:", new_sell_advert_order_path(@sell_advert) %> $<%= @sell_advert.price_cents %></h4>
         </div>
       </div>

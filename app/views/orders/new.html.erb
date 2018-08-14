@@ -1,0 +1,22 @@
+<%= content_for(:title) do %>
+New Order
+<% end %>
+
+<ul>
+  <li>
+    <%= @sell_advert.title %>
+  </li>
+  <li>
+    <%= @sell_advert.price %>
+  </li>
+    <li>
+    <%= @sell_advert.user.username %>
+  </li>
+</ul>
+
+<%= simple_form_for [@sell_advert, @order] do |f| %>
+<%= f.input :status, :collection => %w[Pending Cancelled Confirmed] %>
+<%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+<%= link_to "Confirm Purchase", sell_advert_orders_path, class: "btn-medium" %>
+
