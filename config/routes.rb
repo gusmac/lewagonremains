@@ -24,6 +24,4 @@ Rails.application.routes.draw do
 
   resources :buy_adverts, path: 'wanted'
   resources :search, only: [:index]
-
-  get "map", to: "pages#map"
 end
