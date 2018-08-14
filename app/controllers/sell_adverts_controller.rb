@@ -52,6 +52,15 @@ class SellAdvertsController < ApplicationController
     redirect_to root_path
   end
 
+  def send_contact_email
+    @sell_advert = SellAdvert.find(params[:sell_advert_id])
+    @receiver = @sell_advert.user
+    @sender = current_user
+    @message = params[:message]
+    UserMailer.message_user(@receiver, @sender, @message, @sell_advert).deliver
+    redirect_to sell_advert_path(@sell_advert)
+  end
+
   private
 
   def set_sell_advert
