@@ -14,10 +14,25 @@ class StorageSpacesController < ApplicationController
       @results = StorageSpace.all
       @storage_spaces = StorageSpace.all
     end
-    # @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
+    # geocoder maps
+    @storage_spaces = StorageSpace.where.not(latitude: nil, longitude: nil)
+    @markers = @storage_spaces.map do |s|
+      {
+        lat: s.latitude,
+        lng: s.longitude,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+      # @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
+    end
   end
 
   def show
+    @markers = [
+      {
+        lat: @storage_space.latitude,
+        lng: @storage_space.longitude,
+      }]
+      # @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
   end
 
   def new
@@ -70,5 +85,4 @@ class StorageSpacesController < ApplicationController
       :price_cents,
       :photo)
   end
-
 end

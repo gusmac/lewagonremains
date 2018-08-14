@@ -1,0 +1,40 @@
+.tab-content > .tab-pane {
+display: block;
+height:0;
+overflow:hidden;
+}
+
+.tab-content > .active {
+display: block;
+height:auto;
+}
+
+.tab-pane {
+  height: 500px;
+  width: 500px;
+}
+
+.textbox {
+  background-color: #e2e2e2;
+  border-radius: 3px;
+  min-height: 20px;
+  width: 100%;
+  text-align: left;
+  padding: 15px;
+  padding-top: 5px;
+}
+
+.title  {
+  justify-content: center;
+  align-items: center;
+}
+
+.half-container {
+}
+
+.full-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  text-align: center;
+}

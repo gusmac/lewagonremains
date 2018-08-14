@@ -1,1 +1,10 @@
 <%= render 'shared/list' %>
+
+<div
+  id="map"
+  style="width: 94%;
+  height: 300px;
+margin: 0 auto;
+  margin-bottom: 60px;"
+  data-markers="<%= @markers.to_json %>"
+></div>
