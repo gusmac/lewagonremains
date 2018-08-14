@@ -64,3 +64,20 @@
         </div>
       </div>
 </div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <h2>Reviews</h2>
+    <% if @storage_space.bookings != [] %>
+      <% @storage_space.reviews.each do |review| %>
+        <% if review != nil %>
+        <div data-review-id="<%= review.id %>">
+          <p><%= review.description %></p>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>Be the first one to put a review</p>
+    <% end %>
+  </div>
+</div>
