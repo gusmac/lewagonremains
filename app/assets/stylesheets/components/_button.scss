@@ -6,8 +6,24 @@
   height: 40px;
   color: #616668;
   font-size: 16px;
-}
-.btn-medium:hover {
-  color: #da552f;
+&:hover {
+  color: white;
+  background-color: $lwr-red;
   text-decoration: none;
-}
+}}
+
+.btn-crud {
+  align-items: center;
+  display: block;
+  border: 2.75px solid #444444;
+  padding: 2px;
+  border-radius: 4px;
+  height: 30px;
+  color: #444444;
+  font-size: 14px;
+  width: 200px;
+&:hover {
+  border: 2.75px solid $lwr-red;
+  text-decoration: none;
+  text-color: #444444;
+}}

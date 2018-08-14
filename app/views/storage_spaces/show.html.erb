@@ -1,18 +1,66 @@
-<div class="container">
-  <h3><%= @storage_space.title %></h3>
-  <h5><%= @storage_space.description %></h5>
-  <h5><%= @storage_space.address %></h5>
-  <p><%= @storage_space.price_cents %></p>
-  <% if @storage_space.photo.url  %>
-  <h5><%= cl_image_tag @storage_space.photo, height:200, width:200 %></h5>
-  <% end %>
+<div class="full-container">
+
+  <div class="half-container col-sm-6">
+  <div class="container" style="display: flex; justify-content: space-between; flex-direction: column; height: 500px; width: 500px;">
+
+    <div class="title" style="text-align: center:">
+      <h2><%= @storage_space.title %></h2>
+    </div>
+    <div class="textbox">
+      <h5><%= @storage_space.description %></h5>
+      hello darkness my old friend
+    </div>
+    <div class="textbox">
+      <h5><%= @storage_space.address %></h5>
+    </div>
+    <div class="textbox">
+      <p><%= @storage_space.price_cents %></p>
+    </div>
+
+    <%= link_to "Book this space!", new_storage_space_booking_path(@storage_space), class: "btn-medium" %>
+    <ul class="list-inline" style="display: flex; justify-content: space-around;">
+      <li>
+        <%= link_to "Edit", edit_storage_space_path, class: "btn-crud"%>
+      </li>
+      <li>
+      <%= link_to "Delete ", storage_space_path(@storage_space), class: "btn-crud", method: :delete%>
+      </li>
+    </ul>
+  </div>
 </div>
 
-<%= link_to "Book this space!", new_storage_space_booking_path(@storage_space), class: "btn-medium" %>
+  <div class="half-container col-sm-6">
+    <div id="exTab3" class="container">
+    <ul  class="nav nav-pills">
+    			<li class="active">
+            <a  href="#1b" data-toggle="tab">Images</a>
+    			</li>
+    			<li><a href="#2b" data-toggle="tab">Map</a>
+    			</li>
+    		</ul>
 
-<%= link_to "Edit Ad", edit_storage_space_path%>
-<%= link_to "Delete Ad", storage_space_path(@storage_space), method: :delete%>
-
-
-
-
+    			<div class="tab-content clearfix">
+    			  <div class="tab-pane active" id="1b">
+              <% if @storage_space.photo.filename.nil? %>
+              <div class="avatar-large">
+                <i class="fas fa-camera-retro"></i>
+                <%= link_to "", @storage_space, class: "advert-link" %>
+              </div>
+              <% else %>
+                <%= cl_image_tag @storage_space.photo, :gravity=>"center", :height=>500, :crop=>"fill", :quality=>"auto", :fetch_format=>:auto %>
+              <% end %>
+    				</div>
+    				<div class="tab-pane" id="2b">
+              <div
+                id="map"
+                style="
+                width: 100%;
+                height: 500px;
+                margin: 0 auto;"
+                data-markers="<%= @markers.to_json %>"
+              ></div>
+    				</div>
+    			</div>
+        </div>
+      </div>
+</div>

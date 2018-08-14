@@ -37,3 +37,4 @@ gem 'cloudinary'
 gem 'carrierwave'
 
 gem "faker", "~> 1.9"
+gem 'geocoder'
