@@ -5,14 +5,13 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @storage_space = StorageSpace.find(params[:storage_space_id])
-
-    if @review.save
-      @storage_space.review = @review
-      @storage_space.save
+    @review.storage_space = @storage_space
+    if @review.save!
+      @storage_space.reviews << @review
+      @storage_space.save!
       redirect_to storage_space_path(@review.storage_space)
     else
       # redirect
-      redirect_to storage_space_booking_path(@booking.storage_space_id, @booking.id)
     end
   end
 

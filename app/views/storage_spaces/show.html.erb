@@ -12,13 +12,10 @@
     <div class="col-sm-8">
       <h2>Reviews</h2>
       <% if @storage_space.bookings != [] %>
-        <% @storage_space.bookings.each do |booking| %>
-          <% if booking.review != nil %>
-          <div data-review-id="<%= booking.review.id %>">
-            <p><%= booking.review.description %></p>
-            <% if policy(booking.review).destroy? %>
-            <p><%= link_to "Delete", booking.review, method: :delete, remote: true %></p>
-            <% end %>
+        <% @storage_space.reviews.each do |review| %>
+          <% if review != nil %>
+          <div data-review-id="<%= review.id %>">
+            <p><%= review.description %></p>
             </div>
           <% end %>
         <% end %>
