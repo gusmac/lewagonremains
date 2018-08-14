@@ -2,12 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-  def new
-  end
-
   def create
-    #new
-    # authorize @review
     @review = Review.new(review_params)
     @storage_space = StorageSpace.find(params[:storage_space_id])
 
@@ -17,14 +12,8 @@ class ReviewsController < ApplicationController
       redirect_to storage_space_path(@review.storage_space)
     else
       # redirect
+      redirect_to storage_space_booking_path(@booking.storage_space_id, @booking.id)
     end
-  end
-
-  def edit
-  end
-
-  def update
-    #
   end
 
   def destroy

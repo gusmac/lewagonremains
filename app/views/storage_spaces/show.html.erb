@@ -8,6 +8,28 @@
   <% end %>
 </div>
 
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Reviews</h2>
+      <% if @storage_space.bookings != [] %>
+        <% @storage_space.bookings.each do |booking| %>
+          <% if booking.review != nil %>
+          <div data-review-id="<%= booking.review.id %>">
+            <p><%= booking.review.description %></p>
+            <% if policy(booking.review).destroy? %>
+            <p><%= link_to "Delete", booking.review, method: :delete, remote: true %></p>
+            <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p>Be the first one to put a review</p>
+      <% end %>
+    </div>
+  </div>
+
+
+
 <%= link_to "Book this space!", new_storage_space_booking_path(@storage_space), class: "btn-medium" %>
 
 <%= link_to "Edit Ad", edit_storage_space_path%>

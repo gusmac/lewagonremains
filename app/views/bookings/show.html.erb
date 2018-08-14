@@ -20,4 +20,31 @@ Booking
   </li>
 </ul>
 
+<div class="container">
+  <div class="row">
+    <h3>Booking for <%= @booking.storage_space.title %> Storage Space</h3>
+    <p>start_date: <%= @booking.start_date %></p>
+    <p>end_date <%= @booking.end_date %></p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <%= simple_form_for [@storage_space, @review] do |f| %>
+
+     <%= f.error_notification %>
+     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :rating, as: :integer %>
+      <%= f.input :description, as: :text %>
+     </div>
+
+     <div class="form-actions">
+       <%= f.button :submit, class: "btn btn-primary" %>
+     </div>
+    <% end %>
+  </div>
+  <%= link_to "back", storage_space_path(@booking.storage_space) %>
+</div>
 <%= link_to "Edit Booking", edit_storage_space_booking_path%>
