@@ -1,9 +1,9 @@
 <div class="full-container">
 
   <div class="half-container col-sm-6">
-  <div class="container" style="display: flex; justify-content: space-between; flex-direction: column; height: 500px; width: 500px;">
+  <div class="" style="display: flex; justify-content: space-between; flex-direction: column; height: 500px; width: 500px;">
 
-    <div class="title" style="text-align: center:">
+    <div class="title text-left">
       <h2><%= @storage_space.title %></h2>
     </div>
     <div class="half-container" style="text-align: left">
@@ -34,7 +34,7 @@
 </div>
 
   <div class="half-container col-sm-6">
-    <div class="container">
+    <div class="">
     <ul  class="nav nav-pills">
     			<li class="active">
             <a  href="#1b" data-toggle="tab">Images</a>
@@ -70,18 +70,55 @@
     </div>
 
 <!-- reviews -->
-<h2>Reviews</h2>
-  <% @storage_space.reviews.each do |review| %>
+<div class="col-md-12">
 
-  <div class="review-pane">
+<h2>Reviews</h2>
+<div class="reviews-container">
+  <% @storage_space.reviews[0..4].each do |review| %>
+
+  <div class="review-container">
+    <div class="review-box">
       <p><%= review.description %></p>
-      <ul class="list-inline stars">
+      <br>
+      <ul class="list-inline stars box-stars">
         <% review.rating.times do %>
-          <li><i class="fas fa-star"; "></i></li>
+          <li><i class="fas fa-star";></i></li>
         <% end %>
       </ul>
       <div class="reviewer-name">
         <%= "#{review.user.first_name}" %>
       </div>
     </div>
+  </div>
   <% end %>
+  </div>
+
+    <div class="collapse" id="collapseExample">
+        <div class="reviews-container">
+          <% @storage_space.reviews.drop(5).each do |review| %>
+          <div class="review-container">
+            <div class="review-box">
+              <p><%= review.description %></p>
+              <br>
+              <ul class="list-inline stars box-stars">
+                <% review.rating.times do %>
+                  <li><i class="fas fa-star";></i></li>
+                <% end %>
+              </ul>
+              <div class="reviewer-name">
+                <%= "#{review.user.first_name}" %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+    </div>
+
+<div class="container button-container text-center">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      See More Reviews
+    </button>
+  </div>
+
+
+</div>
