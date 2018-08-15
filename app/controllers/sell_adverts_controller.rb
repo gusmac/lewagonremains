@@ -61,6 +61,10 @@ class SellAdvertsController < ApplicationController
     redirect_to sell_advert_path(@sell_advert)
   end
 
+  def browse_sell
+     @sell_adverts = SellAdvert.all
+  end
+
   private
 
   def set_sell_advert

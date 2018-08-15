@@ -4,6 +4,11 @@
   </div>
 </div>
 
+<%= content_for(:title) do %>
+<%= @storage_space.title %>
+<% end %>
+
+
 <div class="full-container">
 
   <div class="half-container col-sm-6">
@@ -14,7 +19,6 @@
     </div>
     <div class="textbox">
       <h5><%= @storage_space.description %></h5>
-      hello darkness my old friend
     </div>
     <div class="textbox">
       <h5><%= @storage_space.address %></h5>

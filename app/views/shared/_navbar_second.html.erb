@@ -11,23 +11,23 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
       <!-- Links when logged in -->
       <div>
+          <%= link_to browse_wanted_path, class: "navbar-wagon-item-second navbar-wagon-link-second navbar-div-second" do%>
+        <div>Wanted Ads</div>
+        <% end %>
+      </div>
+      <div>
+          <%= link_to browse_for_sale_path, class: "navbar-wagon-item-second navbar-wagon-link-second navbar-div-second" do%>
+        <div>For Sale Ads</div>
+        <% end %>
+      </div>
+      <div>
+          <%= link_to browse_storage_space_path, class: "navbar-wagon-item-second navbar-wagon-link-second navbar-div-second" do%>
+        <div>Storage Spaces</div>
+        <% end %>
+      </div>
+      <div>
           <%= link_to "#", class: "navbar-wagon-item-second navbar-wagon-link-second navbar-div-second" do%>
         <div>Wishlist</div>
-        <% end %>
-      </div>
-      <div>
-          <%= link_to "#", class: "navbar-wagon-item-second navbar-wagon-link-second navbar-div-second" do%>
-        <div>Saved Searches</div>
-        <% end %>
-      </div>
-      <div>
-          <%= link_to "#", class: "navbar-wagon-item-second navbar-wagon-link-second navbar-div-second" do%>
-        <div>Popular Searches</div>
-        <% end %>
-      </div>
-      <div>
-          <%= link_to "#", class: "navbar-wagon-item-second navbar-wagon-link-second navbar-div-second" do%>
-        <div>Recently Viewed</div>
         <% end %>
       </div>
   </div>
