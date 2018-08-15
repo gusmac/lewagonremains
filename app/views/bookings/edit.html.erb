@@ -1,3 +1,4 @@
-<h1>booking#edit</h1>
-<p>Find me in app/views/booking/edit.html.erb</p>
+<%= content_for(:title) do %>
+Edit your booking
+<% end %>
 <%= render 'form', storage_space: @storage_space, booking: @booking%>

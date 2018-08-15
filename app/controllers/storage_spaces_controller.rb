@@ -70,6 +70,10 @@ class StorageSpacesController < ApplicationController
     redirect_to root_path
   end
 
+  def browse_storage_space
+    @storage_spaces = StorageSpace.all
+  end
+
   private
 
   def set_storage_space

@@ -1,18 +1,12 @@
-<div class="wrapper">
+<%= content_for(:title) do %>
+Browse all Storage Spaces
+<% end %>
 
-<% if @results == [] %>
-  <%= "Unfortunately there are no results. The good thing is the search is working." %>
-<% else %>
-<% previous_item = nil %>
-  <% @results.each do |result| %>
-
+<div style="margin-bottom: 30px">
+  <h3>Storage Spaces</h3>
+</div>
+  <% @storage_spaces.each do |result| %>
     <div class="container container-margin">
-      <% if previous_item.nil? || result.class.name != previous_item.class.name  %>
-        <div style="margin-bottom: 30px">
-          <!-- border-bottom: 2px solid #e2e2e2; width: 83%; -->
-          <h3><%= "#{result.class.name}s" %></h3>
-        </div>
-      <% end %>
       <div class="advert">
           <% if result.photo.filename.nil? %>
           <div class="avatar-large">
@@ -45,26 +39,10 @@
               </div>
               <div class="item-adverts-footer-item item-adverts-footer-item-border">
                 <div>
-                  <h6>Batch No:</h6>
-                </div>
-                <div>
-                  <p><%= result.user.batch_no ? result.user.batch_no : "pending" %></p>
-                </div>
-              </div>
-              <div class="item-adverts-footer-item item-adverts-footer-item-border">
-                <div>
                   <h6>Posted on:</h6>
                 </div>
                 <div>
                   <p><%= result.created_at.strftime("%d-%m-%Y") %></p>
-                </div>
-              </div>
-              <div class="item-adverts-footer-item item-adverts-footer-item-border">
-                <div>
-                  <h6>Condition:</h6>
-                </div>
-                <div>
-                  <p><%= "#{result.condition}" if result.class.name != "StorageSpace"%></p>
                 </div>
               </div>
               <div class="item-adverts-footer-item item-adverts-footer-item-border">
@@ -85,7 +63,4 @@
         </div>
       </div>
     </div>
-    <% previous_item = result %>
   <% end %>
-<% end %>
-</div>

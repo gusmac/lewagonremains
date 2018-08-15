@@ -32,7 +32,7 @@ gus = User.create!(email: "gusmac@gmail.com", password: "testtest", first_name: 
 # random users
 random_users = []
 10.times do
-  random_users << User.create!(email: Faker::Internet.email, password: "testest", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
+  random_users << User.create!(email: Faker::Internet.email, password: "testest", first_name: Faker::Name.first_name, last_name: Faker::Name.last_nameP)
 end
 
 puts "categories"

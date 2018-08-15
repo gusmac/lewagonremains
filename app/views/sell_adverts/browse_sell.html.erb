@@ -1,18 +1,12 @@
-<div class="wrapper">
+<%= content_for(:title) do %>
+Browse all For Sale Ads
+<% end %>
 
-<% if @results == [] %>
-  <%= "Unfortunately there are no results. The good thing is the search is working." %>
-<% else %>
-<% previous_item = nil %>
-  <% @results.each do |result| %>
-
+<div style="margin-bottom: 30px">
+  <h3>For Sale Ads</h3>
+</div>
+  <% @sell_adverts.each do |result| %>
     <div class="container container-margin">
-      <% if previous_item.nil? || result.class.name != previous_item.class.name  %>
-        <div style="margin-bottom: 30px">
-          <!-- border-bottom: 2px solid #e2e2e2; width: 83%; -->
-          <h3><%= "#{result.class.name}s" %></h3>
-        </div>
-      <% end %>
       <div class="advert">
           <% if result.photo.filename.nil? %>
           <div class="avatar-large">
@@ -85,7 +79,4 @@
         </div>
       </div>
     </div>
-    <% previous_item = result %>
   <% end %>
-<% end %>
-</div>
