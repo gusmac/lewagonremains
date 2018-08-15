@@ -77,13 +77,13 @@
 }
 
 
-.title {
+.title-list {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.title-header {
+.title-list-header {
   #background-color: yellow;
   & a {
   color: #494949;
@@ -91,15 +91,15 @@
   }
 }
 
-.title-header:hover {
+.title-list-header:hover {
   border-bottom: 3px solid red;
   margin-bottom: -3px
 }
-.title-header h4 {
+.title-list-header h4 {
   margin-top:0px;
 }
 
-.title-view {
+.title-list-view {
   #background-color: green;
   justify-content: center;
   align-items: center;
@@ -108,7 +108,7 @@
   color: rgba(0,0,0,0.6);
 }
 
-.title-view h6 {
+.title-list-view h6 {
   margin-top:5px;
 }
 
