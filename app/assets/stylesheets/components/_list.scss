@@ -51,7 +51,7 @@
 
 
 .item-adverts-footer {
-  margin-top: 12px;
+  margin-top: 9px;
   #background-color: yellow;
   color: rgba(0,0,0,0.6);
 }
@@ -63,7 +63,6 @@
 
 .item-adverts-text {
   #background-color:green;
-  margin-bottom: 30px;
   margin-top: 0px;
   height: 95px;
 }
@@ -162,4 +161,23 @@
   z-index: 2;
   border-radius: 3px;
   margin-bottom: 0px;
+}
+
+.item-adverts-footer-item {
+  font-size: 12px;
+  text-align: center;
+}
+
+.item-adverts-footer-item h6{
+  font-size: 14px
+}
+
+.item-adverts-footer-item-border {
+  border-left: 2px solid #f2f2f2;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.item-adverts-footer-item-first {
+  padding-right: 10px;
 }
