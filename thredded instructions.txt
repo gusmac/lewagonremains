@@ -22,3 +22,11 @@ User.find_by(email: 'gus@test.com').update(username: "gus")
 
 Category.create(name: "Sport")
 Subcategory.create(category_id: 1, name: "Surfing")
+
+javascript to override colors on the forum and to put the navbar on there.
+document.querySelector(".thredded--button").style.color = "red"
+"red"
+document.querySelector(".thredded--button").style.backgroundColor = "red"
+"red"
+document.querySelector(".thredded--button").style.color = "white"
+"white"
