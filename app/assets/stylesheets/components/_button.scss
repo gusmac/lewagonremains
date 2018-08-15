@@ -15,12 +15,13 @@
 .btn-crud {
   align-items: center;
   display: block;
-  # border: 2px solid #444444;
-  padding: 8px;
-  #border-radius: 4px;
-  height: 43px;
-  color: black;
-  font-size: 16px;
+  border: 2.75px solid #444444;
+  padding: 2px;
+  border-radius: 4px;
+  height: 30px;
+  color: #444444;
+  font-size: 14px;
+  margin: 5px;
   width: 200px;
   border: 2px solid black;
 &:hover {
