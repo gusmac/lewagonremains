@@ -166,6 +166,11 @@
 .item-adverts-footer-item {
   font-size: 12px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 auto;
 }
 
 .item-adverts-footer-item h6{
