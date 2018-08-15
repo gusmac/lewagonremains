@@ -1,0 +1,78 @@
+<div style="margin-bottom: 30px">
+  <h3>For Sale Ads</h3>
+</div>
+  <% @sell_adverts.each do |result| %>
+    <div class="container container-margin">
+      <div class="advert">
+          <% if result.photo.filename.nil? %>
+          <div class="avatar-large">
+            <i class="fas fa-camera-retro"></i>
+            <%= link_to "", result, class: "advert-link" %>
+          </div>
+          <% else %>
+          <div class="avatar-large">
+            <%= cl_image_tag (result.photo), :height=>150, :width=>150, crop: :fill %>
+              <%= link_to "", result, class: "advert-link" %>
+          </div>
+          <% end %>
+        <div class="item-adverts-body">
+          <div class="item-adverts-text">
+            <div class="title-list">
+              <div class="title-list-header"><h4><strong><%= link_to "#{result.title}", result %></strong></h4></div>
+              <div class="title-list-view"> <h6>Views: <%= [8,9,10,11,12,14,15,16].sample %> | Saves: <%= [0,0,1,2,3,4,5,6,7,8,9].sample %></h6></div>
+            </div>
+            <h5><%= "#{result.description}" %></h5>
+          </div>
+          <div class="item-adverts-footer">
+            <div class="row" style="display: flex; margin: 0 auto; justify-content: start;">
+              <div class="item-adverts-footer-item item-adverts-footer-item-first">
+                <div>
+                  <h6>Posted by:</h6>
+                </div>
+                <div>
+                  <p><%= result.user.username %></p>
+                </div>
+              </div>
+              <div class="item-adverts-footer-item item-adverts-footer-item-border">
+                <div>
+                  <h6>Batch No:</h6>
+                </div>
+                <div>
+                  <p><%= result.user.batch_no ? result.user.batch_no : "pending" %></p>
+                </div>
+              </div>
+              <div class="item-adverts-footer-item item-adverts-footer-item-border">
+                <div>
+                  <h6>Posted on:</h6>
+                </div>
+                <div>
+                  <p><%= result.created_at.strftime("%d-%m-%Y") %></p>
+                </div>
+              </div>
+              <div class="item-adverts-footer-item item-adverts-footer-item-border">
+                <div>
+                  <h6>Condition:</h6>
+                </div>
+                <div>
+                  <p><%= "#{result.condition}" if result.class.name != "StorageSpace"%></p>
+                </div>
+              </div>
+              <div class="item-adverts-footer-item item-adverts-footer-item-border">
+                <div>
+                  <h6>Location:</h6>
+                </div>
+                <div>
+                  <p><%= result.address ? "#{result.address}" : "?" %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-adverts-details">
+          <div><a href=""><h4><i class="far fa-star"></i></h4></a></div>
+          <div><h4><%= result.price %></h4></div>
+          <div><a href=""><h4><i class="far fa-envelope"></i></h4></a></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
