@@ -50,6 +50,10 @@ class BuyAdvertsController < ApplicationController
     redirect_to root_path
   end
 
+  def browse_buy
+     @buy_adverts = BuyAdvert.all
+  end
+
   private
 
   def set_buy_advert
