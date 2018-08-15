@@ -6,16 +6,20 @@
     <div class="title" style="text-align: center:">
       <h2><%= @storage_space.title %></h2>
     </div>
-    <div class="textbox">
-      <h5><%= @storage_space.description %></h5>
-      hello darkness my old friend
-    </div>
-    <div class="textbox">
-      <h5><%= @storage_space.address %></h5>
-    </div>
-    <div class="textbox">
-      <p><%= @storage_space.price_cents %></p>
-    </div>
+    <div class="half-container" style="text-align: left">
+      <p>Description:</p>
+      <div class="textbox">
+        <h5><%= @storage_space.description %></h5>
+      </div>
+      <p>Address:</p>
+      <div class="textbox">
+        <h5><%= @storage_space.address %></h5>
+      </div>
+      <p>Price:</p>
+      <div class="textbox">
+        <p><%= @storage_space.price_cents %></p>
+      </div>
+  </div>
 
     <%= link_to "Book this space!", new_storage_space_booking_path(@storage_space), class: "btn-medium" %>
     <ul class="list-inline" style="display: flex; justify-content: space-around;">
@@ -30,7 +34,7 @@
 </div>
 
   <div class="half-container col-sm-6">
-    <div id="exTab3" class="container">
+    <div class="container">
     <ul  class="nav nav-pills">
     			<li class="active">
             <a  href="#1b" data-toggle="tab">Images</a>
@@ -39,7 +43,7 @@
     			</li>
     		</ul>
 
-    			<div class="tab-content clearfix">
+    			<div class="tab-content">
     			  <div class="tab-pane active" id="1b">
               <% if @storage_space.photo.filename.nil? %>
               <div class="avatar-large">
@@ -63,20 +67,21 @@
     			</div>
         </div>
       </div>
-</div>
+    </div>
 
-<div class="row">
-  <div class="col-sm-8">
-    <h2>Reviews</h2>
-      <% @storage_space.reviews.each do |review| %>
-        <div data-review-id="<%= review.id %>">
-          <ul>
-            <li><% review.rating.times do %>
-              <i class="fas fa-star"></i><br>
-              <% end %>
-              <%= review.description %></li>
-          </ul>
-          </div>
-    <% end %>
-  </div>
-</div>
+<!-- reviews -->
+<h2>Reviews</h2>
+  <% @storage_space.reviews.each do |review| %>
+
+  <div class="review-pane">
+      <p><%= review.description %></p>
+      <ul class="list-inline stars">
+        <% review.rating.times do %>
+          <li><i class="fas fa-star" style="color: $lwr-red; "></i></li>
+        <% end %>
+      </ul>
+      <div class="reviewer-name">
+        <%= "#{review.user.first_name}" %>
+      </div>
+    </div>
+  <% end %>

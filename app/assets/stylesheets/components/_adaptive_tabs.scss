@@ -1,13 +1,20 @@
 .tab-content > .tab-pane {
 display: block;
 height:0;
+
 overflow:hidden;
 }
 
 .tab-content > .active {
 display: block;
 height:auto;
+width: 500px;
 }
+
+.clearfix {
+  width: 500px;
+}
+
 
 .tab-pane {
   height: 500px;
@@ -17,11 +24,13 @@ height:auto;
 .textbox {
   background-color: #e2e2e2;
   border-radius: 3px;
-  min-height: 20px;
+  min-height: 15px;
   width: 100%;
   text-align: left;
   padding: 15px;
   padding-top: 5px;
+  margin-bottom: 5px;
+  margin-top: -5px;
 }
 
 .title  {
@@ -37,4 +46,39 @@ height:auto;
   justify-content: space-between;
   padding-top: 20px;
   text-align: center;
+}
+
+.stars > li {
+    display: inline-block;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.review-pane {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  min-height: 60px;
+  background-color: #e2e2e2;
+  border-radius: 3px;
+  padding: 20px;
+  padding-bottom: 30px;
+  margin: 5px;
+  position: relative;
+  color: #262626;
+  p {
+    font-size: 14px;
+  }}
+
+.reviewer-name {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+}
+
+.fa-star {
+  color: $lwr-red;
 }

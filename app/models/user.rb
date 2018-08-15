@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :buy_adverts
   has_many :sell_adverts
+  has_many :reviews
   after_create :get_username
 
   def get_username

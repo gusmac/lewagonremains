@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_094430) do
+ActiveRecord::Schema.define(version: 2018_08_15_073339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,7 +79,9 @@ ActiveRecord::Schema.define(version: 2018_08_14_094430) do
     t.bigint "storage_space_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["storage_space_id"], name: "index_reviews_on_storage_space_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "sell_adverts", force: :cascade do |t|
@@ -374,6 +376,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_094430) do
   add_foreign_key "orders", "sell_adverts"
   add_foreign_key "orders", "users"
   add_foreign_key "reviews", "storage_spaces"
+  add_foreign_key "reviews", "users"
   add_foreign_key "sell_adverts", "storage_spaces"
   add_foreign_key "sell_adverts", "subcategories"
   add_foreign_key "sell_adverts", "users"
