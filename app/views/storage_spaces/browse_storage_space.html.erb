@@ -1,11 +1,11 @@
 <%= content_for(:title) do %>
-Browse all Wanted Ads
+Browse all Storage Spaces
 <% end %>
 
 <div style="margin-bottom: 30px">
-  <h3>Wanted Ads</h3>
+  <h3>Storage Spaces</h3>
 </div>
-  <% @buy_adverts.each do |result| %>
+  <% @storage_spaces.each do |result| %>
     <div class="container container-margin">
       <div class="advert">
           <% if result.photo.filename.nil? %>
@@ -39,26 +39,10 @@ Browse all Wanted Ads
               </div>
               <div class="item-adverts-footer-item item-adverts-footer-item-border">
                 <div>
-                  <h6>Batch No:</h6>
-                </div>
-                <div>
-                  <p><%= result.user.batch_no ? result.user.batch_no : "pending" %></p>
-                </div>
-              </div>
-              <div class="item-adverts-footer-item item-adverts-footer-item-border">
-                <div>
                   <h6>Posted on:</h6>
                 </div>
                 <div>
                   <p><%= result.created_at.strftime("%d-%m-%Y") %></p>
-                </div>
-              </div>
-              <div class="item-adverts-footer-item item-adverts-footer-item-border">
-                <div>
-                  <h6>Condition:</h6>
-                </div>
-                <div>
-                  <p><%= "#{result.condition}" if result.class.name != "StorageSpace"%></p>
                 </div>
               </div>
               <div class="item-adverts-footer-item item-adverts-footer-item-border">
