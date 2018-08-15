@@ -1,29 +1,31 @@
 .btn-medium {
-  border: 2.75px solid $lwr-red;
-  padding: 8px;
-  margin-right: 5px;
-  border-radius: 4px;
-  height: 40px;
+  border: 2px solid $lwr-green;
+  padding: 10px;
+  margin-right: 0px;
+  #border-radius: 4px;
+  height: 52px;
   color: #616668;
-  font-size: 16px;
+  font-size: 19px;
 &:hover {
   color: white;
-  background-color: $lwr-red;
+  background-color: $lwr-green;
   text-decoration: none;
 }}
 
 .btn-crud {
   align-items: center;
   display: block;
-  border: 2.75px solid #444444;
-  padding: 2px;
-  border-radius: 4px;
-  height: 30px;
-  color: #444444;
-  font-size: 14px;
+  # border: 2px solid #444444;
+  padding: 8px;
+  #border-radius: 4px;
+  height: 43px;
+  color: black;
+  font-size: 16px;
   width: 200px;
+  border: 2px solid black;
 &:hover {
-  border: 2.75px solid $lwr-red;
+  #border: 2.75px solid black;
   text-decoration: none;
-  text-color: #444444;
+  background-color: $lwr-blue;
+  color: black;
 }}
