@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/storer', to: 'pages#storer'
   get '/browse_wanted', to: 'buy_adverts#browse_buy'
   get '/browse_for_sale', to: 'sell_adverts#browse_sell'
+  get '/browse_storage_space', to: 'storage_spaces#browse_storage_space'
   mount Thredded::Engine => '/forum'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
