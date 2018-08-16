@@ -51,7 +51,7 @@
 
 
 .item-adverts-footer {
-  margin-top: 9px;
+  // margin-top: 9px;
   #background-color: yellow;
   color: rgba(0,0,0,0.6);
 }
@@ -64,7 +64,7 @@
 .item-adverts-text {
   #background-color:green;
   margin-top: 0px;
-  height: 95px;
+  height: 119px;
 }
 
 .item-adverts-text h5{
@@ -172,10 +172,19 @@
   justify-content: center;
   align-items: center;
   flex: 1 auto;
+  color: #484848 !important;
 }
 
 .item-adverts-footer-item h6{
-  font-size: 14px
+  font-size: 14px;
+  margin: 0;
+  color: #484848 !important;
+}
+
+.item-adverts-footer-item p{
+  font-size: 12px;
+  margin: 0;
+  color: #484848 !important;
 }
 
 .item-adverts-footer-item-border {
