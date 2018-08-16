@@ -1,3 +1,7 @@
+h2, .h2 {
+  font-size: 30px;
+}
+
 .tab-content > .tab-pane {
 display: block;
 height:0;
@@ -15,22 +19,35 @@ width: 100%;
   width: 500px;
 }
 
-
 .tab-pane {
   height: 500px;
   width: 500px;
 }
 
 .textbox {
-  background-color: #f2f2f2;
+  background-color: white;
   border-radius: 3px;
   min-height: 15px;
   width: 100%;
   text-align: left;
   padding: 15px;
-  padding-top: 5px;
+  padding-top: 15px;
   margin-bottom: 5px;
   margin-top: -5px;
+  font-size: 14px;
+  border-top: 1px solid #e2e2e2;
+&.price {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #eaeaea;
+  font-weight: bold;
+  background: #eaeaea;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
 }
 
 .title  {
@@ -44,8 +61,16 @@ width: 100%;
 .full-container {
   display: flex;
   justify-content: space-between;
-  padding-top: 10px;
+  padding-top: 30px;
   text-align: center;
+}
+
+.crud-action {
+  display: flex;
+  justify-content: space-between;
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-top: -10px;
 }
 
 .stars > li {
@@ -87,7 +112,8 @@ width: 100%;
   min-width: 200px;
   width: 200px;
   height: 200px;
-  background-color: #e2e2e2;
+  background-color: #white;
+  border: 1px solid #e2e2e2;
   border-radius: 3px;
   padding: 20px;
   padding-bottom: 30px;

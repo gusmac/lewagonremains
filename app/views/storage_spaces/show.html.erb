@@ -7,26 +7,22 @@
       <div class="half-container" style="text-align: left">
         <p>Description:</p>
         <div class="textbox">
-          <h5><%= @storage_space.description %></h5>
+          <p><%= @storage_space.description %></p>
         </div>
         <p>Address:</p>
         <div class="textbox">
-        <h5><%= @storage_space.address %></h5>
+        <p><%= @storage_space.address %></p>
         </div>
-        <p>Price:</p>
-        <div class="textbox">
-          <p><%= @storage_space.price_cents %></p>
+        <div class="textbox price">
+          <h5>Price:</h5>
+          <h5><%= @storage_space.price_cents %> €</h5>
         </div>
       </div>
       <%= link_to "Book this space!", new_storage_space_booking_path(@storage_space), class: "btn-medium" %>
-      <ul class="list-inline" style="display: flex; justify-content: space-around;">
-        <li>
-          <%= link_to "Edit", edit_storage_space_path, class: "btn-crud"%>
-        </li>
-        <li>
-          <%= link_to "Delete ", storage_space_path(@storage_space), class: "btn-crud", method: :delete%>
-        </li>
-      </ul>
+      <div class="crud-action">
+        <%= link_to "Edit", edit_storage_space_path, class: "btn-crud"%>
+        <%= link_to "Delete ", storage_space_path(@storage_space), class: "btn-crud", method: :delete%>
+      </div>
     </div>
   </div>
   <div class="half-container col-sm-6">
