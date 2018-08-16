@@ -51,7 +51,6 @@
 
 
 .item-adverts-footer {
-  // margin-top: -7px;
   #background-color: yellow;
   color: rgba(0,0,0,0.6);
 }
@@ -149,9 +148,7 @@ h3, .h3 {
 }
 
 .avatar-large {
-  height: 150px;
-  min-width: 150px;
-  max-width: 150px;
+  height: 175px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,17 +176,21 @@ h3, .h3 {
   justify-content: center;
   align-items: center;
   flex: 1 auto;
+  color: #484848 !important;
   margin: 0;
 }
 
 .item-adverts-footer-item h6{
   font-size: 14px;
   margin: 0;
+  color: #484848 !important;
+
 }
 
 .item-adverts-footer-item p{
   font-size: 12px;
   margin: 0;
+  color: #484848 !important;
 }
 
 .item-adverts-footer-item-border {
