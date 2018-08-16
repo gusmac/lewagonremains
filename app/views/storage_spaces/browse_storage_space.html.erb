@@ -27,7 +27,8 @@ Browse all Storage Spaces
     <% @storage_spaces.each do |result| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card-margin-top">
-          <%= cl_image_tag (result.photo), class: "card" %><%= link_to "", result %>
+          url('<%= cl_image_path result.photo, height: 300, width: 400, :quality=>"auto:eco", :fetch_format=>:auto, crop: :fill %>')"
+          <%= cl_image_tag (result.photo, class: "card" %><%= link_to "", result %>
         </div>
         <div class="card-body-margin-top">
           <div class="place-name"><%= link_to "#{result.title}", result %></div>
@@ -65,4 +66,3 @@ Browse all Storage Spaces
     <% end %>
   </div>
 </div>
-
