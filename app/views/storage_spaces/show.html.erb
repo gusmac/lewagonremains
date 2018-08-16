@@ -15,7 +15,7 @@
         </div>
         <div class="textbox price">
           <h5>Price:</h5>
-          <h5><%= @storage_space.price_cents %> <%= @storage_space.price.symbol %> / Per Day</h5>
+          <h5><%= @storage_space.price %> <%= @storage_space.price.symbol %> / Per Day</h5>
         </div>
       </div>
       <%= link_to "Book this space!", new_storage_space_booking_path(@storage_space), class: "btn-medium" %>
