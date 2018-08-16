@@ -123,7 +123,7 @@ puts "reviews"
 descriptions = ["Nice. Stored in a clean cupboard.", "Took really good care of my stuff", "Great guy!", "I rented a unit with Extra Space Storage. When it rained the roof leaked. ", "The temperature in the storage unit was appropriate.", "These guys get you in with “specials” and then raise rates as fast as they can.", "Great and super friendly service! They explained prices and terms very clearly.", "Been renting a 10x10 storage unit for five months. Satisfied", "Our stuff were exactly as we left them and we didn't lose anything.","Extra Space raises my rent 100% without notifying me and deducts it from my charge card."]
 
 StorageSpace.all.each do |space|
-  number_of_reviews = (8).to_a.sample
+  number_of_reviews = 8
   number_of_reviews.times do
     r = Review.new(rating: [5,5,5,4,4,4].sample, description: descriptions.sample, storage_space: space)
     r.user = random_users.sample
