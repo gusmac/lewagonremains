@@ -19,7 +19,7 @@ photo_urls = [
 ]
 
 # Admin User for forum
-User.create!(email: "test@test.com", password: "testtest")
+User.create!(email: "test@test.com", password: "testtest", first_name: "J", last_name: "L")
 User.find_by(email: 'test@test.com').update(admin: true)
 User.find_by(email: 'test@test.com').update(username: "test")
 
