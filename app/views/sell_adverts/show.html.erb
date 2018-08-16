@@ -2,49 +2,87 @@
 <%= @sell_advert.title %>
 <% end %>
 
-<div class="wrapper">
-  <div class="container container-margin border">
-    <h5> All > <%= @sell_advert.category.name %> > <%= @sell_advert.subcategory.name %> </h5>
-  </div>
-</div>
+<div class="full-container">
+  <div class="half-container col-sm-6">
+    <div class="" style="display: flex; justify-content: space-between; flex-direction: column; height: 545px; width: 500px;">
 
-<div class="wrapper ">
-  <div class="container">
-    <div class="row display-flex">
-      <div>
-        <%= cl_image_tag (@sell_advert.photo), :height=>400, :width=>500, crop: :fill %>
+      <div class="title text-left">
+        <h2><%= @sell_advert.title %></h2>
       </div>
-      <div class="show-advert">
-        <div class="card-show">
-          <h4> > <%= @sell_advert.title %> < </h4>
-          <h4>Posted by: <%= "#{@sell_advert.user.first_name.capitalize} #{@sell_advert.user.last_name}" %></h4>
-          <h5>Batch no: 163</h5>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+      <div class="half-container" style="text-align: left">
+        <p>Description:</p>
+        <div class="textbox">
+          <p><%= @sell_advert.description %></p>
         </div>
-        <div class="card-show">
-          <div class="card-show-detail">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Send email
-            </button>
-            <a href=""><h2><i class="far fa-star"></i></h2></a>
-          </div>
+        <p>Condition:</p>
+        <div class="textbox">
+          <p><%= @sell_advert.condition %></p>
         </div>
-        <div class="show-div">
-          <h4>Make an offer</h4>
+        <p>Address:</p>
+        <div class="textbox">
+        <p><%= @sell_advert.address %></p>
         </div>
-        <div class="card-show">
-
+        <div class="textbox price">
+          <h5>Price:</h5>
+          <h5><%= @sell_advert.price_cents %> <%= @sell_advert.price.symbol %> </h5>
         </div>
-        <div class="show-div">
-          <h4><%= link_to "Buy:", new_sell_advert_order_path(@sell_advert) %> $<%= @sell_advert.price_cents %></h4>
-        </div>
+      </div>
+      <%= link_to "Buy", new_sell_advert_order_path(@sell_advert), class: "btn-medium" %>
+      <div class="btn-medium-black" data-toggle="modal" data-target="#myModal">
+        Send an email
       </div>
     </div>
   </div>
-  <div class="wrapper">
-    <div class="container button-center">
-      <%= link_to "Edit Ad", edit_sell_advert_path, class: "btn btn-primary" %>
-      <%= link_to "Delete Ad", sell_advert_path(@sell_advert), class: "btn btn-primary", method: :delete%>
+  <div class="half-container col-sm-6">
+    <div class="">
+      <ul  class="nav nav-pills">
+        <li class="active"><a  href="#1b" data-toggle="tab">Images</a></li>
+        <li><a href="#2b" data-toggle="tab">Map</a></li>
+        <li><a href="#3b" data-toggle="tab">Contact</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="1b">
+          <% if @sell_advert.photo.filename.nil? %>
+          <div class="avatar-large">
+            <i class="fas fa-camera-retro"></i>
+            <%= link_to "", @sell_advert, class: "advert-link" %>
+          </div>
+          <% else %>
+            <%= cl_image_tag @sell_advert.photo, :height=>500, :width=>600, :crop=>"fill", :quality=>"auto" %>
+          <% end %>
+        </div>
+        <div class="tab-pane" id="2b">
+          <div
+            id="map"
+            style="
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;"
+            data-markers="<%= @markers.to_json %>"
+          ></div>
+        </div>
+        <div class="tab-pane" id="3b">
+          <div class="title text-left title-space">
+          <p>Name:</p>
+          <div class="textbox">
+            <p><%= @sell_advert.user.first_name %> <%= @sell_advert.user.last_name %></p>
+          </div>
+
+          <p>Batch number:</p>
+          <div class="textbox">
+            <p><%= @sell_advert.user.batch_no %></p>
+          </div>
+
+           <p>Contact details:</p>
+          <div class="textbox">
+            <i class="fas fa-phone"></i>
+            <p><%= @sell_advert.user.phone_number %></p>
+            <i class="far fa-envelope-open"></i>
+            <p><%= @sell_advert.user.email %></p>
+          </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -54,7 +92,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Send email</h4>
+        <h4 class="modal-title" id="myModalLabel">Send email to <%= @sell_advert.user.email %></h4>
       </div>
       <div class="modal-body">
         <%= form_tag send_contact_email_path(@sell_advert), method: :post do |f| %>
