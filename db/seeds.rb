@@ -24,15 +24,15 @@ User.find_by(email: 'test@test.com').update(admin: true)
 User.find_by(email: 'test@test.com').update(username: "test")
 
 # users
-dirk = User.create!(email: "dirk@lewagon.com", password: "testtest", first_name: "Dirk", last_name: "Schuler", username: "Dirk")
-julian = User.create!(email: "julian@rega-sense.ch", password: "testtest", first_name: "Julian", last_name: "Leopold")
-kevin = User.create!(email: "kjsmekens@gmail.com", password: "testtest", first_name: "Kevin", last_name: "Smekens")
-gus = User.create!(email: "gusmac@gmail.com", password: "testtest", first_name: "Gus", last_name: "Macfarlnae")
+dirk = User.create!(email: "dirk@lewagon.com", password: "testtest", first_name: "Dirk", last_name: "Schuler", username: "Dirk", phone_number: Faker::PhoneNumber.cell_phone)
+julian = User.create!(email: "julian@rega-sense.ch", password: "testtest", first_name: "Julian", last_name: "Leopold", phone_number: Faker::PhoneNumber.cell_phone)
+kevin = User.create!(email: "kjsmekens@gmail.com", password: "testtest", first_name: "Kevin", last_name: "Smekens", phone_number: Faker::PhoneNumber.cell_phone)
+gus = User.create!(email: "gusmac@gmail.com", password: "testtest", first_name: "Gus", last_name: "Macfarlnae", phone_number: Faker::PhoneNumber.cell_phone)
 
 # random users
 random_users = []
 10.times do
-  random_users << User.create!(email: Faker::Internet.email, password: "testest", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Name.first_name)
+  random_users << User.create!(email: Faker::Internet.email, password: "testest", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Name.first_name, phone_number: Faker::PhoneNumber.cell_phone)
 end
 
 puts "categories"
@@ -123,13 +123,10 @@ puts "reviews"
 descriptions = ["Nice. Stored in a clean cupboard.", "Took really good care of my stuff", "Great guy!", "I rented a unit with Extra Space Storage. When it rained the roof leaked. ", "The temperature in the storage unit was appropriate.", "These guys get you in with “specials” and then raise rates as fast as they can.", "Great and super friendly service! They explained prices and terms very clearly.", "Been renting a 10x10 storage unit for five months. Satisfied", "Our stuff were exactly as we left them and we didn't lose anything.","Extra Space raises my rent 100% without notifying me and deducts it from my charge card."]
 
 StorageSpace.all.each do |space|
-  number_of_reviews = (8).to_a.sample
+  number_of_reviews = 8
   number_of_reviews.times do
     r = Review.new(rating: [5,5,5,4,4,4].sample, description: descriptions.sample, storage_space: space)
     r.user = random_users.sample
     r.save!
   end
-
-puts "phew! finished, and not a handbag in sight!"
-
 end
