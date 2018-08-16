@@ -30,8 +30,7 @@ width: 100%;
   min-height: 15px;
   width: 100%;
   text-align: left;
-  padding: 15px;
-  padding-top: 15px;
+  padding: 10px;
   margin-bottom: 5px;
   margin-top: -5px;
   font-size: 14px;
@@ -54,6 +53,13 @@ width: 100%;
 .title  {
   justify-content: center;
   align-items: center;
+}
+.title h2{
+  #margin-top: 0px !important;
+}
+
+.title-space {
+  padding-top: 20px;
 }
 
 .half-container {
