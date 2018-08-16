@@ -19,7 +19,7 @@ photo_urls = [
 ]
 
 # Admin User for forum
-User.create!(email: "test@test.com", password: "testtest", first_name: "J", last_name: "L")
+User.create!(email: "test@test.com", password: "testtest", first_name: "John", last_name: "Lampert")
 User.find_by(email: 'test@test.com').update(admin: true)
 User.find_by(email: 'test@test.com').update(username: "test")
 
@@ -64,7 +64,7 @@ puts "sell adverts"
 items = ["Bicycle", "MacBook Pro 13'", "Scooter Helmet", "Almost New Motorbike Helmet", "6.8 Surfboard Snapped only once."]
 description = ["Fantastic Racer. I bought the bike at the beginning of my the bootcamp and can't take it home.", "After my Lenovo would not install Linux I bought this computer. Since my company is giving me a new one I do not need it anymore.", "Bought here in Bali to have some decent protection. Couple scrates but otherwise in good condition. New price was 1.2 Mil IDR", "If you want to protect your head INVEST in a real helmet! Seriously, most people here can't drive. And dont drive drunk!!", "Bought a new surfboard, broke it and repaired it."]
 photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1533895558/bicycle.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895553/macbookpro.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895556/helmet.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1533895556/helmet.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1534131736/snapped_board.jpg"]
-prices = [300, 1000, 40, 200.00, 200.00]
+prices = [300, 1000, 40, 200, 200.00]
 conditions = ["Used", "Like-New", "Used", "Like-New", "Used"]
 subcategories = [bikes, apple, gear, gear, surfboards]
 categories = [sports, computers, sports, sports, sports]
@@ -80,7 +80,7 @@ end
 
 puts "buy adverts"
 titles = ["Looking for a Skateboard", "Protective gear for scooter", "Scuba gear", "Searching cheap MacBook for bootcamp" ]
-descriptions = ["Relatively new skate or longboard to commute to boot camp", "Trying to protect myself while crusing around. Looking for gloves, helmet, and jacket", "Being an avid scooba diver I want to use the proximity to the ocean. Unfortunately I don't have my gear with me.", "I read in the forum that I should get a mac for the bootcamp."]
+descriptions = ["Skate or longboard to commute to boot camp", "Trying to protect myself while crusing around. Looking for gloves, helmet, and jacket", "Being an avid scooba diver I want to use the proximity to the ocean. Unfortunately I don't have my gear with me.", "I read in the forum that I should get a mac for the bootcamp."]
 prices = [50, 200, 300, 600]
 photos = ["", "", "https://res.cloudinary.com/j163surf77/image/upload/v1533895555/scuba_diver.jpg", ""]
 subcategories = [surfboards, gear, gear, apple]
@@ -100,10 +100,10 @@ status = ["Confirmed", "Pending", "Confirmed", "Pending", "Confirmed", "Pending"
 end
 
 puts "reviews"
-descriptions = ["Wonderful", "Took really good care of my stuff", "Great guy!", "Thanks a lot!", "Secure location", "Mixed experience", "It only it was always this easy"]
+descriptions = ["Nice. Stored in a clean cupboard.", "Took really good care of my stuff", "Great guy!", "I rented a unit with Extra Space Storage. When it rained the roof leaked. ", "The temperature in the storage unit was appropriate. I will use their service in a heartbeat.", "These guys get you in with “specials” and then raise rates as fast as they can.", "Great and super friendly service! They explained prices and terms very clearly.", "Been renting a 10x10 storage unit for five months and paid on time. 6th month", "Our stuff were exactly as we left them and we didn't lose anything.","Extra Space raises my rent 100% without notifying me and deducts it from my charge card."]
 
 StorageSpace.all.each do |space|
-  number_of_reviews = (3..10).to_a.sample
+  number_of_reviews = (3..10  ).to_a.sample
   number_of_reviews.times do
     r = Review.new(rating: [5,5,5,4,4,4,3,3,2,1].sample, description: descriptions.sample, storage_space: space)
     r.user = User.all.sample
