@@ -22,84 +22,20 @@ Browse all Storage Spaces
 <div style="margin-bottom: 30px">
   <h3>Storage Spaces</h3>
 </div>
-  <% @storage_spaces.each do |result| %>
-    <div class="container container-margin">
-      <div class="advert">
-          <% if result.photo.filename.nil? %>
-          <div class="avatar-large">
-            <i class="fas fa-camera-retro"></i>
-            <%= link_to "", result, class: "advert-link" %>
-          </div>
-          <% else %>
-          <div class="avatar-large">
-            <%= cl_image_tag (result.photo), :height=>150, :width=>150, crop: :fill %>
-              <%= link_to "", result, class: "advert-link" %>
-          </div>
-          <% end %>
-        <div class="item-adverts-body">
-          <div class="item-adverts-text">
-            <div class="title-list">
-              <div class="title-list-header"><h4><strong><%= link_to "#{result.title}", result %></strong></h4></div>
-              <div class="title-list-view"> <h6>Views: <%= [8,9,10,11,12,14,15,16].sample %> | Saves: <%= [0,0,1,2,3,4,5,6,7,8,9].sample %></h6></div>
-            </div>
-            <h5><%= "#{result.description}" %></h5>
-          </div>
-          <div class="item-adverts-footer">
-            <div class="row" style="display: flex; margin: 0 auto; justify-content: start;">
-              <div class="item-adverts-footer-item item-adverts-footer-item-first">
-                <div>
-                  <h6>Posted by:</h6>
-                </div>
-                <div>
-                  <p><%= result.user.username %></p>
-                </div>
-              </div>
-              <div class="item-adverts-footer-item item-adverts-footer-item-border">
-                <div>
-                  <h6>Posted on:</h6>
-                </div>
-                <div>
-                  <p><%= result.created_at.strftime("%d-%m-%Y") %></p>
-                </div>
-              </div>
-              <div class="item-adverts-footer-item item-adverts-footer-item-border">
-                <div>
-                  <h6>Location:</h6>
-                </div>
-                <div>
-                  <p><%= result.address ? "#{result.address}" : "?" %></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item-adverts-details">
-          <div><a href=""><h4><i class="far fa-star"></i></h4></a></div>
-          <div><h4><%= result.price %></h4></div>
-          <div><a href=""><h4><i class="far fa-envelope"></i></h4></a></div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-
-<div style="margin-bottom: 30px">
-  <h3>Storage Spaces</h3>
-</div>
 <div class="container">
   <div class="row">
     <% @storage_spaces.each do |result| %>
       <div class="col-xs-12 col-sm-4">
-        <div>
+        <div class="card-margin-top">
           <%= cl_image_tag (result.photo), class: "card" %><%= link_to "", result %>
         </div>
-        <div>
+        <div class="card-body-margin-top">
           <div class="place-name"><%= link_to "#{result.title}", result %></div>
-          <div class="price">$<%= result.price %> per day. Free Cancelation</div>
+          <div class="price"><%= result.price %> per diem rate</div>
         </div>
-          <div class="item-adverts-footer">
-            <div class="row" style="display: flex; margin: 0 auto; justify-content: start; margin-bottom: 10px">
-              <div class="item-adverts-footer-item item-adverts-footer-item-first" style="color: #484848 !important;">
+          <div class="item-adverts-footer card-margin-top">
+            <div class="row card-row">
+              <div class="item-adverts-footer-item item-adverts-footer-item-first">
                 <div>
                   <h6>Posted by:</h6>
                 </div>
