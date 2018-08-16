@@ -15,30 +15,39 @@
   </div>
 </div>
 
-<div class="wrapper">
+<div class="container">
 
 <% if @results == [] %>
   <%= "Unfortunately there are no results. The good thing is the search is working." %>
 <% else %>
 <% previous_item = nil %>
+<div class="row">
   <% @results.each do |result| %>
 
 
   <!-- type title -->
-    <div class="container container-margin">
+    <!-- <div class="container container-margin"> -->
       <% if previous_item.nil? || result.class.name != previous_item.class.name  %>
         <div style="margin-bottom: 30px">
           <% if result.class.name == "StorageSpace" %>
+            <div class="container"></div>
+            <!-- <div class="row"> -->
             <h3>STORAGE SPACES</h3>
           <% elsif result.class.name == "BuyAdvert" %>
+            <div class="container"></div>
+            <!-- <div class="row"> -->
             <h3>WANTED</h3>
           <% else %>
+            <div class="container"></div>
+            <!-- <div class="row"> -->
             <h3>FOR SALE</h3>
           <% end %>
         </div>
       <% end %>
+    <!-- </div> -->
 
     <!-- advert -->
+
       <div class="col-xs-12 col-sm-4">
           <% if result.photo.filename.nil? %>
           <div class="avatar-large card-margin-top">
@@ -47,7 +56,13 @@
           </div>
           <% else %>
             <div class="card-margin-top">
-              <%= cl_image_tag (result.photo), class: "card" %><%= link_to "", result %>
+              <!-- <%= cl_image_tag result.photo, :crop=>"scale", :quality=>"auto:eco", :fetch_format=>:auto, class: "card img-responsive" %> -->
+              <!-- make pictures fill the space -->
+              <div class="card"
+              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+              url('<%= cl_image_path result.photo, height: 300, width: 400, :quality=>"auto:eco", :fetch_format=>:auto, crop: :fill %>')">
+              </div>
+              <%= link_to "", result %>
             </div>
           <% end %>
         <div class="card-body-margin-top">
@@ -83,8 +98,9 @@
             </div>
           </div>
       </div>
-    </div>
+    <!-- </div> -->
     <% previous_item = result %>
   <% end %>
 <% end %>
+</div>
 </div>
