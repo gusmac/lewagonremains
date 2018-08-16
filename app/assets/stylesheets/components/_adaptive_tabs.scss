@@ -50,12 +50,42 @@ width: 100%;
 }
 }
 
+.textbox-contact {
+  background-color: white;
+  border-radius: 3px;
+  min-height: 15px;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 3px;
+  margin-top: -5px;
+  font-size: 14px;
+  border-top: 1px solid #e2e2e2;
+&.price {
+  display: flex;
+  justify-content: space-between;
+  border: 0px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  font-weight: bold;
+  padding: 0px;
+  padding-left: 0px;
+  padding-right: 20px;
+
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+}
+
+.list-inline i{
+  font-size: 23px;
+}
+
 .title  {
   justify-content: center;
   align-items: center;
 }
 .title h2{
-  #margin-top: 0px !important;
+  margin-top: 0px !important;
 }
 
 .title-space {
