@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/storer', to: 'pages#storer'
   get '/forumtest', to: 'pages#forum'
+  get '/forumtestpost', to: 'pages#forum_post'
   get '/browse_wanted', to: 'buy_adverts#browse_buy'
   get '/browse_for_sale', to: 'sell_adverts#browse_sell'
   get '/browse_storage_space', to: 'storage_spaces#browse_storage_space'
