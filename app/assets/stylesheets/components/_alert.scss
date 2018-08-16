@@ -6,12 +6,17 @@
   margin: 0;
   text-align: center;
   color: white;
+  height: 20px;
+  width: 100%;
+  background: pink;
+}
+.alert-info {
+  background: blue;
   height: 0px;
   width: 0px;
 }
-.alert-info {
-  background: #e2e2e2;
-}
 .alert-warning {
-  background: #e2e2e2;
+  background: yellow;
+  height: 0px;
+  width: 0px;
 }

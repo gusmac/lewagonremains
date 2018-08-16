@@ -100,7 +100,7 @@ status = ["Confirmed", "Pending", "Confirmed", "Pending", "Confirmed", "Pending"
 end
 
 puts "reviews"
-descriptions = ["Nice. Stored in a clean cupboard.", "Took really good care of my stuff", "Great guy!", "I rented a unit with Extra Space Storage. When it rained the roof leaked. ", "The temperature in the storage unit was appropriate. I will use their service in a heartbeat.", "These guys get you in with “specials” and then raise rates as fast as they can.", "Great and super friendly service! They explained prices and terms very clearly.", "Been renting a 10x10 storage unit for five months and paid on time. 6th month", "Our stuff were exactly as we left them and we didn't lose anything.","Extra Space raises my rent 100% without notifying me and deducts it from my charge card."]
+descriptions = ["Nice. Stored in a clean cupboard.", "Took really good care of my stuff", "Great guy!", "I rented a unit with Extra Space Storage. When it rained the roof leaked<. ", "The temperature in the storage unit was appropriate. I will use their service in a heartbeat.", "These guys get you in with “specials” and then raise rates as fast as they can.", "Great and super friendly service! They explained prices and terms very clearly.", "Been renting a 10x10 storage unit for five months and paid on time. 6th month", "Our stuff were exactly as we left them and we didn't lose anything.","Extra Space raises my rent 100% without notifying me and deducts it from my charge card."]
 
 StorageSpace.all.each do |space|
   number_of_reviews = (3..10  ).to_a.sample
