@@ -4,7 +4,7 @@
     <a id="dropdown" role="button" data-toggle="dropdown" class="btn btn-primary" href="#">
         Category <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu searchbar-dropdown"" role="menu" aria-labelledby="dropdown">
+    <ul class="dropdown-menu searchbar-dropdown" role="menu" aria-labelledby="dropdown">
       <% @categories.each do |c| %>
         <li>
           <%= radio_button_tag(:categories, c.name) %>
