@@ -148,13 +148,14 @@ h3, .h3 {
 }
 
 .avatar-large {
-  height: 175px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 70px;
   position: relative;
   background-color: #e2e2e2;
+  border-radius: 3px;
 }
 
 .advert-link {
@@ -201,4 +202,8 @@ h3, .h3 {
 
 .item-adverts-footer-item-first {
   padding-right: 10px;
+}
+
+.card {
+  border-radius: 3px;
 }

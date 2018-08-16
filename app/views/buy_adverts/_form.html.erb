@@ -6,9 +6,11 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <%= f.input :title %>
           <%= f.input :description %>
-          <%= f.association :category, collection: Category.all %>
-          <%= f.association :subcategory, collection: Subcategory.all %>
-          <%= f.input :price_cents %>
+          <%= f.label :category_id %>
+          <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %>
+          <%= f.label :subcategory_id, "Subcategory" %>
+          <%= f.grouped_collection_select :subcategory_id, Category.order(:name), :subcategories, :name, :id, :name, include_blank: true %>
+          <%= f.input :price %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
           <%= f.button :submit, class: "btn btn-primary" %>
