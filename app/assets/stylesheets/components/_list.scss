@@ -51,20 +51,20 @@
 
 
 .item-adverts-footer {
-  margin-top: 9px;
+  // margin-top: -7px;
   #background-color: yellow;
   color: rgba(0,0,0,0.6);
 }
 
 .item-adverts-footer h6 {
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
 }
 
 
 .item-adverts-text {
   #background-color:green;
   margin-top: 0px;
-  height: 95px;
+  height: 119px;
 }
 
 .item-adverts-text h5{
@@ -172,10 +172,17 @@
   justify-content: center;
   align-items: center;
   flex: 1 auto;
+  margin: 0;
 }
 
 .item-adverts-footer-item h6{
-  font-size: 14px
+  font-size: 14px;
+  margin: 0;
+}
+
+.item-adverts-footer-item p{
+  font-size: 12px;
+  margin: 0;
 }
 
 .item-adverts-footer-item-border {

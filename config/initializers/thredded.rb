@@ -72,6 +72,7 @@ Thredded.private_messaging_enabled = true
 
 # The layout for rendering Thredded views.
 Thredded.layout = 'thredded/application'
+# Thredded.layout = 'app/views/pages/thredded.html.erb'
 
 # ==> Email Configuration
 # Email "From:" field will use the following
