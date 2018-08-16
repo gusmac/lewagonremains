@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to storage_space_booking_path(@storage_space, @booking), notice: "Booking was successfully created"
     else
-      redirect_to @storage_space, alert: "Booking unsuccessful! Have you tried turning it off and on again?"
+      redirect_to @storage_space
     end
   end
 
