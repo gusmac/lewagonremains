@@ -1,5 +1,5 @@
 <%= content_for(:title) do %>
-<%= @sell_advert.title %>
+<%= @buy_advert.title %>
 <% end %>
 
 <div class="full-container">
@@ -15,7 +15,7 @@
           <p><%= @buy_advert.description %></p>
         </div>
         <p>Address:</p>
-        <div class="textbox">
+        <div class="textbox-c">
         <p><%= @buy_advert.address %></p>
         </div>
         <div class="textbox price">
@@ -23,7 +23,6 @@
           <h5><%= @buy_advert.price_cents %> <%= @buy_advert.price.symbol %> </h5>
         </div>
       </div>
-      <%= link_to "Buy", new_buy_advert_order_path(@buy_advert), class: "btn-medium" %>
       <div class="btn-medium-black" data-toggle="modal" data-target="#myModal">
         Send an email
       </div>
@@ -60,21 +59,25 @@
         <div class="tab-pane" id="3b">
           <div class="title text-left title-space">
           <p>Name:</p>
-          <div class="textbox">
+          <div class="textbox-contact">
             <p><%= @buy_advert.user.first_name %> <%= @buy_advert.user.last_name %></p>
           </div>
 
           <p>Batch number:</p>
-          <div class="textbox">
+          <div class="textbox-contact">
             <p><%= @buy_advert.user.batch_no %></p>
           </div>
 
            <p>Contact details:</p>
-          <div class="textbox">
-            <i class="fas fa-phone"></i>
-            <p><%= @buy_advert.user.phone_number %></p>
-            <i class="far fa-envelope-open"></i>
-            <p><%= @buy_advert.user.email %></p>
+          <div class="textbox-contact">
+            <ul class="list-inline">
+              <li><i class="fab fa-whatsapp"></i></li>
+              <li><p><%= @buy_advert.user.phone_number %></p></li>
+            </ul>
+            <ul class="list-inline">
+              <li><i class="far fa-envelope-open"></i></li>
+              <li><p><%= @buy_advert.user.email %></p></li>
+            </ul>
           </div>
           </div>
         </div>
@@ -88,10 +91,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Send email to <%= @sell_advert.user.email %></h4>
+        <h4 class="modal-title" id="myModalLabel">Send email to <%= @buy_advert.user.email %></h4>
       </div>
       <div class="modal-body">
-        <%= form_tag send_contact_email_path(@sell_advert), method: :post do |f| %>
+        <%= form_tag send_contact_email_path(@buy_advert), method: :post do |f| %>
           <%= text_field_tag :message, params[:message], placeholder: "Write your message",class: "form mail-form", rows: 10, cols: 25%>
           <input type="submit" id='email-submit'>
         <% end %>
