@@ -83,7 +83,7 @@ photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1534401057/bicycl
   "https://res.cloudinary.com/j163surf77/image/upload/v1533895553/macbookpro.jpg",
   "https://res.cloudinary.com/j163surf77/image/upload/v1533895556/helmet.jpg",
   "https://res.cloudinary.com/j163surf77/image/upload/v1534131736/shortboard.jpg"]
-prices = [30000, 100000, 4000, 20000, 20000]
+prices = [300, 1000, 400, 200, 200]
 conditions = ["Used", "Like-New", "Used", "Like-New", "Used"]
 subcategories = [bikes, apple, gear, gear, surfboards]
 categories = [sports, computers, sports, sports, sports]
@@ -100,7 +100,7 @@ end
 puts "buy adverts"
 titles = ["Protective gear for scooter", "Scuba gear", "Searching cheap MacBook for bootcamp" ]
 descriptions = ["Skate or longboard to commute to boot camp", "Trying to protect myself while crusing around. Looking for gloves, helmet, and jacket", "Being an avid scooba diver I want to use the proximity to the ocean. Unfortunately I don't have my gear with me.", "I read in the forum that I should get a mac for the bootcamp."]
-prices = [20000, 30000, 60000]
+prices = [200, 300, 600]
 photos = ["", "https://res.cloudinary.com/j163surf77/image/upload/v1533895555/scuba_diver.jpg",
   "https://res.cloudinary.com/j163surf77/image/upload/v1534402398/macbookcorner.jpg"]
 subcategories = [gear, gear, apple]
