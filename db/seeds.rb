@@ -24,15 +24,15 @@ User.find_by(email: 'test@test.com').update(admin: true)
 User.find_by(email: 'test@test.com').update(username: "test")
 
 # users
-dirk = User.create!(email: "dirk@lewagon.com", password: "testtest", first_name: "Dirk", last_name: "Schuler", username: "Dirk", phone_number: Faker::PhoneNumber.cell_phone)
-julian = User.create!(email: "julian@rega-sense.ch", password: "testtest", first_name: "Julian", last_name: "Leopold", phone_number: Faker::PhoneNumber.cell_phone)
-kevin = User.create!(email: "kjsmekens@gmail.com", password: "testtest", first_name: "Kevin", last_name: "Smekens", phone_number: Faker::PhoneNumber.cell_phone)
-gus = User.create!(email: "gusmac@gmail.com", password: "testtest", first_name: "Gus", last_name: "Macfarlnae", phone_number: Faker::PhoneNumber.cell_phone)
+dirk = User.create!(email: "dirk@lewagon.com", password: "testtest", first_name: "Dirk", last_name: "Schuler", username: "Dirk", phone_number: Faker::PhoneNumber.cell_phone, batch_no: 49)
+julian = User.create!(email: "julian@rega-sense.ch", password: "testtest", first_name: "Julian", last_name: "Leopold", phone_number: Faker::PhoneNumber.cell_phone, batch_no: 163)
+kevin = User.create!(email: "kjsmekens@gmail.com", password: "testtest", first_name: "Kevin", last_name: "Smekens", phone_number: Faker::PhoneNumber.cell_phone, batch_no: 163)
+gus = User.create!(email: "gusmac@gmail.com", password: "testtest", first_name: "Gus", last_name: "Macfarlnae", phone_number: Faker::PhoneNumber.cell_phone, batch_no: 163)
 
 # random users
 random_users = []
 10.times do
-  random_users << User.create!(email: Faker::Internet.email, password: "testest", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Name.first_name, phone_number: Faker::PhoneNumber.cell_phone)
+  random_users << User.create!(email: Faker::Internet.email, password: "testest", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Name.first_name, phone_number: Faker::PhoneNumber.cell_phone, batch_no: [150,145,134,162,160].sample)
 end
 
 puts "categories"
