@@ -155,6 +155,7 @@ h3, .h3 {
   font-size: 70px;
   position: relative;
   background-color: #e2e2e2;
+  border-radius: 3px;
 }
 
 .advert-link {
@@ -201,4 +202,8 @@ h3, .h3 {
 
 .item-adverts-footer-item-first {
   padding-right: 10px;
+}
+
+.card {
+  border-radius: 3px;
 }
