@@ -9,7 +9,7 @@ Booking.destroy_all
 StorageSpace.destroy_all
 User.destroy_all
 
-
+puts "creating!"
 
 photo_urls = [
   "https://res.cloudinary.com/j163surf77/image/upload/v1533624821/cabin.jpg",
@@ -109,4 +109,7 @@ StorageSpace.all.each do |space|
     r.user = User.all.sample
     r.save!
   end
+
+puts "phew! finished, and not a handbag in sight!"
+
 end
