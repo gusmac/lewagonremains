@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/storer', to: 'pages#storer'
+  get '/forumtest', to: 'pages#forum'
   get '/browse_wanted', to: 'buy_adverts#browse_buy'
   get '/browse_for_sale', to: 'sell_adverts#browse_sell'
   get '/browse_storage_space', to: 'storage_spaces#browse_storage_space'
