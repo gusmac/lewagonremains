@@ -70,3 +70,29 @@ input[type=submit] {
 .form {
   min-width: 500px;
 }
+
+.searchbar-form {
+  display: flex;
+  width: 100%;
+}
+.searchbar-dropdown {
+  .active {
+    background: #f96961;
+    color: white;
+  }
+}
+
+.searchbar-dropdown li input {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
+}
+
+.searchbar-dropdown li {
+  text-align: center;
+  position: relative;
+}

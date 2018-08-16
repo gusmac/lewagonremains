@@ -30,3 +30,6 @@ document.querySelector(".thredded--button").style.backgroundColor = "red"
 "red"
 document.querySelector(".thredded--button").style.color = "white"
 "white"
+
+
+options_for_select(@categories, "name", "name")
