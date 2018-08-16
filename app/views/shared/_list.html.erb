@@ -23,13 +23,22 @@
 <% previous_item = nil %>
   <% @results.each do |result| %>
 
+
+  <!-- type title -->
     <div class="container container-margin">
       <% if previous_item.nil? || result.class.name != previous_item.class.name  %>
         <div style="margin-bottom: 30px">
-          <!-- border-bottom: 2px solid #e2e2e2; width: 83%; -->
-          <h3><%= "#{result.class.name}s" %></h3>
+          <% if result.class.name == "StorageSpace" %>
+            <h3>STORAGE SPACES</h3>
+          <% elsif result.class.name == "BuyAdvert" %>
+            <h3>WANTED</h3>
+          <% else %>
+            <h3>FOR SALE</h3>
+          <% end %>
         </div>
       <% end %>
+
+    <!-- advert -->
       <div class="advert">
           <% if result.photo.filename.nil? %>
           <div class="avatar-large">

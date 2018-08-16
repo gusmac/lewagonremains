@@ -85,6 +85,7 @@
 .title-list-header {
   #background-color: yellow;
   & a {
+  font-weight: lighter;
   color: #494949;
   text-decoration: none;
   }
@@ -96,6 +97,12 @@
 }
 .title-list-header h4 {
   margin-top:0px;
+}
+
+h3, .h3 {
+    font-size: 20px;
+    font-weight: 350px;
+    color: #848484  ;
 }
 
 .title-list-view {
@@ -150,7 +157,7 @@
   align-items: center;
   font-size: 70px;
   position: relative;
-  background-color: grey;
+  background-color: #e2e2e2;
 }
 
 .advert-link {
