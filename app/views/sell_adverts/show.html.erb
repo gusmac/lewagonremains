@@ -27,7 +27,10 @@
           <h5><%= @sell_advert.price %> <%= @sell_advert.price.symbol %> </h5>
         </div>
       </div>
-      <%= link_to "Buy", new_sell_advert_order_path(@sell_advert), class: "btn-medium" %>
+     <!--  <%= link_to "Buy", new_sell_advert_order_path(@sell_advert), class: "btn-medium", id: "btn-buy" %> -->
+      <div class="btn-medium" id="btn-buy">
+        Buy
+      </div>
       <div class="btn-medium-black" data-toggle="modal" data-target="#myModal">
         Send an email
       </div>
