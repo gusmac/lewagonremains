@@ -1,3 +1,4 @@
+
 .banner {
   color: black;
   text-align: center;
@@ -6,6 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), transparent 53%), linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 53%),
+  url("https://images.pexels.com/photos/1321288/pexels-photo-1321288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: bottom 22% center;
 }
 
 .banner-content {
@@ -35,7 +39,10 @@
   align-items: center;
   justify-content: flex-end;
   text-align: right;
-
+  color: white;
+  font-size: 65px;
+  font-weight: bold;
+  padding: 7px;
 }
 
 .middle {
@@ -49,10 +56,11 @@
 }
 
 .middle h3 {
-  font-size: 40px;
+  font-size: 65px;
   margin: 0px;
-  color: black;
+  color: white;
   padding-bottom: 4px;
+  font-weight: bold;
 }
 
 .right {
@@ -62,6 +70,9 @@
   align-items: center;
   justify-content: center;
   text-align: left;
+  color: white;
+  font-size: 65px;
+  font-weight: bold;
 }
 
 .bottom {
@@ -70,7 +81,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 175px;
+  margin-bottom: 25px;
 }
 
 .bottom-content {
@@ -85,7 +96,7 @@
 }
 
 .search-border {
-  border: 4px solid $lwr-red;
-  border-radius: 8px;
-  height: 100px;
+  #border: 3px solid #F75555;
+  border-radius: 6px;
+  height: 75px;
 }

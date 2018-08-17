@@ -7,23 +7,47 @@
     <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
+  <%= favicon_link_tag asset_path('LWR-red.png') %>
   </head>
-  <body class="body">
+  <body class="body <%= controller_name %> <%= action_name %>">
     <% if controller.controller_name == "pages" && controller.action_name == "home" %>
       <%= render 'shared/navbar' %>
+      <%= yield %>
     <% else %>
       <%= render 'shared/navbar' %>
       <%= render 'shared/navbar_second' %>
-    <% end %>
-    <%= render 'shared/flashes' unless controller.controller_name == "pages" && controller.action_name == "home" %>
     <div class="container">
       <%= yield %>
     </div>
+    <% end %>
+    <% if controller.controller_name != "pages" && controller.action_name != "home" %>
+      <div class="footer" style="height: 100px"></div>
+    <% end %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=GOOGLE_API_BROWSER_KEY"></script>
     <%= javascript_pack_tag "map" %>
   </body>
 </html>

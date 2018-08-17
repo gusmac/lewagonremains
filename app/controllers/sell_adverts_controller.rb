@@ -15,6 +15,7 @@ class SellAdvertsController < ApplicationController
       @sell_adverts = SellAdvert.all
       @results = SellAdvert.all
     end
+    @categories = Category.all
   end
 
   def show
@@ -30,9 +31,9 @@ class SellAdvertsController < ApplicationController
 
 
     if @sell_advert.save
-      redirect_to sell_advert_path(@sell_advert), notice: "Advert was successfully created!"
+      redirect_to sell_adverts_path
     else
-      render :new, alert: "Advert unsuccessful!"
+      render :new
     end
   end
 
@@ -41,7 +42,7 @@ class SellAdvertsController < ApplicationController
 
   def update
     if @sell_advert.update(sell_advert_params)
-      redirect_to @sell_advert, notice: "Advert successfully updated"
+      redirect_to @sell_advert
     else
       render :edit
     end

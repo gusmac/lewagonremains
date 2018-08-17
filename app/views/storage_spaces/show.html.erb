@@ -1,3 +1,7 @@
+<%= content_for(:title) do %>
+<%= @storage_space.title %>
+<% end %>
+
 <div class="full-container">
   <div class="half-container col-sm-6">
     <div class="" style="display: flex; justify-content: space-between; flex-direction: column; height: 500px; width: 500px;">
@@ -11,15 +15,15 @@
         </div>
         <p>Address:</p>
         <div class="textbox">
-        <p><%= @storage_space.address %></p>
+          <p><%= @storage_space.address %></p>
         </div>
         <div class="textbox price">
           <h5>Price:</h5>
-          <h5><%= @storage_space.price_cents %> <%= @storage_space.price.symbol %> / Per Day</h5>
+          <h5><%= @storage_space.price %> <%= @storage_space.price.symbol %> / Per Day</h5>
         </div>
       </div>
       <%= link_to "Book this space!", new_storage_space_booking_path(@storage_space), class: "btn-medium" %>
-       <div class="btn-medium-black" data-toggle="modal" data-target="#myModal">
+      <div class="btn-medium-black" data-toggle="modal" data-target="#myModal">
         Send an email
       </div>
 <!--       <div class="crud-action">
@@ -28,6 +32,8 @@
       </div> -->
     </div>
   </div>
+
+  <!-- tabs -->
   <div class="half-container col-sm-6">
     <div class="">
       <ul  class="nav nav-pills">

@@ -18,25 +18,21 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.start_date = Date.parse("#{params[:startdate]}")
+    @booking.end_date = Date.parse("#{params[:enddate]}")
     @booking.user = current_user
     @storage_space = StorageSpace.find(params[:storage_space_id])
     @booking.storage_space = @storage_space
-
-
-    # # validates dates
-    if @booking.start_date > @booking.end_date || @booking.start_date < Date.today
-      raise # raise an error. Does not even get to saving.
-      # TODO maybe we find a smart gem to do this.
-    end
+    @booking.status = "Pending"
 
     # calculating the price
     number_of_days = @booking.end_date - @booking.start_date
-    @booking.price_cents = number_of_days * @booking.storage_space.price_cents
+    @booking.price = number_of_days * @booking.storage_space.price
 
     if @booking.save
-      redirect_to storage_space_booking_path(@storage_space, @booking), notice: "Booking was successfully created"
+      redirect_to storage_space_booking_path(@storage_space, @booking)
     else
-      redirect_to @storage_space, alert: "Booking unsuccessful! Have you tried turning it off and on again?"
+      redirect_to @storage_space
     end
   end
 

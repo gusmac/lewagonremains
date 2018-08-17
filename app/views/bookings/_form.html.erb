@@ -1,24 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
+    <div class="col-sm-10 col-sm-offset-1">
       <div>
         <%= simple_form_for [storage_space, booking] do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-            <%= f.input :comment %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
-            <%= f.input :status, :collection => %w[Pending Cancelled Confirmed] %>
-            <%= f.input :price_cents %>
-            <p><%= storage_space.price %></p>
+            <div style="display: flex; justify-content: space-between; margin: 10px;">
+              <div class="datepicker">
+                <input name="startdate" class="flatpickr flatpickr-input" type="text" placeholder="Select Start Date" readonly="readonly">
+              </div>
+              <div class="datepicker">
+                <input name="enddate" class="flatpickr flatpickr-input" type="text" placeholder="Select End Date" readonly="readonly">
+              </div>
+            </div>
 
-            <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.input :comment, :placeholder => "Tell #{@storage_space.user.first_name} what you are storing!"%>
+          <p>Price per Day: <%= storage_space.price.symbol %> <%= storage_space.price %></p>
+          <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
 <!-- price_cents should come from the storage space advert -->

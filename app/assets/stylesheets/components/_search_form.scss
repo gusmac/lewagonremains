@@ -9,7 +9,6 @@
   justify-content: space-around;
   text-align: left;
   align-items: center;
-  margin: 0
 }
 
 .autocomplete {
@@ -20,9 +19,9 @@
 }
 
 input {
-  border: 1px solid transparent;
+  border:0;
+  margin: 0;
   background-color: #f1f1f1;
-  padding: 10px;
   font-size: 16px;
 }
 
@@ -68,12 +67,14 @@ input[type=submit] {
 }
 
 .form {
-  min-width: 500px;
+  min-width: 550px;
 }
 
 .searchbar-form {
   display: flex;
   width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 .searchbar-dropdown {
   .active {
@@ -95,4 +96,34 @@ input[type=submit] {
 .searchbar-dropdown li {
   text-align: center;
   position: relative;
+}
+
+.searchbar-home-button {
+  border-radius: 3px 0 0 3px !important;
+  width: 150px;
+  font-size: 16px;
+  padding: 11px;
+  height: 47px;
+}
+
+.searchbar-height {
+  height: 47px;
+  text-indent: 10px;
+}
+
+.searchbar-submit {
+  height: 47px;
+  border-radius: 0 3px 3px 0;
+  width: 150px;
+  font-size: 16px;
+}
+
+.searchbar-submit:hover {
+  color: #fff;
+  background-color: #f52424;
+  border-color: #ea0b0b;
+}
+
+.form-width {
+  min-width: 700px;
 }

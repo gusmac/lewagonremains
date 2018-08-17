@@ -7,6 +7,7 @@ function initDropdownClick(){
     document.querySelectorAll("input[type='radio']").forEach(function(element) {
       element.parentNode.classList.remove("active");
       selectedElement.target.parentNode.classList.add("active");
+
     });
   }
 }

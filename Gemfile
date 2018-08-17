@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'thredded', '~> 0.15.4'
 gem "letter_opener", group: :development
+gem 'sendgrid-ruby'
 
 
 group :development do
