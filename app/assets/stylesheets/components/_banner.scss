@@ -6,8 +6,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(-225deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 36, 61, 0.1) 50%), url("https://images.pexels.com/photos/1321288/pexels-photo-1321288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), transparent 53%), linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 53%),
+  url("https://images.pexels.com/photos/1321288/pexels-photo-1321288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: bottom 22% center;
 }
 
 .banner-content {
@@ -40,6 +41,7 @@
   color: white;
   font-size: 65px;
   font-weight: bold;
+  padding: 7px;
 }
 
 .middle {

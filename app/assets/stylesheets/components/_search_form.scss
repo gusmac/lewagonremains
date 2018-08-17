@@ -67,7 +67,7 @@ input[type=submit] {
 }
 
 .form {
-  min-width: 700px;
+  min-width: 550px;
 }
 
 .searchbar-form {
@@ -122,4 +122,8 @@ input[type=submit] {
   color: #fff;
   background-color: #f52424;
   border-color: #ea0b0b;
+}
+
+.form-width {
+  min-width: 700px;
 }
