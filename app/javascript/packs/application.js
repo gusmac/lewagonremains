@@ -7,6 +7,7 @@ import { initDropdownClick } from './dropdown';
 import { changeSoldToBuy } from '../components/sweetalert';
 import { categorySelector } from './categoryselector';
 import { bindSweetAlertButtonDemo } from '../components/sweetalert';
+import { initFlatpickr } from './flatpickr';
 
 const sellAdvertShow = document.querySelector(".sell_adverts.show");
 
@@ -21,3 +22,4 @@ initDropdownClick();
 window.$ = $;
 window.jQuery = $;
 categorySelector();
+initFlatpickr();
