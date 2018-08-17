@@ -20,9 +20,9 @@
 }
 
 input {
-  border: 1px solid transparent;
+  border:0;
+  margin: 0;
   background-color: #f1f1f1;
-  padding: 10px;
   font-size: 16px;
 }
 
@@ -74,6 +74,8 @@ input[type=submit] {
 .searchbar-form {
   display: flex;
   width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 .searchbar-dropdown {
   .active {
@@ -95,4 +97,22 @@ input[type=submit] {
 .searchbar-dropdown li {
   text-align: center;
   position: relative;
+}
+
+.searchbar-home-button {
+  border-radius: 3px 0 0 3px !important;
+  width: 150px;
+  font-size: 16px;
+}
+
+.searchbar-height {
+  height: 37px;
+  text-indent: 10px;
+}
+
+.searchbar-submit {
+  height: 37px;
+  border-radius: 0 3px 3px 0;
+  width: 150px;
+  font-size: 16px;
 }
