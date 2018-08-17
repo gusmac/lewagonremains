@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    if params[:categories].present?
+    if params[:categories].present? && params[:categories] != "All"
       category = Category.find_by_name(params[:categories])
       @sell_adverts = SellAdvert.where(category: category)
       @buy_adverts = BuyAdvert.where(category: category)

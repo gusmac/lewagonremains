@@ -1,26 +1,33 @@
 <div class="searchbar">
   <%= form_tag search_index_path, method: :get, class: "searchbar-form" do |f| %>
   <div class="dropdown">
-    <a id="dropdown" role="button" data-toggle="dropdown" class="btn btn-primary" href="#">
+    <a id="dropdown" role="button" data-toggle="dropdown" class="btn btn-primary searchbar-home-button" href="#">
         Category <span class="caret"></span>
     </a>
     <ul class="dropdown-menu searchbar-dropdown" role="menu" aria-labelledby="dropdown">
+      <li class="dropdown-cat">
+       <%= radio_button_tag(:categories, "All")%>
+      <%= label_tag(:categories, "All")  %>
+        </li>
+
       <% @categories.each do |c| %>
-        <li>
-          <%= radio_button_tag(:categories, c.name) %>
-          <%= label_tag(:categories, c.name) %>
+        <li class="dropdown-cat">
+          <%= radio_button_tag(:categories, c.name)%>
+          <%= label_tag(:categories, c.name)  %>
         </li>
         <% end %>
     </ul>
   </div>
 
-  <ul class="list-inline">
-    <li>
-      <%= text_field_tag :query, params[:query], placeholder: "Find exactly what you need!", class: "form"%>
-    </li>
-    <li>
-      <input type="submit">
-    </li>
-  </ul>
+  <div>
+    <ul class="list-inline" style="margin: 0; padding: 0; display: flex;">
+      <li style="padding: 0;">
+        <%= text_field_tag :query, params[:query], placeholder: "Find exactly what you need!", class: "form searchbar-height"%>
+      </li>
+      <li style="padding: 0;">
+        <input type="submit" class="searchbar-submit">
+      </li>
+    </ul>
+  </div>
   <% end %>
 </div>
