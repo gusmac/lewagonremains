@@ -33,3 +33,24 @@ document.querySelector(".thredded--button").style.color = "white"
 
 
 options_for_select(@categories, "name", "name")
+
+
+
+<div class="container">
+  <div class="row">
+    <%= simple_form_for [@storage_space, @review] do |f| %>
+
+     <%= f.error_notification %>
+     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :rating, as: :integer %>
+      <%= f.input :description, as: :text %>
+     </div>
+
+     <div class="form-actions">
+       <%= f.button :submit, class: "btn btn-primary" %>
+     </div>
+    <% end %>
+  </div>
+</div>

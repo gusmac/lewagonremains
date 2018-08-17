@@ -21,33 +21,12 @@ Booking
 </ul> -->
 
 <div class="container">
-  <div class="row">
-    <h3>Booking for <%= @booking.storage_space.title %> Storage Space</h3>
-    <p>Congratulations! </p>
-    <p>You have booked <%= @booking.storage_space.user.first_name.pluralize %> storage space from <%= @booking.start_date.strftime("%d-%m-%Y") %> till <%= @booking.end_date.strftime("%d-%m-%Y") %></p>
-  </div>
-</div>
-
-  <div>
-    <%= link_to "Edit Booking", edit_storage_space_booking_path, class: "btn btn-primary" %>
-    <%= link_to "Back to Storage Space", storage_space_path(@booking.storage_space), class: "btn btn-primary"  %>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <%= simple_form_for [@storage_space, @review] do |f| %>
-
-     <%= f.error_notification %>
-     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-    <div class="form-inputs">
-      <%= f.input :rating, as: :integer %>
-      <%= f.input :description, as: :text %>
-     </div>
-
-     <div class="form-actions">
-       <%= f.button :submit, class: "btn btn-primary" %>
-     </div>
-    <% end %>
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="row">
+      <h2>Congratulations! </h2>
+      <h3>Booking for <%= @booking.storage_space.title %> Storage Space</h3>
+      <p>You have booked <%= @booking.storage_space.user.first_name.pluralize %> storage space from <%= @booking.start_date.strftime("%d-%m-%Y") %> till <%= @booking.end_date.strftime("%d-%m-%Y") %>.</p>
+      <p>The total cost for your storage is: <%= @booking.price.symbol %> <%= @booking.price %></p>
+    </div>
   </div>
 </div>
