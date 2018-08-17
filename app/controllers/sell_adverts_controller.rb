@@ -15,6 +15,7 @@ class SellAdvertsController < ApplicationController
       @sell_adverts = SellAdvert.all
       @results = SellAdvert.all
     end
+    @categories = Category.all
   end
 
   def show

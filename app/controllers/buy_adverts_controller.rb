@@ -13,6 +13,7 @@ class BuyAdvertsController < ApplicationController
       @buy_adverts = BuyAdvert.all
       @results = BuyAdvert.all
     end
+    @categories = Category.all
   end
 
   def edit
