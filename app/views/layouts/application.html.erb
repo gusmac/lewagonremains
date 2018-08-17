@@ -33,13 +33,14 @@
   <body class="body <%= controller_name %> <%= action_name %>">
     <% if controller.controller_name == "pages" && controller.action_name == "home" %>
       <%= render 'shared/navbar' %>
+      <%= yield %>
     <% else %>
       <%= render 'shared/navbar' %>
       <%= render 'shared/navbar_second' %>
-    <% end %>
     <div class="container">
       <%= yield %>
     </div>
+    <% end %>
     <% if controller.controller_name != "pages" && controller.action_name != "home" %>
       <div class="footer" style="height: 100px"></div>
     <% end %>
