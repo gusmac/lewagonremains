@@ -54,7 +54,7 @@
           <% end %>
         <div class="card-body-margin-top">
           <div class="place-name"><%= link_to "#{result.title}", result %></div>
-          <div class="price">$<%= result.price %></div>
+          <div class="price"><%= result.price.symbol %> <%= result.price %></div>
         </div>
           <div class="item-adverts-footer card-margin-top">
             <div class="row card-row">

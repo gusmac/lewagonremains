@@ -16,7 +16,7 @@
             </div>
 
           <%= f.input :comment, :placeholder => "Tell #{@storage_space.user.first_name} what you are storing!"%>
-          <p>Price per Day: <%= storage_space.price %></p>
+          <p>Price per Day: <%= storage_space.price.symbol %> <%= storage_space.price %></p>
           <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
       </div>
