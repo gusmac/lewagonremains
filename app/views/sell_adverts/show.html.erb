@@ -4,7 +4,7 @@
 
 <div class="full-container">
   <div class="half-container col-sm-6">
-    <div class="" style="display: flex; justify-content: space-between; flex-direction: column; height: 545px; width: 500px;">
+    <div class="" style="display: flex; justify-content: space-between; flex-direction: column; height: 500px; width: 500px;">
 
       <div class="title text-left">
         <h2><%= @sell_advert.title %></h2>
@@ -24,10 +24,13 @@
         </div>
         <div class="textbox price">
           <h5>Price:</h5>
-          <h5><%= @sell_advert.price_cents %> <%= @sell_advert.price.symbol %> </h5>
+          <h5><%= @sell_advert.price %> <%= @sell_advert.price.symbol %> </h5>
         </div>
       </div>
-      <%= link_to "Buy", new_sell_advert_order_path(@sell_advert), class: "btn-medium" %>
+     <!--  <%= link_to "Buy", new_sell_advert_order_path(@sell_advert), class: "btn-medium", id: "btn-buy" %> -->
+      <div class="btn-medium" id="btn-buy">
+        Buy
+      </div>
       <div class="btn-medium-black" data-toggle="modal" data-target="#myModal">
         Send an email
       </div>

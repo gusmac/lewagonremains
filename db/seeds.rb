@@ -24,15 +24,15 @@ User.find_by(email: 'test@test.com').update(admin: true)
 User.find_by(email: 'test@test.com').update(username: "test")
 
 # users
-dirk = User.create!(email: "dirk@lewagon.com", password: "testtest", first_name: "Dirk", last_name: "Schuler", username: "Dirk", phone_number: Faker::PhoneNumber.cell_phone)
-julian = User.create!(email: "julian@rega-sense.ch", password: "testtest", first_name: "Julian", last_name: "Leopold", phone_number: Faker::PhoneNumber.cell_phone)
-kevin = User.create!(email: "kjsmekens@gmail.com", password: "testtest", first_name: "Kevin", last_name: "Smekens", phone_number: Faker::PhoneNumber.cell_phone)
-gus = User.create!(email: "gusmac@gmail.com", password: "testtest", first_name: "Gus", last_name: "Macfarlnae", phone_number: Faker::PhoneNumber.cell_phone)
+dirk = User.create!(email: "dirk@lewagon.com", password: "testtest", first_name: "Dirk", last_name: "Schuler", username: "Dirk", phone_number: Faker::PhoneNumber.cell_phone, batch_no: 49)
+julian = User.create!(email: "julian@rega-sense.ch", password: "testtest", first_name: "Julian", last_name: "Leopold", phone_number: Faker::PhoneNumber.cell_phone, batch_no: 163)
+kevin = User.create!(email: "kjsmekens@gmail.com", password: "testtest", first_name: "Kevin", last_name: "Smekens", phone_number: Faker::PhoneNumber.cell_phone, batch_no: 163)
+gus = User.create!(email: "gusmac@gmail.com", password: "testtest", first_name: "Gus", last_name: "Macfarlnae", phone_number: Faker::PhoneNumber.cell_phone, batch_no: 163)
 
 # random users
 random_users = []
 10.times do
-  random_users << User.create!(email: Faker::Internet.email, password: "testest", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Name.first_name, phone_number: Faker::PhoneNumber.cell_phone)
+  random_users << User.create!(email: Faker::Internet.email, password: "testest", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Name.first_name, phone_number: Faker::PhoneNumber.cell_phone, batch_no: [150,145,134,162,160])
 end
 
 puts "categories"
@@ -66,10 +66,10 @@ photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1534401042/roof.j
 addresses = ["Batu Bolong, Canggu", "Berawa, North Kuta", "Ubud, Bali"]
 
 titles.each_with_index do |title, index|
-  StorageSpace.create!(user: random_users.sample, title: title , description: description, price_cents: prices[index], remote_photo_url: photos[index], address: addresses[index])
+  StorageSpace.create!(user: random_users.sample, title: title , description: description, price: prices[index], remote_photo_url: photos[index], address: addresses[index])
 end
 
-dirks_space = StorageSpace.create!(user: dirk, title: "10 Square Meters Free Storage Space", description: description, price_cents: 250, remote_photo_url: "https://res.cloudinary.com/j163surf77/image/upload/v1534401073/bali_room.jpg", address: "Seminyak, North Kuta")
+dirks_space = StorageSpace.create!(user: dirk, title: "10 Square Meters Free Storage Space", description: description, price: 250, remote_photo_url: "https://res.cloudinary.com/j163surf77/image/upload/v1534401073/bali_room.jpg", address: "Seminyak, North Kuta")
 
 
 
@@ -92,7 +92,7 @@ address = ["Full Moon Guesthouse Canggu", "Frii Hotel Canggu", "Berawa", "Ubud",
 
 # random sell adverts
 items.each_with_index do |item, index|
-  b = SellAdvert.new(title: item, description: description[index], remote_photo_url: photos[index], user: User.all.sample, condition: conditions[index], price_cents: prices[index], category: categories[index], subcategory: subcategories[index], address: address[index])
+  b = SellAdvert.new(title: item, description: description[index], remote_photo_url: photos[index], user: User.all.sample, condition: conditions[index], price: prices[index], category: categories[index], subcategory: subcategories[index], address: address[index])
   b.save!
 
 end
@@ -106,7 +106,7 @@ photos = ["", "https://res.cloudinary.com/j163surf77/image/upload/v1533895555/sc
 subcategories = [gear, gear, apple]
 categories = [sports, sports, computers]
 titles.each_with_index do |title, index|
-  b = BuyAdvert.new(user: random_users.sample, title: title , description: descriptions[index], price_cents: prices[index], category: categories[index], subcategory: subcategories[index], remote_photo_url: photos[index])
+  b = BuyAdvert.new(user: random_users.sample, title: title , description: descriptions[index], price: prices[index], category: categories[index], subcategory: subcategories[index], remote_photo_url: photos[index])
   b.save!
 end
 
