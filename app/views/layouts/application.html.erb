@@ -44,10 +44,7 @@
     <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=GOOGLE_API_BROWSER_KEY"></script>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_pack_tag "map" %>
-    <% if false %>
-      <%= render 'shared/flashes' unless controller.controller_name == "pages" && controller.action_name == "home" %>
-    <% end %>
   </body>
 </html>
