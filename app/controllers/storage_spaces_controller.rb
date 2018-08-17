@@ -24,6 +24,7 @@ class StorageSpacesController < ApplicationController
       }
       # @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
     end
+    @categories = Category.all
   end
 
   def show
