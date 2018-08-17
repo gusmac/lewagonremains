@@ -13,10 +13,12 @@
         <div class="textbox">
           <p><%= @buy_advert.description %></p>
         </div>
+        <% if @buy_advert.address %>
         <p>Address:</p>
-        <div class="textbox-c">
+        <div class="textbox">
           <p><%= @buy_advert.address %></p>
         </div>
+        <% end %>
         <div class="textbox price">
           <h5>Price:</h5>
           <h5><%= @buy_advert.price %> <%= @buy_advert.price.symbol %> </h5>
