@@ -1,5 +1,6 @@
 h2, .h2 {
   font-size: 30px;
+  margin-bottom: 20px !important;
 }
 
 .tab-content > .tab-pane {
@@ -11,7 +12,7 @@ overflow:hidden;
 
 .tab-content > .active {
 display: block;
-height:auto;
+height: auto;
 width: 100%;
 }
 
@@ -133,6 +134,7 @@ width: 100%;
   justify-content: space-between;
   padding-top: 30px;
   text-align: center;
+  height: 600px;
 }
 
 .crud-action {

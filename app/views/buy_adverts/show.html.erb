@@ -3,9 +3,8 @@
 <% end %>
 
 <div class="full-container">
-  <div class="half-container col-sm-6">
-    <div class="" style="display: flex; justify-content: space-between; flex-direction: column; height: 500px; width: 500px;">
-
+  <div class="half-container col-sm-6" style="text-align: left">
+    <div class="" style="display: flex; justify-content: flex-start; flex-direction: column; height: 500px; width: 500px;">
       <div class="title text-left">
         <h2><%= @buy_advert.title %></h2>
       </div>
@@ -14,10 +13,12 @@
         <div class="textbox">
           <p><%= @buy_advert.description %></p>
         </div>
+        <% if @buy_advert.address %>
         <p>Address:</p>
-        <div class="textbox-c">
-        <p><%= @buy_advert.address %></p>
+        <div class="textbox">
+          <p><%= @buy_advert.address %></p>
         </div>
+        <% end %>
         <div class="textbox price">
           <h5>Price:</h5>
           <h5><%= @buy_advert.price %> <%= @buy_advert.price.symbol %> </h5>
@@ -28,6 +29,8 @@
       </div>
     </div>
   </div>
+
+  <!--  tabs -->
   <div class="half-container col-sm-6">
     <div class="">
       <ul  class="nav nav-pills">
