@@ -60,7 +60,7 @@ photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1534494267/s4djwu
 addresses = ["Batu Bolong, Canggu", "Berawa, North Kuta", "Old Mans, Bali","Ubud, Bali"]
 
 titles.each_with_index do |title, index|
-  StorageSpace.create!(user: random_users.sample, title: title , description: description, price: prices[index], address: addresses[index])#, remote_photo_url: photos[index])
+  StorageSpace.create!(user: random_users.sample, title: title , description: description, price: prices[index], address: addresses[index], remote_photo_url: photos[index])
 end
 
 dirks_space = StorageSpace.create!(user: dirk, title: "10 Square Meters for Surfboards", description: description, price: 2.5, remote_photo_url: "https://res.cloudinary.com/j163surf77/image/upload/v1534494366/vztvux8lqqhlxc1mdhxn.jpg", address: "Seminyak, North Kuta")
@@ -86,7 +86,7 @@ address = ["Full Moon Guesthouse Canggu", "Frii Hotel Canggu", "Berawa", "Ubud",
 
 # random sell adverts
 items.each_with_index do |item, index|
-  b = SellAdvert.new(title: item, description: description[index], user: User.all.sample, condition: conditions[index], price: prices[index], category: categories[index], subcategory: subcategories[index], address: address[index])#, remote_photo_url: photos[index])
+  b = SellAdvert.new(title: item, description: description[index], user: User.all.sample, condition: conditions[index], price: prices[index], category: categories[index], subcategory: subcategories[index], address: address[index], remote_photo_url: photos[index])
   b.save!
 
 end
@@ -100,7 +100,7 @@ photos = ["", "http://res.cloudinary.com/j163surf77/image/upload/v1534495923/v0u
 subcategories = [gear, gear, apple]
 categories = [sports, sports, computers]
 titles.each_with_index do |title, index|
-  b = BuyAdvert.new(user: random_users.sample, title: title , description: descriptions[index], price: prices[index], category: categories[index], subcategory: subcategories[index])#, remote_photo_url: photos[index])
+  b = BuyAdvert.new(user: random_users.sample, title: title , description: descriptions[index], price: prices[index], category: categories[index], subcategory: subcategories[index], remote_photo_url: photos[index])
   b.save!
 end
 

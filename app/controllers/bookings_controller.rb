@@ -19,17 +19,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.start_date = Date.parse("#{params[:startdate]}")
-    @booking.end_date = DateTime.parse("#{params[:enddate]}")
+    @booking.end_date = Date.parse("#{params[:enddate]}")
     @booking.user = current_user
     @storage_space = StorageSpace.find(params[:storage_space_id])
     @booking.storage_space = @storage_space
     @booking.status = "Pending"
-
-
-    # # validates dates
-    if @booking.start_date > @booking.end_date || @booking.start_date < Date.today
-      raise # raise an error. Does not even get to saving.
-    end
 
     # calculating the price
     number_of_days = @booking.end_date - @booking.start_date
