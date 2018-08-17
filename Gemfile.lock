@@ -92,8 +92,6 @@ GEM
     faker (1.9.1)
       i18n (>= 0.7)
     ffi (1.9.25)
-    flatpickr_rails (1.1.0)
-      railties (>= 3.0)
     font-awesome-sass (5.0.13)
       sassc (>= 1.11)
     friendly_id (5.2.4)
@@ -164,6 +162,7 @@ GEM
     msgpack (1.2.4)
     multi_json (1.13.1)
     mustache (1.0.5)
+    mustermann (1.0.3)
     netrc (0.11.0)
     nio4r (2.3.1)
     nokogiri (1.8.4)
@@ -192,6 +191,8 @@ GEM
     pundit (2.0.0)
       activesupport (>= 3.0.0)
     rack (2.0.5)
+    rack-protection (2.0.3)
+      rack
     rack-proxy (0.6.4)
       rack
     rack-test (1.1.0)
@@ -234,6 +235,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rinku (2.0.4)
+    ruby_http_client (3.3.0)
     sanitize (4.6.6)
       crass (~> 1.0.2)
       nokogiri (>= 1.4.4)
@@ -252,9 +254,17 @@ GEM
     sassc (1.12.1)
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
+    sendgrid-ruby (5.2.0)
+      ruby_http_client (~> 3.2)
+      sinatra (>= 1.4.7, < 3)
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    sinatra (2.0.3)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.3)
+      tilt (~> 2.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -343,6 +353,7 @@ DEPENDENCIES
   rails (= 5.2.0)
   redis
   sass-rails
+  sendgrid-ruby
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
