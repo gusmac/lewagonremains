@@ -86,12 +86,6 @@
               <li><i class="far fa-envelope-open"></i></li>
               <li><p><%= @sell_advert.user.email %></p></li>
             </ul>
-
-            <%= form_tag send_contact_email_path(@sell_advert), method: :post do |f| %>
-          <%= text_field_tag :message, params[:message], placeholder: "Write your message",class: "form mail-form", rows: 10, cols: 25 %>
-          <input type="submit" id='email-submit'>
-        <% end %>
-
           </div>
           </div>
         </div>
