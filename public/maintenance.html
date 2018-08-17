@@ -6,6 +6,10 @@
     <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+      <script src="https://cdn.statuspage.io/vendor/moment-timezone-with-data.js"></script>
+      <script src="https://cdn.statuspage.io/vendor/jstz.js"></script>
+      <script src="https://cdn.statuspage.io/vendor/localtimes.js"></script>
 
     <style>
      * {
@@ -56,15 +60,15 @@
      }
 
      .clearfix {
-         clear:both;
-         zoom: 1;
+	       clear:both;
+	       zoom: 1;
      }
      .clearfix:before, .clearfix:after {
          content: "\0020";
          display: block;
          height: 0;
          visibility: hidden;
-     }
+     } 
      .clearfix:after {
          clear: both;
      }
@@ -229,24 +233,18 @@
   <body class="plain error-page-wrapper background-color background-image">
     <div class="content-container">
   <div class="head-line secondary-text-color">
-    500
+    Maintenance
   </div>
   <div class="subheader primary-text-color">
-    We're sorry, but something went wrong
+    We're undergoing a bit of<br>
+    scheduled maintenance.
   </div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="context primary-text-color">
+  <hr>
+  <div class="clearfix"></div>
+  <div class="context primary-text-color">
+    
+    <p>Sorry for the inconvenience. We'll be back up and running as fast as possible.</p>
 
-    <p>
-      Go back to the previous page and try again.
-      If you think something is broken, report a problem.
-    </p>
-
-
-    </div>
-  <div class="buttons-container">
-    <a class="border-button" href="mailto:#" target="_blank">Report A Problem</a>
   </div>
 </div>
 
@@ -309,7 +307,7 @@
 
 
      ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
-       if (pageType == '500') {
+       if (pageType == '503') {
          $('#replace-with-fetched-data').html(data.status.description);
        } else {
          if (!!data.scheduled_maintenances.length) {
@@ -336,7 +334,7 @@
        var url = ''
          , self = this;
 
-       if (pageType == '500') {
+       if (pageType == '503') {
          url = pageUrl + '/api/v2/status.json';
        }
        else {
@@ -355,7 +353,7 @@
        });
 
      };
-     var ep = new ErrorPage('body', "500", "plain");
+     var ep = new ErrorPage('body', "maintenance", "plain");
      ep.initialize();
 
      // hack to make sure content stays centered >_<
@@ -365,7 +363,7 @@
 
     </script>
 
-
+    
       <!-- OneTrust Cookies Consent Notice (statuspage.io, en-GB) start -->
   <script src="https://cdn.cookielaw.org/consent/0800f092-2124-46ec-b11d-b4f48b677302.js" type="text/javascript" charset="UTF-8"></script>
   <script type="text/javascript">

@@ -1,7 +1,7 @@
 <%= content_for(:title) do %>
 Booking
 <% end %>
-
+<!--
 <ul>
   <li>
     <%= @booking.comment %>
@@ -18,15 +18,20 @@ Booking
   <li>
     <%= @booking.price %>
   </li>
-</ul>
+</ul> -->
 
 <div class="container">
   <div class="row">
     <h3>Booking for <%= @booking.storage_space.title %> Storage Space</h3>
-    <p>start_date: <%= @booking.start_date %></p>
-    <p>end_date <%= @booking.end_date %></p>
+    <p>Congratulations! </p>
+    <p>You have booked <%= @booking.storage_space.user.first_name.pluralize %> storage space from <%= @booking.start_date.strftime("%d-%m-%Y") %> till <%= @booking.end_date.strftime("%d-%m-%Y") %></p>
   </div>
 </div>
+
+  <div>
+    <%= link_to "Edit Booking", edit_storage_space_booking_path, class: "btn btn-primary" %>
+    <%= link_to "Back to Storage Space", storage_space_path(@booking.storage_space), class: "btn btn-primary"  %>
+  </div>
 
 <div class="container">
   <div class="row">
@@ -45,6 +50,4 @@ Booking
      </div>
     <% end %>
   </div>
-  <%= link_to "back", storage_space_path(@booking.storage_space) %>
 </div>
-<%= link_to "Edit Booking", edit_storage_space_booking_path%>
