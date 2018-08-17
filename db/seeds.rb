@@ -52,7 +52,7 @@ description = "I am renting out a room in my flat as I don't need it. The place 
                   <li>locked whenever noone is home</li>
                 </ul>
                 Just message me if you have questions or simply book! I am available on Whatsapp 7/7"
-prices = [4.7, 3, 2, 5]
+prices = [4, 3, 2, 5]
 photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1534494267/s4djwuw1yli3xgdubbi1.jpg",
   "https://res.cloudinary.com/j163surf77/image/upload/v1534401066/bali_green_house_entry.jpg",
   "http://res.cloudinary.com/j163surf77/image/upload/v1534401667/egg_house.jpg",
