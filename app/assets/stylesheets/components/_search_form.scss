@@ -67,7 +67,7 @@ input[type=submit] {
 }
 
 .form {
-  min-width: 500px;
+  min-width: 700px;
 }
 
 .searchbar-form {
@@ -102,16 +102,24 @@ input[type=submit] {
   border-radius: 3px 0 0 3px !important;
   width: 150px;
   font-size: 16px;
+  padding: 11px;
+  height: 47px;
 }
 
 .searchbar-height {
-  height: 37px;
+  height: 47px;
   text-indent: 10px;
 }
 
 .searchbar-submit {
-  height: 37px;
+  height: 47px;
   border-radius: 0 3px 3px 0;
   width: 150px;
   font-size: 16px;
+}
+
+.searchbar-submit:hover {
+  color: #fff;
+  background-color: #f52424;
+  border-color: #ea0b0b;
 }
