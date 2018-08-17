@@ -330,7 +330,6 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker (~> 1.9)
-  flatpickr_rails (~> 1.1)
   font-awesome-sass (~> 5.0.9)
   geocoder
   jbuilder (~> 2.0)
