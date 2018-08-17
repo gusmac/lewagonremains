@@ -31,7 +31,7 @@ class StorageSpacesController < ApplicationController
     @markers = [
       {
         lat: @storage_space.latitude,
-        lng: @storage_space.longitude,
+        lng: @storage_space.longitude
       }]
       # @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
   end

@@ -8,9 +8,9 @@ import { changeSoldToBuy } from '../components/sweetalert';
 import { categorySelector } from './categoryselector';
 import { bindSweetAlertButtonDemo } from '../components/sweetalert';
 import { initFlatpickr } from './flatpickr';
-
+import {initMap} from './map.js'
 const sellAdvertShow = document.querySelector(".sell_adverts.show");
-
+initMap()
 if (sellAdvertShow) {
   changeSoldToBuy();
 bindSweetAlertButtonDemo();
