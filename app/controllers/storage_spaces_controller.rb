@@ -87,7 +87,7 @@ class StorageSpacesController < ApplicationController
       :title,
       :description,
       :address,
-      :price_cents,
+      :price,
       :photo)
   end
 end

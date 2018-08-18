@@ -53,7 +53,7 @@ description = "I am renting out a room in my flat as I don't need it. The place 
                 </ul>
                 Just message me if you have questions or simply book! I am available on Whatsapp 7/7"
 prices = [4, 3, 2, 5]
-photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1534503782/o5smycd6c7ka6gk8k7zq.jpg",
+photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1534508169/v3i5vlssaoueqkd2b2gv.jpg",
   "https://res.cloudinary.com/j163surf77/image/upload/v1534401066/bali_green_house_entry.jpg",
   "http://res.cloudinary.com/j163surf77/image/upload/v1534401667/egg_house.jpg",
   "https://res.cloudinary.com/j163surf77/image/upload/v1534507068/kimo-483327-unsplash.jpg"]
@@ -63,7 +63,8 @@ titles.each_with_index do |title, index|
   StorageSpace.create!(user: random_users.sample, title: title , description: description, price: prices[index], address: addresses[index], remote_photo_url: photos[index])
 end
 
-dirks_space = StorageSpace.create!(user: dirk, title: "10 Square Meters for Surfboards", description: description, price: 2.5, remote_photo_url: "https://res.cloudinary.com/j163surf77/image/upload/v1534503789/er46srl2ompoctmummm8.jpg", address: "Seminyak, North Kuta")
+dirks_photo = "http://res.cloudinary.com/j163surf77/image/upload/v1534508179/evzp2amfsqwt8avqapda.jpg"
+dirks_space = StorageSpace.create!(user: dirk, title: "10 Square Meters for Surfboards", description: description, price: 2.5, remote_photo_url: dirks_photo, address: "Seminyak, North Kuta")
 
 
 
@@ -73,10 +74,10 @@ description = ["Fantastic Racer. I bought the bike at the beginning of my the bo
   "After my Lenovo would not install Linux I bought this computer. Since my company is giving me a new one I do not need it anymore.",
   "Bought here in Bali to have some decent protection. Couple scrates but otherwise in good condition. New price was 1.2 Mil IDR",
   "Bought a new surfboard, broke it and repaired it."]
-photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1534503791/szs37a9tmalyqukczrfc.jpg",
-  "https://res.cloudinary.com/j163surf77/image/upload/v1534503793/lyvkkan6t7nvvty9hbe7.jpg",
-  "https://res.cloudinary.com/j163surf77/image/upload/v1534503794/zqptk32ztmjnyesbbpf7.jpg",
-  "https://res.cloudinary.com/j163surf77/image/upload/v1534503797/ligpi27x62g2lioxlfth.jpg"]
+photos = ["http://res.cloudinary.com/j163surf77/image/upload/v1534558906/hzzff2pytkaqmv4ubkmj.jpg",
+  "https://res.cloudinary.com/j163surf77/image/upload/v1534145314/sqi57rdg5prutpn3e7vs.jpg",
+  "http://res.cloudinary.com/j163surf77/image/upload/v1534559240/hj9heis5nbm9yra0dtj3.jpg",
+  "http://res.cloudinary.com/j163surf77/image/upload/v1534559368/lc9ppiluz6xggfra9ebx.jpg"]
 prices = [300, 1000, 400, 200, 200]
 conditions = ["Used", "Like-New", "Used", "Like-New", "Used"]
 subcategories = [bikes, apple, gear, gear, surfboards]
@@ -95,8 +96,8 @@ puts "buy adverts"
 titles = ["Protective gear for scooter", "Scuba gear", "Searching cheap MacBook for bootcamp" ]
 descriptions = ["Skate or longboard to commute to boot camp", "Trying to protect myself while crusing around. Looking for gloves, helmet, and jacket", "Being an avid scooba diver I want to use the proximity to the ocean. Unfortunately I don't have my gear with me.", "I read in the forum that I should get a mac for the bootcamp."]
 prices = [200, 300, 600]
-photos = ["", "https://res.cloudinary.com/j163surf77/image/upload/v1534503798/osqxajueyj1oy55f9ymx.jpg",
-  "https://res.cloudinary.com/j163surf77/image/upload/v1534503800/kqsdi2xfngnmk1i9ljyc.jpg"]
+photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1534561425/motorbike-gear.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1534508187/fa10kvln6ffsurrmh7au.jpg",
+  "http://res.cloudinary.com/j163surf77/image/upload/v1534559477/pqswrg5brv9o2sl43ke8.jpg"]
 subcategories = [gear, gear, apple]
 categories = [sports, sports, computers]
 titles.each_with_index do |title, index|
