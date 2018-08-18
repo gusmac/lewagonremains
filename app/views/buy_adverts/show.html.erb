@@ -87,7 +87,7 @@
       </div>
       <div class="modal-body">
         <%= form_tag send_contact_email_path(@buy_advert), method: :post do |f| %>
-          <%= text_field_tag :message, params[:message], placeholder: "Write your message",class: "form mail-form", rows: 10, cols: 25%>
+          <%= text_area_tag :message, params[:message], placeholder: "Write your message",class: "form mail-form", rows: 10, cols: 25%>
           <input type="submit" id='email-submit'>
         <% end %>
       </div>
