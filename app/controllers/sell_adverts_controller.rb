@@ -29,7 +29,6 @@ class SellAdvertsController < ApplicationController
     @sell_advert = SellAdvert.new(sell_advert_params)
     @sell_advert.user = current_user
 
-
     if @sell_advert.save
       redirect_to sell_adverts_path
     else
@@ -73,6 +72,6 @@ class SellAdvertsController < ApplicationController
   end
 
   def sell_advert_params
-    params.require(:sell_advert).permit(:title, :description, :condition, :price_cents, :photo, :address, :category_id, :subcategory_id, :storage_space)
+    params.require(:sell_advert).permit(:title, :description, :condition, :price, :photo, :address, :category_id, :subcategory_id, :storage_space)
   end
 end
