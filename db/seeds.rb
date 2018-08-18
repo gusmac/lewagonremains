@@ -77,7 +77,7 @@ description = ["Fantastic Racer. I bought the bike at the beginning of my the bo
 photos = ["http://res.cloudinary.com/j163surf77/image/upload/v1534558906/hzzff2pytkaqmv4ubkmj.jpg",
   "https://res.cloudinary.com/j163surf77/image/upload/v1534145314/sqi57rdg5prutpn3e7vs.jpg",
   "http://res.cloudinary.com/j163surf77/image/upload/v1534559240/hj9heis5nbm9yra0dtj3.jpg",
-  "http://res.cloudinary.com/j163surf77/image/upload/v1534559240/hj9heis5nbm9yra0dtj3.jpg"]
+  "http://res.cloudinary.com/j163surf77/image/upload/v1534559368/lc9ppiluz6xggfra9ebx.jpg"]
 prices = [300, 1000, 400, 200, 200]
 conditions = ["Used", "Like-New", "Used", "Like-New", "Used"]
 subcategories = [bikes, apple, gear, gear, surfboards]
@@ -96,7 +96,7 @@ puts "buy adverts"
 titles = ["Protective gear for scooter", "Scuba gear", "Searching cheap MacBook for bootcamp" ]
 descriptions = ["Skate or longboard to commute to boot camp", "Trying to protect myself while crusing around. Looking for gloves, helmet, and jacket", "Being an avid scooba diver I want to use the proximity to the ocean. Unfortunately I don't have my gear with me.", "I read in the forum that I should get a mac for the bootcamp."]
 prices = [200, 300, 600]
-photos = ["", "https://res.cloudinary.com/j163surf77/image/upload/v1534508187/fa10kvln6ffsurrmh7au.jpg",
+photos = ["https://res.cloudinary.com/j163surf77/image/upload/v1534561425/motorbike-gear.jpg", "https://res.cloudinary.com/j163surf77/image/upload/v1534508187/fa10kvln6ffsurrmh7au.jpg",
   "http://res.cloudinary.com/j163surf77/image/upload/v1534559477/pqswrg5brv9o2sl43ke8.jpg"]
 subcategories = [gear, gear, apple]
 categories = [sports, sports, computers]
